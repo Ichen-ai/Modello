@@ -1,1 +1,10 @@
-println("hi");
+void setup(){
+  
+  
+}
+
+
+void draw(){
+  
+  
+}
