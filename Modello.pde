@@ -1,3 +1,5 @@
+String windowName = "Start";
+
 void setup(){
   
   
