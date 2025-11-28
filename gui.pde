@@ -22,9 +22,9 @@ synchronized public void guiDraw(PApplet appc, GWinData data) { //_CODE_:gui:894
   appc.background(230);
 } //_CODE_:gui:894024:
 
-synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:640483:
+synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
   appc.background(230);
-} //_CODE_:tutorial:640483:
+} //_CODE_:tutorial:852036:
 
 
 
@@ -43,7 +43,7 @@ public void createGUI(){
   gui.noLoop();
   gui.setActionOnClose(G4P.KEEP_OPEN);
   gui.addDrawHandler(this, "guiDraw");
-  tutorial = GWindow.getWindow(this, "tutorial", 0, 0, 240, 120, JAVA2D);
+  tutorial = GWindow.getWindow(this, "Tutorial", 0, 0, 240, 120, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
   tutorial.addDrawHandler(this, "tutDraw");

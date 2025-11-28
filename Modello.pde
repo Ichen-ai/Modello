@@ -1,5 +1,5 @@
 String windowName = "Start";
-Boolean tutorial = true;
+Boolean tutorialShow = false;
 
 void setup(){
   
