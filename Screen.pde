@@ -2,9 +2,9 @@
 void displayScreen(){
   fill(0);
   
-  //Start screen(idk this is a placeholder for now)
+  //Start screen(idk this is a placeholder for now cuz gui not drawn)
   if (windowName == "Start"){
-    
+    tutorial.aetVisible(false);
   }
   
   //"Create" screen is the screen which the user will create the pattern
@@ -17,8 +17,9 @@ void displayScreen(){
     
   }
   
-  //Basic tutorial on how to use the program(might make multiple windows)
-  else if (windowName == "Tutorial"){
+  //Basic tutorial on how to use the program
+  //    Create second window(popup)
+  if (tutorial == true){
     
   }
   
