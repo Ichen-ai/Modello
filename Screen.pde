@@ -2,7 +2,7 @@
 void displayScreen(){
   fill(0);
   
-  //Start screen
+  //Start screen(idk this is a placeholder for now)
   if (windowName == "Start"){
     
   }
