@@ -15,7 +15,7 @@
  */
 
 public void tutButton_clicked(GButton source, GEvent event) { //_CODE_:tutButton:846546:
-  println("tutButton - GButton >> GEvent." + event + " @ " + millis());
+  tutorialShow = true;
 } //_CODE_:tutButton:846546:
 
 synchronized public void guiDraw(PApplet appc, GWinData data) { //_CODE_:gui:894024:
@@ -35,7 +35,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  tutButton = new GButton(this, 190, 200, 80, 30);
+  tutButton = new GButton(this, 210, 200, 80, 30);
   tutButton.setText("Tutorial");
   tutButton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   tutButton.addEventHandler(this, "tutButton_clicked");
