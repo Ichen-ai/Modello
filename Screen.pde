@@ -6,11 +6,12 @@ void displayScreen(){
   //Start screen
   if (windowName == "Start"){
     tutButton.setVisible(true);
+    gui.setVisible(false);
   }
   
   //"Create" screen is the screen which the user will create the pattern
   else if (windowName == "Create"){
-    
+    gui.setVisible(true);
   }
   
   //Credits the creators of this program

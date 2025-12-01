@@ -20,7 +20,7 @@ public void tutButton_clicked(GButton source, GEvent event) { //_CODE_:tutButton
 } //_CODE_:tutButton:846546:
 
 public void startClicked(GButton source, GEvent event) { //_CODE_:start:345223:
-  println("start - GButton >> GEvent." + event + " @ " + millis());
+  windowName = "Create";
 } //_CODE_:start:345223:
 
 synchronized public void guiDraw(PApplet appc, GWinData data) { //_CODE_:gui:894024:
