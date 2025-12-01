@@ -1,16 +1,17 @@
-import g4_controls.*;
+import g4p_controls. *;
 
-String windowName = "start";
-Boolean tutorial = true;
-
-Shape currentShape;
-ArrayList<Shape> PatternShapes;
-ArrayList<ArrayList<Shape>> PatternLayers;
+String windowName = "Start";
+Boolean tutorialShow = false;
 
 void setup(){
-  size(800,600);
-  background(255);
+  size(500, 400);
+  createGUI();
+  tutorial.setVisible(false);
+  
 }
 
+
 void draw(){
+  
+  
 }

@@ -15,16 +15,16 @@
  */
 
 public void tutButton_clicked(GButton source, GEvent event) { //_CODE_:tutButton:846546:
-  println("tutButton - GButton >> GEvent." + event + " @ " + millis());
+  tutorialShow = true;
 } //_CODE_:tutButton:846546:
 
 synchronized public void guiDraw(PApplet appc, GWinData data) { //_CODE_:gui:894024:
   appc.background(230);
 } //_CODE_:gui:894024:
 
-synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:640483:
+synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
   appc.background(230);
-} //_CODE_:tutorial:640483:
+} //_CODE_:tutorial:852036:
 
 
 
@@ -35,7 +35,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  tutButton = new GButton(this, 190, 200, 80, 30);
+  tutButton = new GButton(this, 210, 200, 80, 30);
   tutButton.setText("Tutorial");
   tutButton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   tutButton.addEventHandler(this, "tutButton_clicked");
@@ -43,7 +43,7 @@ public void createGUI(){
   gui.noLoop();
   gui.setActionOnClose(G4P.KEEP_OPEN);
   gui.addDrawHandler(this, "guiDraw");
-  tutorial = GWindow.getWindow(this, "tutorial", 0, 0, 240, 120, JAVA2D);
+  tutorial = GWindow.getWindow(this, "Tutorial", 0, 0, 240, 120, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
   tutorial.addDrawHandler(this, "tutDraw");
