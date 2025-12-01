@@ -22,6 +22,21 @@ void displayScreen(){
   //    Create second window(popup)
   if (tutorialShow == true){
     tutorial.setVisible(true);
+    if (tutPage == 1){
+      next.setVisible(true);
+      back.setVisible(false);
+      finish.setVisible(false);
+    }
+    else if (tutPage == 2){
+      next.setVisible(true);
+      back.setVisible(true);
+      finish.setVisible(false);
+    }
+    else{
+      next.setVisible(false);
+      back.setVisible(true);
+      finish.setVisible(true);
+    }
     
     
   }
