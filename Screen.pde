@@ -23,6 +23,7 @@ void displayScreen(){
   if (tutorialShow == true){
     tutorial.setVisible(true);
     
+    
   }
   else{
     tutorial.setVisible(false);
