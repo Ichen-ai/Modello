@@ -22,16 +22,19 @@ void displayScreen(){
   //    Create second window(popup)
   if (tutorialShow == true){
     tutorial.setVisible(true);
+    //first tutorial page
     if (tutPage == 1){
       next.setVisible(true);
       back.setVisible(false);
       finish.setVisible(false);
     }
+    //second tutorial page
     else if (tutPage == 2){
       next.setVisible(true);
       back.setVisible(true);
       finish.setVisible(false);
     }
+    //last tutorial page
     else{
       next.setVisible(false);
       back.setVisible(true);
