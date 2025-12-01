@@ -3,6 +3,10 @@ import g4p_controls. *;
 String windowName = "Start";
 Boolean tutorialShow = false;
 
+Shape currentShape;
+ArrayList<Shape> PatternShapes;
+ArrayList<ArrayList<Shape>> PatternLayers;
+
 void setup(){
   size(500, 400);
   createGUI();
