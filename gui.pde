@@ -28,15 +28,15 @@ synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutoria
 } //_CODE_:tutorial:852036:
 
 public void nextClicked(GButton source, GEvent event) { //_CODE_:next:783622:
-  println("next - GButton >> GEvent." + event + " @ " + millis());
+  tutPage += 1;
 } //_CODE_:next:783622:
 
 public void backClicked(GButton source, GEvent event) { //_CODE_:back:491218:
-  println("back - GButton >> GEvent." + event + " @ " + millis());
+  tutPage -= 1;
 } //_CODE_:back:491218:
 
 public void finishClicked(GButton source, GEvent event) { //_CODE_:finish:597876:
-  println("finish - GButton >> GEvent." + event + " @ " + millis());
+  tutorialShow = false;
 } //_CODE_:finish:597876:
 
 
@@ -56,17 +56,17 @@ public void createGUI(){
   gui.noLoop();
   gui.setActionOnClose(G4P.KEEP_OPEN);
   gui.addDrawHandler(this, "guiDraw");
-  tutorial = GWindow.getWindow(this, "Tutorial", 0, 0, 240, 120, JAVA2D);
+  tutorial = GWindow.getWindow(this, "Tutorial", 0, 0, 480, 240, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
   tutorial.addDrawHandler(this, "tutDraw");
-  next = new GButton(tutorial, 180, 90, 50, 20);
+  next = new GButton(tutorial, 400, 190, 60, 30);
   next.setText("next");
   next.addEventHandler(this, "nextClicked");
-  back = new GButton(tutorial, 10, 90, 50, 20);
+  back = new GButton(tutorial, 30, 190, 60, 30);
   back.setText("back");
   back.addEventHandler(this, "backClicked");
-  finish = new GButton(tutorial, 100, 90, 40, 20);
+  finish = new GButton(tutorial, 200, 190, 90, 30);
   finish.setText("finish");
   finish.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   finish.addEventHandler(this, "finishClicked");
