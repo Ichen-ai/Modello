@@ -1,0 +1,12 @@
+import g4p_controls.*;
+
+String windowName = "start";
+
+Boolean tutorial = true;
+
+
+void setup(){
+}
+
+void draw(){
+}
