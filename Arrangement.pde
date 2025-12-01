@@ -5,7 +5,10 @@ class Arrangement{
   
   String type;
   
-  Arrangement(ArrayList s){ //not sure yet, i will check shape class later
+  ArrayList Shapes;
+  
+  Arrangement(ArrayList s){
+    
   }
   
   
