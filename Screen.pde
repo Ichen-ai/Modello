@@ -12,6 +12,8 @@ void displayScreen(){
   //"Create" screen is the screen which the user will create the pattern
   else if (windowName == "Create"){
     gui.setVisible(true);
+    tutButton.setVisible(false);
+    start.setVisible(false);
   }
   
   //Credits the creators of this program
