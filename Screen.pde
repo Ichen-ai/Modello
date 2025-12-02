@@ -1,23 +1,28 @@
 //Function creates the different windows
+//Work list:
+//1. get buttons to disappear when start is clicked
+//2. gui and tutorial bug out if both tutorial and start buttons are clicked, fix it
+
 void displayScreen(){
   fill(0);
   
   //(idk this is a placeholder for now cuz gui not drawn)
   //Start screen
-  if (windowName == "Start"){
+  if (windowName.equals("Start")){
     tutButton.setVisible(true);
     gui.setVisible(false);
   }
   
   //"Create" screen is the screen which the user will create the pattern
-  else if (windowName == "Create"){
+  else if (windowName.equals("Create")){
     gui.setVisible(true);
     tutButton.setVisible(false);
     start.setVisible(false);
+    
   }
   
   //Credits the creators of this program
-  else if (windowName == "Credits"){
+  else if (windowName.equals("Credits")){
     
   }
   
