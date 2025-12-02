@@ -17,6 +17,7 @@ void displayScreen(){
   else if (windowName.equals("Create")){
     gui.setVisible(true);
     surface.setVisible(true);
+    startWin.setVisible(false);
     
   }
   
