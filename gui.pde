@@ -71,6 +71,14 @@ public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:
   tutorialShow = true;
 } //_CODE_:tutButton:584753:
 
+public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButton:312218:
+  windowName = "Library";
+} //_CODE_:libraryButton:312218:
+
+synchronized public void libraryDraw(PApplet appc, GWinData data) { //_CODE_:library:358380:
+  appc.background(230);
+} //_CODE_:library:358380:
+
 
 
 // Create all the GUI controls. 
@@ -80,7 +88,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Modello");
-  gui = GWindow.getWindow(this, "GUI", 0, 0, 240, 150, JAVA2D);
+  gui = GWindow.getWindow(this, "GUI", 100, 200, 240, 150, JAVA2D);
   gui.noLoop();
   gui.setActionOnClose(G4P.KEEP_OPEN);
   gui.addDrawHandler(this, "guiDraw");
@@ -112,7 +120,7 @@ public void createGUI(){
   redSlider.setNumberFormat(G4P.DECIMAL, 2);
   redSlider.setOpaque(false);
   redSlider.addEventHandler(this, "redSliderChange");
-  tutorial = GWindow.getWindow(this, "Tutorial", 0, 0, 480, 240, JAVA2D);
+  tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 240, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
   tutorial.addDrawHandler(this, "tutDraw");
@@ -126,7 +134,7 @@ public void createGUI(){
   finish.setText("finish");
   finish.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   finish.addEventHandler(this, "finishClicked");
-  startWin = GWindow.getWindow(this, "Modello", 0, 0, 500, 400, JAVA2D);
+  startWin = GWindow.getWindow(this, "Modello", 500, 150, 500, 400, JAVA2D);
   startWin.noLoop();
   startWin.setActionOnClose(G4P.KEEP_OPEN);
   startWin.addDrawHandler(this, "startWinDraw");
@@ -138,9 +146,17 @@ public void createGUI(){
   tutButton.setText("Tutorial");
   tutButton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   tutButton.addEventHandler(this, "tutButtonClicked");
+  libraryButton = new GButton(startWin, 210, 290, 80, 30);
+  libraryButton.setText("Library");
+  libraryButton.addEventHandler(this, "libraryClicked");
+  library = GWindow.getWindow(this, "Library", 1000, 400, 500, 400, JAVA2D);
+  library.noLoop();
+  library.setActionOnClose(G4P.KEEP_OPEN);
+  library.addDrawHandler(this, "libraryDraw");
   gui.loop();
   tutorial.loop();
   startWin.loop();
+  library.loop();
 }
 
 // Variable declarations 
@@ -160,3 +176,5 @@ GButton finish;
 GWindow startWin;
 GButton start; 
 GButton tutButton; 
+GButton libraryButton; 
+GWindow library;

@@ -8,6 +8,9 @@ void displayScreen(){
   //(idk this is a placeholder for now cuz gui not drawn)
   //Start screen
   if (windowName.equals("Start")){
+    tutorial.setVisible(false);
+    surface.setVisible(false);
+    library.setVisible(false);
     tutButton.setVisible(true);
     gui.setVisible(false);
     windowName = "none";
@@ -22,9 +25,10 @@ void displayScreen(){
     
   }
   
-  //Credits the creators of this program
-  else if (windowName.equals("Credits")){
-    
+  //Users can see all their saved patterns together
+  else if (windowName.equals("Library")){
+    library.setVisible(true);
+    windowName = "none";
   }
   
   //Basic tutorial on how to use the program
