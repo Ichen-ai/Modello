@@ -88,7 +88,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Modello");
-  gui = GWindow.getWindow(this, "GUI", 0, 0, 240, 150, JAVA2D);
+  gui = GWindow.getWindow(this, "GUI", 100, 100, 240, 150, JAVA2D);
   gui.noLoop();
   gui.setActionOnClose(G4P.KEEP_OPEN);
   gui.addDrawHandler(this, "guiDraw");
