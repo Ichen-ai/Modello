@@ -8,7 +8,7 @@ Shape currentShape;
 ArrayList<Arrangement> PatternLayers;
 
 void setup(){
-  size(500, 400);
+  size(500, 500);
   
   createGUI();
   tutorial.setVisible(false);
@@ -21,8 +21,10 @@ void draw(){
   displayScreen();
   
   //// DELETE LATER for testing for arrangements:
-  //Shape test = new Shape("circle", new PVector(46,46), 30, 30, 255, 255, 30);
+  //Shape test = new Shape("triangle", new PVector(46,46), 30, 30, 255, 60, 30);
   //Arrangement testA = new Arrangement(test);
-  //testA.drawHalfDrop();
+  //testA.drawBrick();
+  
+  //TO DO FOR CAILYN: ARRANGEMENTS IS NEW TILE CLASS  !!!!!!!!!!!!!
   
 }
