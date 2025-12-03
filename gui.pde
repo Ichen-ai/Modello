@@ -71,6 +71,10 @@ public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:
   tutorialShow = true;
 } //_CODE_:tutButton:584753:
 
+public void libraryClicked(GButton source, GEvent event) { //_CODE_:library:312218:
+  println("library - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:library:312218:
+
 
 
 // Create all the GUI controls. 
@@ -138,6 +142,9 @@ public void createGUI(){
   tutButton.setText("Tutorial");
   tutButton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   tutButton.addEventHandler(this, "tutButtonClicked");
+  library = new GButton(startWin, 210, 290, 80, 30);
+  library.setText("Library");
+  library.addEventHandler(this, "libraryClicked");
   gui.loop();
   tutorial.loop();
   startWin.loop();
@@ -160,3 +167,4 @@ GButton finish;
 GWindow startWin;
 GButton start; 
 GButton tutButton; 
+GButton library; 
