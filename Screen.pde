@@ -10,6 +10,7 @@ void displayScreen(){
   if (windowName.equals("Start")){
     tutButton.setVisible(true);
     gui.setVisible(false);
+    windowName = "none";
   }
   
   //"Create" screen is the screen which the user will create the pattern
@@ -17,6 +18,7 @@ void displayScreen(){
     gui.setVisible(true);
     surface.setVisible(true);
     startWin.setVisible(false);
+    windowName = "none";
     
   }
   

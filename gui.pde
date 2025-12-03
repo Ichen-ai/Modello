@@ -67,8 +67,8 @@ public void startClicked(GButton source, GEvent event) { //_CODE_:start:897298:
 } //_CODE_:start:897298:
 
 public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:584753:
-  tutorialShow = true;
   tutPage = 1;
+  tutorialShow = true;
 } //_CODE_:tutButton:584753:
 
 
