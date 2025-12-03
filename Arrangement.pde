@@ -47,13 +47,61 @@ class Arrangement{
     
     for (int i = 0; i < xnum; i++){
       for(int j = 0; j < ynum; j++){
-        this.ArrangedShapes.add(new Shape(this.ArrangedShape.type, new PVector (this.pos.x + i*this.xSpacing +this.ArrangedShape.wid, this.pos.y + j*this.ySpacing + this.ArrangedShape.hei), this.ArrangedShape.hei, this.ArrangedShape.wid, int(red(this.ArrangedShape.colour)), int(green(this.ArrangedShape.colour)), int(blue(this.ArrangedShape.colour))));
+        float xPos = i*this.xSpacing + this.ArrangedShape.wid/2.0;
+        float yPos = j*this.ySpacing + this.ArrangedShape.hei/2.0;
+        
+        this.ArrangedShapes.add(new Shape(this.ArrangedShape.type, new PVector (xPos, yPos), this.ArrangedShape.hei, this.ArrangedShape.wid, int(red(this.ArrangedShape.colour)), int(green(this.ArrangedShape.colour)), int(blue(this.ArrangedShape.colour))));
         this.ArrangedShapes.get(n).drawShape();
         n ++;
+        }
       }
     }
     
-  }
+   void drawHalfDrop(){
+    int xnum = ceil(width/xSpacing);
+    int ynum = ceil(height/ySpacing) + 1;
+    
+    int n = 0;
+    
+    for (int i = 0; i < xnum; i++){
+      for(int j = 0; j < ynum; j++){
+        
+        float xPos = i*this.xSpacing + this.ArrangedShape.wid/2.0;
+        float yPos = j*this.ySpacing + this.ArrangedShape.hei/2.0;
+        
+        if (i % 2 == 1){
+          yPos += this.ArrangedShape.hei/2;
+        }
+        
+        this.ArrangedShapes.add(new Shape(this.ArrangedShape.type, new PVector (xPos, yPos), this.ArrangedShape.hei, this.ArrangedShape.wid, int(red(this.ArrangedShape.colour)), int(green(this.ArrangedShape.colour)), int(blue(this.ArrangedShape.colour))));
+        this.ArrangedShapes.get(n).drawShape();
+        n ++;
+        }
+      }
+   }
+   
+   void drawBrick(){
+    int xnum = ceil(width/xSpacing) + 1;
+    int ynum = ceil(height/ySpacing);
+    
+    int n = 0;
+    
+    for (int i = 0; i < xnum; i++){
+      for(int j = 0; j < ynum; j++){
+        
+        float xPos = i*this.xSpacing + this.ArrangedShape.wid/2.0;
+        float yPos = j*this.ySpacing + this.ArrangedShape.hei/2.0;
+        
+        if (j % 2 == 1){
+          xPos += this.ArrangedShape.wid/2.0;
+        }
+        
+        this.ArrangedShapes.add(new Shape(this.ArrangedShape.type, new PVector (xPos, yPos), this.ArrangedShape.hei, this.ArrangedShape.wid, int(red(this.ArrangedShape.colour)), int(green(this.ArrangedShape.colour)), int(blue(this.ArrangedShape.colour))));
+        this.ArrangedShapes.get(n).drawShape();
+        n ++;
+        }
+      }
+   }
   
  
 }
