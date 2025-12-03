@@ -29,10 +29,10 @@ class Shape {
     fill(this.colour);
     rectMode(CENTER); 
     
-    if (this.type.equals("circle")) {
+    if (this.type.equals("ellipse")) {
       ellipse(this.pos.x, this.pos.y, this.wid, this.hei);
       
-    } else if (this.type.equals("square")) {
+    } else if (this.type.equals("rectangle")) {
       rect(this.pos.x, this.pos.y, this.hei, this.wid);
       
     } else if (this.type.equals("triangle")) {  

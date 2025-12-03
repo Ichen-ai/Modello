@@ -1,7 +1,6 @@
 //Function creates the different windows
 //Work list:
-//1. get buttons to disappear when start is clicked
-//2. gui and tutorial bug out if both tutorial and start buttons are clicked, fix it
+//1. multiple windows bug out if the windows are set visible, fix it
 
 void displayScreen(){
   fill(0);
@@ -11,6 +10,7 @@ void displayScreen(){
   if (windowName.equals("Start")){
     tutButton.setVisible(true);
     gui.setVisible(false);
+    windowName = "none";
   }
   
   //"Create" screen is the screen which the user will create the pattern
@@ -18,6 +18,7 @@ void displayScreen(){
     gui.setVisible(true);
     surface.setVisible(true);
     startWin.setVisible(false);
+    windowName = "none";
     
   }
   
