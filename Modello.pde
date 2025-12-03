@@ -11,8 +11,6 @@ void setup(){
   size(500, 400);
   
   createGUI();
-  tutorial.setVisible(false);
-  surface.setVisible(false);
   
 }
 

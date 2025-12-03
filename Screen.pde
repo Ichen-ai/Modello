@@ -8,6 +8,9 @@ void displayScreen(){
   //(idk this is a placeholder for now cuz gui not drawn)
   //Start screen
   if (windowName.equals("Start")){
+    tutorial.setVisible(false);
+    surface.setVisible(false);
+    library.setVisible(false);
     tutButton.setVisible(true);
     gui.setVisible(false);
     windowName = "none";
@@ -24,6 +27,7 @@ void displayScreen(){
   
   //Users can see all their saved patterns together
   else if (windowName.equals("Library")){
+    library.setVisible(true);
     windowName = "none";
   }
   

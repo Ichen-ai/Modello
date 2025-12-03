@@ -71,9 +71,13 @@ public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:
   tutorialShow = true;
 } //_CODE_:tutButton:584753:
 
-public void libraryClicked(GButton source, GEvent event) { //_CODE_:library:312218:
+public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButton:312218:
   windowName = "Library";
-} //_CODE_:library:312218:
+} //_CODE_:libraryButton:312218:
+
+synchronized public void libraryDraw(PApplet appc, GWinData data) { //_CODE_:library:358380:
+  appc.background(230);
+} //_CODE_:library:358380:
 
 
 
@@ -142,12 +146,17 @@ public void createGUI(){
   tutButton.setText("Tutorial");
   tutButton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   tutButton.addEventHandler(this, "tutButtonClicked");
-  library = new GButton(startWin, 210, 290, 80, 30);
-  library.setText("Library");
-  library.addEventHandler(this, "libraryClicked");
+  libraryButton = new GButton(startWin, 210, 290, 80, 30);
+  libraryButton.setText("Library");
+  libraryButton.addEventHandler(this, "libraryClicked");
+  library = GWindow.getWindow(this, "Library", 0, 0, 500, 400, JAVA2D);
+  library.noLoop();
+  library.setActionOnClose(G4P.KEEP_OPEN);
+  library.addDrawHandler(this, "libraryDraw");
   gui.loop();
   tutorial.loop();
   startWin.loop();
+  library.loop();
 }
 
 // Variable declarations 
@@ -167,4 +176,5 @@ GButton finish;
 GWindow startWin;
 GButton start; 
 GButton tutButton; 
-GButton library; 
+GButton libraryButton; 
+GWindow library;
