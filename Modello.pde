@@ -21,8 +21,8 @@ void draw(){
   displayScreen();
   
   //// DELETE LATER for testing for arrangements:
-  //Shape test = new Shape("circle", new PVector(46,46), 10, 30, 255, 255, 30);
+  //Shape test = new Shape("circle", new PVector(46,46), 30, 30, 255, 255, 30);
   //Arrangement testA = new Arrangement(test);
-  //testA.drawGrid();
+  //testA.drawHalfDrop();
   
 }
