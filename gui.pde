@@ -120,7 +120,7 @@ public void createGUI(){
   redSlider.setNumberFormat(G4P.DECIMAL, 2);
   redSlider.setOpaque(false);
   redSlider.addEventHandler(this, "redSliderChange");
-  tutorial = GWindow.getWindow(this, "Tutorial", 0, 0, 480, 240, JAVA2D);
+  tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 240, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
   tutorial.addDrawHandler(this, "tutDraw");
@@ -134,7 +134,7 @@ public void createGUI(){
   finish.setText("finish");
   finish.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   finish.addEventHandler(this, "finishClicked");
-  startWin = GWindow.getWindow(this, "Modello", 0, 0, 500, 400, JAVA2D);
+  startWin = GWindow.getWindow(this, "Modello", 500, 150, 500, 400, JAVA2D);
   startWin.noLoop();
   startWin.setActionOnClose(G4P.KEEP_OPEN);
   startWin.addDrawHandler(this, "startWinDraw");
@@ -149,7 +149,7 @@ public void createGUI(){
   libraryButton = new GButton(startWin, 210, 290, 80, 30);
   libraryButton.setText("Library");
   libraryButton.addEventHandler(this, "libraryClicked");
-  library = GWindow.getWindow(this, "Library", 0, 0, 500, 400, JAVA2D);
+  library = GWindow.getWindow(this, "Library", 1000, 400, 500, 400, JAVA2D);
   library.noLoop();
   library.setActionOnClose(G4P.KEEP_OPEN);
   library.addDrawHandler(this, "libraryDraw");
