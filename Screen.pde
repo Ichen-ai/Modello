@@ -24,7 +24,7 @@ void displayScreen(){
   
   //Users can see all their saved patterns together
   else if (windowName.equals("Library")){
-    
+    windowName = "none";
   }
   
   //Basic tutorial on how to use the program

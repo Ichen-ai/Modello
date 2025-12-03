@@ -72,7 +72,7 @@ public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:
 } //_CODE_:tutButton:584753:
 
 public void libraryClicked(GButton source, GEvent event) { //_CODE_:library:312218:
-  println("library - GButton >> GEvent." + event + " @ " + millis());
+  windowName = "Library";
 } //_CODE_:library:312218:
 
 
