@@ -22,8 +22,8 @@ void displayScreen(){
     
   }
   
-  //Credits the creators of this program
-  else if (windowName.equals("Credits")){
+  //Users can see all their saved patterns together
+  else if (windowName.equals("Library")){
     
   }
   
