@@ -10,6 +10,7 @@ ArrayList<Arrangement> PatternLayers;
 
 void setup(){
   size(500, 400);
+  
   createGUI();
   tutorial.setVisible(false);
   surface.setVisible(false);
@@ -18,8 +19,11 @@ void setup(){
 
 
 void draw(){
-  //REMOVE LATER, JUST FOR TEST
   displayScreen();
   
+  //// DELETE LATER for testing for arrangements:
+  //Shape test = new Shape("circle", new PVector(46,46), 10, 30, 255, 255, 30);
+  //Arrangement testA = new Arrangement(test);
+  //testA.drawGrid();
   
 }
