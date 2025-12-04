@@ -44,13 +44,13 @@ class Shape {
     }
   }
 
-  boolean inShape(PVector p) {
-    if (this.type.equals("ellipse")) {
+//  boolean inShape(PVector p) {
+//    if (this.type.equals("ellipse")) {
       
-    } else if (this.type.equals("rectangle")) {
+//    } else if (this.type.equals("rectangle")) {
       
-    } else if (this.type.equals("triangle")) {
+//    } else if (this.type.equals("triangle")) {
       
-    }
-  }
+//    }
+//  }
 }
