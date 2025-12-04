@@ -46,11 +46,14 @@ class Shape {
 
   boolean inShape(PVector p) {
     if (this.type.equals("ellipse")) {
-      
+      return (pow((p.x - this.pos.x),2)/pow(this.wid/2, 2)) + (pow((p.y - this.pos.y),2)/pow(this.hei/2, 2)) <= 1;
     } else if (this.type.equals("rectangle")) {
-      
+      return p.x < this.pos.x + this.wid/2 
+             && p.x > this.pos.x - this.wid/2
+             && p.y < this.pos.y + this.hei/2
+             && p.y > this.pos.y - this.hei/2;
     } else if (this.type.equals("triangle")) {
-      
-    }
+      return true;
+    } else return false;
   }
 }
