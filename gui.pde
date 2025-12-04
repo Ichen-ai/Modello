@@ -54,6 +54,7 @@ public void tilescreenshot(GButton source, GEvent event) { //_CODE_:savetilebutt
   currentPattern = new Arrangement();
   
   ArrGUI.setVisible(true);
+  arrguiShow = true;
 } //_CODE_:savetilebutton:575000:
 
 public void widthSliderChange(GCustomSlider source, GEvent event) { //_CODE_:widthSlider:844943:
@@ -120,6 +121,7 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:ArrGU
 public void guibackbutton_clicked(GButton source, GEvent event) { //_CODE_:aguiback:763192:
   //println("aguiback - GButton >> GEvent." + event + " @ " + millis());
   ArrGUI.setVisible(false);
+  arrguiShow = false;
 } //_CODE_:aguiback:763192:
 
 
