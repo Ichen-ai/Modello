@@ -15,20 +15,20 @@ int savedPTilenum = 1;
 
 
 
-void setup(){
-  size(500, 500);  
+void setup() {
+  size(500, 500);
   createGUI();
 }
 
 
-void draw(){
+void draw() {
   displayScreen();
-  
+  background(200);
+
   imageMode(CENTER);
-  
-  loop();
+
   currentTile.drawTile();
-  
+
   //// DELETE LATER for testing for arrangements:
   //Shape test = new Shape("triangle", new PVector(46,46), 30, 30, 255, 60, 30);
   //Arrangement testA = new Arrangement(test);
