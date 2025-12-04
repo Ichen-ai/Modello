@@ -1,6 +1,4 @@
 //Function creates the different windows
-//Work list:
-//1. multiple windows bug out if the windows are set visible, fix it
 
 void displayScreen(){
   fill(0);
@@ -14,6 +12,10 @@ void displayScreen(){
     tutButton.setVisible(true);
     gui.setVisible(false);
     ArrGUI.setVisible(false);
+    
+    titleFont = createFont("ArianaVioleta-dz2K.ttf", 128);
+    text("Modello", 250, 50);
+    
     windowName = "none";
   }
   
@@ -22,6 +24,7 @@ void displayScreen(){
     gui.setVisible(true);
     surface.setVisible(true);
     startWin.setVisible(false);
+    
     windowName = "none";
     
   }
