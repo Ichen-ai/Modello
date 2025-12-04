@@ -11,7 +11,11 @@ Arrangement currentPattern;
 
 ArrayList<Arrangement> Patterns; //complete patterns saved, might not be needed we will see
 
+Boolean arrguiShow = false;
+
 int savedPTilenum = 1;
+
+color bgcolour = color(255);
 
 
 
@@ -24,11 +28,18 @@ void setup() {
 
 void draw() {
   displayScreen();
-  background(200);
+  background(bgcolour);
 
   imageMode(CENTER);
 
-  currentTile.drawTile();
+  if (!arrguiShow){
+    currentTile.drawTile();
+  }
+  
+  if (arrguiShow){
+    currentPattern.drawPattern();
+  }
+  
 
   //// DELETE LATER for testing for arrangements:
   //Shape test = new Shape("triangle", new PVector(46,46), 30, 30, 255, 60, 30);
