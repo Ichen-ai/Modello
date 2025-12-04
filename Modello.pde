@@ -40,9 +40,4 @@ void draw() {
     currentPattern.drawPattern();
   }
   
-
-  //// DELETE LATER for testing for arrangements:
-  //Shape test = new Shape("triangle", new PVector(46,46), 30, 30, 255, 60, 30);
-  //Arrangement testA = new Arrangement(test);
-  //testA.drawBrick();
 }

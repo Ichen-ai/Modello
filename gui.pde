@@ -124,6 +124,29 @@ public void guibackbutton_clicked(GButton source, GEvent event) { //_CODE_:aguib
   arrguiShow = false;
 } //_CODE_:aguiback:763192:
 
+public void arrdroplist_clicked(GDropList source, GEvent event) { //_CODE_:arrTypedroplist:757056:
+  //println("arrTypedroplist - GDropList >> GEvent." + event + " @ " + millis());
+  changeArrangementValues(currentPattern);
+} //_CODE_:arrTypedroplist:757056:
+
+public void arrxSpacing_slider(GCustomSlider source, GEvent event) { //_CODE_:X_Spacing:703950:
+  println("X_Spacing - GCustomSlider >> GEvent." + event + " @ " + millis());
+  changeArrangementValues(currentPattern);
+} //_CODE_:X_Spacing:703950:
+
+public void arrYSpacing_change1(GCustomSlider source, GEvent event) { //_CODE_:Y_Spacing:640983:
+changeArrangementValues(currentPattern);
+  
+} //_CODE_:Y_Spacing:640983:
+
+public void arrwidthslider_change1(GCustomSlider source, GEvent event) { //_CODE_:arrwidthslider:968973:
+  changeArrangementValues(currentPattern);
+} //_CODE_:arrwidthslider:968973:
+
+public void arrheislider_change1(GCustomSlider source, GEvent event) { //_CODE_:arrheightslider:213641:
+  changeArrangementValues(currentPattern);
+} //_CODE_:arrheightslider:213641:
+
 
 
 // Create all the GUI controls. 
@@ -227,14 +250,52 @@ public void createGUI(){
   library.noLoop();
   library.setActionOnClose(G4P.KEEP_OPEN);
   library.addDrawHandler(this, "libraryDraw");
-  ArrGUI = GWindow.getWindow(this, "Window title", 100, 450, 240, 120, JAVA2D);
+  ArrGUI = GWindow.getWindow(this, "Window title", 100, 450, 280, 200, JAVA2D);
   ArrGUI.noLoop();
   ArrGUI.setActionOnClose(G4P.KEEP_OPEN);
   ArrGUI.addDrawHandler(this, "win_draw1");
-  aguiback = new GButton(ArrGUI, 10, 83, 80, 30);
+  aguiback = new GButton(ArrGUI, 8, 163, 95, 30);
   aguiback.setText("Back to Canvas");
   aguiback.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   aguiback.addEventHandler(this, "guibackbutton_clicked");
+  ArrangementType = new GLabel(ArrGUI, -2, 3, 125, 20);
+  ArrangementType.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  ArrangementType.setText("Arrangement Type");
+  ArrangementType.setOpaque(false);
+  arrTypedroplist = new GDropList(ArrGUI, 10, 28, 90, 80, 3, 10);
+  arrTypedroplist.setItems(loadStrings("list_757056"), 1);
+  arrTypedroplist.addEventHandler(this, "arrdroplist_clicked");
+  X_Spacing = new GCustomSlider(ArrGUI, 135, 26, 100, 40, "purple18px");
+  X_Spacing.setLimits(50.0, 0.0, 500.0);
+  X_Spacing.setNumberFormat(G4P.GREEN_SCHEME, 2);
+  X_Spacing.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
+  X_Spacing.setOpaque(false);
+  X_Spacing.addEventHandler(this, "arrxSpacing_slider");
+  Y_Spacing = new GCustomSlider(ArrGUI, 134, 68, 100, 40, "purple18px");
+  Y_Spacing.setLimits(50.0, 0.0, 500.0);
+  Y_Spacing.setNumberFormat(G4P.DECIMAL, 2);
+  Y_Spacing.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
+  Y_Spacing.setOpaque(false);
+  Y_Spacing.addEventHandler(this, "arrYSpacing_change1");
+  Spacing_Labels = new GLabel(ArrGUI, 140, 5, 80, 20);
+  Spacing_Labels.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  Spacing_Labels.setText("Spacing (x,y)");
+  Spacing_Labels.setOpaque(false);
+  SizeSliders = new GLabel(ArrGUI, 115, 114, 123, 20);
+  SizeSliders.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  SizeSliders.setText("Size (width, height)");
+  SizeSliders.setOpaque(false);
+  arrwidthslider = new GCustomSlider(ArrGUI, 114, 138, 95, 40, "grey_blue");
+  arrwidthslider.setLimits(50.0, 1.0, 500.0);
+  arrwidthslider.setNumberFormat(G4P.DECIMAL, 2);
+  arrwidthslider.setOpaque(false);
+  arrwidthslider.addEventHandler(this, "arrwidthslider_change1");
+  arrheightslider = new GCustomSlider(ArrGUI, 288, 140, 40, 100, "grey_blue");
+  arrheightslider.setRotation(PI/2, GControlMode.CORNER);
+  arrheightslider.setLimits(50.0, 1.0, 500.0);
+  arrheightslider.setNumberFormat(G4P.DECIMAL, 2);
+  arrheightslider.setOpaque(false);
+  arrheightslider.addEventHandler(this, "arrheislider_change1");
   gui.loop();
   tutorial.loop();
   startWin.loop();
@@ -270,3 +331,11 @@ GButton libraryButton;
 GWindow library;
 GWindow ArrGUI;
 GButton aguiback; 
+GLabel ArrangementType; 
+GDropList arrTypedroplist; 
+GCustomSlider X_Spacing; 
+GCustomSlider Y_Spacing; 
+GLabel Spacing_Labels; 
+GLabel SizeSliders; 
+GCustomSlider arrwidthslider; 
+GCustomSlider arrheightslider; 

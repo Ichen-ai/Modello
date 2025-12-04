@@ -8,7 +8,8 @@ class Arrangement{
   //ArrayList <PImage> ArrangedTiles = new ArrayList();
   
   PVector pos;
-  float size;
+  float hsize;
+  float wsize;
   
   String type;
  
@@ -22,7 +23,8 @@ class Arrangement{
     this.xSpacing = 50;
     this.ySpacing = 50;
     this.pos = new PVector(0,0);
-    this.size = 50;
+    this.hsize = 50;
+    this.wsize = 50;
     
     //note: default arrangement is singular of the shape in middle of screen?
     this.type = "default";
@@ -30,16 +32,16 @@ class Arrangement{
   }
   
   void drawPattern(){
-    if (this.type.equals("default"))
+    if (this.type.equals("default") || this.type.equals("Select"))
       this.defaultArrange();
     
-    else if(this.type.equals("grid"))
+    else if(this.type.equals("Grid"))
       this.drawGrid();
     
-    else if(this.type.equals("halfdrop"))
+    else if(this.type.equals("Half-Drop"))
       this.drawHalfDrop();
     
-    else if(this.type.equals("brick"))
+    else if(this.type.equals("Brick"))
       this.drawBrick();
   }
   
@@ -47,7 +49,7 @@ class Arrangement{
   void defaultArrange(){
     this.pos = new PVector( width/2, height/2) ; //maybe a 2d slider for this default one
     
-    image(ATile, this.pos.x, this.pos.y, size, size);
+    image(ATile, this.pos.x, this.pos.y, wsize, hsize);
     //assume there are sliders to change the shapes size, pos, colour, etc. in this scenario
   }
   
@@ -60,13 +62,13 @@ class Arrangement{
     
     for (int i = 0; i < xnum; i++){
       for(int j = 0; j < ynum; j++){
-        float xPos = i*this.xSpacing + this.size/2.0;
-        float yPos = j*this.ySpacing + this.size/2.0;
+        float xPos = i*this.xSpacing + this.wsize/2.0;
+        float yPos = j*this.ySpacing + this.hsize/2.0;
         //this.ArrangedShapes.add(new Shape(this.ArrangedShape.type, new PVector (xPos, yPos), this.ArrangedShape.hei, this.ArrangedShape.wid, int(red(this.ArrangedShape.colour)), int(green(this.ArrangedShape.colour)), int(blue(this.ArrangedShape.colour))));
         //this.ArrangedShapes.get(n).drawShape();
         //n ++;
         
-        image(ATile, xPos, yPos, size, size);
+        image(ATile, xPos, yPos, wsize, hsize);
         }
       }
     }
@@ -80,17 +82,17 @@ class Arrangement{
     for (int i = 0; i < xnum; i++){
       for(int j = 0; j < ynum; j++){
         
-        float xPos = i*this.xSpacing + this.size/2.0;
-        float yPos = j*this.ySpacing + this.size/2.0;
+        float xPos = i*this.xSpacing + this.wsize/2.0;
+        float yPos = j*this.ySpacing + this.hsize/2.0;
         
         if (i % 2 == 1){
-          yPos += this.size/2;
+          yPos += this.hsize/2;
         }
         
         //this.ArrangedShapes.add(new Shape(this.ArrangedShape.type, new PVector (xPos, yPos), this.ArrangedShape.hei, this.ArrangedShape.wid, int(red(this.ArrangedShape.colour)), int(green(this.ArrangedShape.colour)), int(blue(this.ArrangedShape.colour))));
         //this.ArrangedShapes.get(n).drawShape();
         //n ++;
-        image(ATile, xPos, yPos, size, size);
+        image(ATile, xPos, yPos, wsize, hsize);
         }
       }
    }
@@ -104,18 +106,18 @@ class Arrangement{
     for (int i = 0; i < xnum; i++){
       for(int j = 0; j < ynum; j++){
         
-        float xPos = i*this.xSpacing + this.size/2.0;
-        float yPos = j*this.ySpacing + this.size/2.0;
+        float xPos = i*this.xSpacing + this.wsize/2.0;
+        float yPos = j*this.ySpacing + this.hsize/2.0;
         
         if (j % 2 == 1){
-          xPos += this.size/2.0;
+          xPos += this.wsize/2.0;
         }
         
         //this.ArrangedShapes.add(new Shape(this.ArrangedShape.type, new PVector (xPos, yPos), this.ArrangedShape.hei, this.ArrangedShape.wid, int(red(this.ArrangedShape.colour)), int(green(this.ArrangedShape.colour)), int(blue(this.ArrangedShape.colour))));
         //this.ArrangedShapes.get(n).drawShape();
         //n ++;
         
-        image(ATile, xPos, yPos, size, size);
+        image(ATile, xPos, yPos, wsize, hsize);
         }
       }
    }

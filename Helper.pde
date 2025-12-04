@@ -18,3 +18,12 @@ void changeShapeValues() {
     }
   }
 }
+
+void changeArrangementValues(Arrangement a) {
+  a.type = arrTypedroplist.getSelectedText();
+  a.xSpacing = X_Spacing.getValueF();
+  a.ySpacing = Y_Spacing.getValueF();
+
+  a.hsize = arrheightslider.getValueI();
+  a.wsize = arrwidthslider.getValueI();
+}
