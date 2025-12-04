@@ -6,7 +6,7 @@ void mouseClicked() {
   mousePos = new PVector(mouseX, mouseY);
   for (int i = currentTile.ArrangedShapes.size() - 1; i >=0 ; i--) { 
     Shape testShape = currentTile.ArrangedShapes.get(i);
-    if (mousePos.dist(testShape.pos) < testShape.wid && mousePos.dist(testShape.pos) < testShape.hei) {
+    if (testShape.inShape(mousePos)) {
       onObject = true;
       testShape.isSelected = true;
       break;

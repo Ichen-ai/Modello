@@ -13,8 +13,9 @@ void displayScreen(){
     gui.setVisible(false);
     ArrGUI.setVisible(false);
     
-    titleFont = createFont("ArianaVioleta-dz2K.ttf", 128);
-    text("Modello", 250, 50);
+    titleFont = createFont("ariana-violeta-font/ArianaVioleta-dz2K.ttf", 128);
+    textFont(titleFont);
+    text("Modello", 750, 200);
     
     windowName = "none";
   }
