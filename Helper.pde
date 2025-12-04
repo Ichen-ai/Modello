@@ -6,8 +6,8 @@ void getShapeValues(Shape s) {
   int b = blueSlider.getValueI();
   s.colour = color(r, g, b);
   
-  //s.hei = heightSlider.getValueI();
-  //s.wid = widthSlider.getValueI();
+  s.hei = heightSlider.getValueI();
+  s.wid = widthSlider.getValueI();
 }
 
 void changeShapeValues() {

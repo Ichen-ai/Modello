@@ -56,6 +56,14 @@ public void tilescreenshot(GButton source, GEvent event) { //_CODE_:savetilebutt
   ArrGUI.setVisible(true);
 } //_CODE_:savetilebutton:575000:
 
+public void widthSliderChange(GCustomSlider source, GEvent event) { //_CODE_:widthSlider:844943:
+  changeShapeValues();
+} //_CODE_:widthSlider:844943:
+
+public void heightSliderChange(GCustomSlider source, GEvent event) { //_CODE_:heightSlider:256807:
+  changeShapeValues();
+} //_CODE_:heightSlider:256807:
+
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
   appc.background(230);
 } //_CODE_:tutorial:852036:
@@ -111,7 +119,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Modello");
-  gui = GWindow.getWindow(this, "GUI", 100, 200, 240, 150, JAVA2D);
+  gui = GWindow.getWindow(this, "GUI", 100, 200, 240, 200, JAVA2D);
   gui.noLoop();
   gui.setActionOnClose(G4P.KEEP_OPEN);
   gui.addDrawHandler(this, "guiDraw");
@@ -125,7 +133,6 @@ public void createGUI(){
   removeShapeButton.setText("Remove Shape");
   removeShapeButton.addEventHandler(this, "removeShapeButtonClick");
   label1 = new GLabel(gui, 112, 6, 80, 20);
-  label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label1.setText("Colour Sliders");
   label1.setOpaque(false);
   greenSlider = new GCustomSlider(gui, 112, 48, 100, 40, "grey_blue");
@@ -143,10 +150,23 @@ public void createGUI(){
   redSlider.setNumberFormat(G4P.DECIMAL, 2);
   redSlider.setOpaque(false);
   redSlider.addEventHandler(this, "redSliderChange");
-  savetilebutton = new GButton(gui, 124, 116, 80, 30);
+  savetilebutton = new GButton(gui, 13, 149, 80, 30);
   savetilebutton.setText("Visualise Pattern!");
   savetilebutton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   savetilebutton.addEventHandler(this, "tilescreenshot");
+  widthSlider = new GCustomSlider(gui, 112, 132, 100, 40, "grey_blue");
+  widthSlider.setLimits(100.0, 0.0, 500.0);
+  widthSlider.setNumberFormat(G4P.DECIMAL, 2);
+  widthSlider.setOpaque(false);
+  widthSlider.addEventHandler(this, "widthSliderChange");
+  heightSlider = new GCustomSlider(gui, 112, 156, 100, 40, "grey_blue");
+  heightSlider.setLimits(100.0, 0.0, 500.0);
+  heightSlider.setNumberFormat(G4P.DECIMAL, 2);
+  heightSlider.setOpaque(false);
+  heightSlider.addEventHandler(this, "heightSliderChange");
+  label2 = new GLabel(gui, 112, 113, 80, 20);
+  label2.setText("Size Sliders");
+  label2.setOpaque(false);
   tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 240, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
@@ -206,6 +226,9 @@ GCustomSlider greenSlider;
 GCustomSlider blueSlider; 
 GCustomSlider redSlider; 
 GButton savetilebutton; 
+GCustomSlider widthSlider; 
+GCustomSlider heightSlider; 
+GLabel label2; 
 GWindow tutorial;
 GButton next; 
 GButton back; 

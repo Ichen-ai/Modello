@@ -25,6 +25,8 @@ void draw(){
   displayScreen();
   
   imageMode(CENTER);
+  
+  loop();
   currentTile.drawTile();
   
   //// DELETE LATER for testing for arrangements:
