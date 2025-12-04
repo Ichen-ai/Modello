@@ -39,5 +39,4 @@ void draw() {
   if (arrguiShow){
     currentPattern.drawPattern();
   }
-  
 }

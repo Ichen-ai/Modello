@@ -8,6 +8,7 @@ class Arrangement{
   //ArrayList <PImage> ArrangedTiles = new ArrayList();
   
   PVector pos;
+
   float hsize;
   float wsize;
   

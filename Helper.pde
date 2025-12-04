@@ -21,8 +21,15 @@ void changeShapeValues() {
 
 void changeArrangementValues(Arrangement a) {
   a.type = arrTypedroplist.getSelectedText();
-  a.xSpacing = X_Spacing.getValueF();
-  a.ySpacing = Y_Spacing.getValueF();
+  
+  float xspacingval = X_Spacing.getValueF();
+  if (xspacingval > a.wsize/2){
+    a.xSpacing = xspacingval;
+  }
+  float yspacingval = Y_Spacing.getValueF();
+  if (yspacingval > a.hsize/2){
+    a.ySpacing = yspacingval;
+  }
 
   a.hsize = arrheightslider.getValueI();
   a.wsize = arrwidthslider.getValueI();
