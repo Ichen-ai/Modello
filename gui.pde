@@ -19,32 +19,34 @@ synchronized public void guiDraw(PApplet appc, GWinData data) { //_CODE_:gui:894
 } //_CODE_:gui:894024:
 
 public void shapeTypeListClick(GDropList source, GEvent event) { //_CODE_:shapeTypeList:593435:
-  println("shapeTypeList - GDropList >> GEvent." + event + " @ " + millis());
+  changeShapeValues();
 } //_CODE_:shapeTypeList:593435:
 
 public void addShapeButtonClick(GButton source, GEvent event) { //_CODE_:addShapeButton:557350:
-  println("addShapeButton - GButton >> GEvent." + event + " @ " + millis());
-  
-  //???????????????????????for testing!! REMOVE LATER
-  rect(250,250,100,100);
-  
-  
+  Shape newShape = new Shape("ellipse", new PVector(250, 250), 50, 100, 200, 0, 0);
+  getShapeValues(newShape);
+  this.currentTile.ArrangedShapes.add(newShape);
 } //_CODE_:addShapeButton:557350:
 
 public void removeShapeButtonClick(GButton source, GEvent event) { //_CODE_:removeShapeButton:980011:
-  println("removeShapeButton - GButton >> GEvent." + event + " @ " + millis());
+  for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
+    Shape testShape = currentTile.ArrangedShapes.get(i);
+    if (testShape.isSelected) {
+      currentTile.ArrangedShapes.remove(testShape);
+    }
+  }
 } //_CODE_:removeShapeButton:980011:
 
 public void greenSliderClick(GCustomSlider source, GEvent event) { //_CODE_:greenSlider:386541:
-  println("greenSlider - GCustomSlider >> GEvent." + event + " @ " + millis());
+  changeShapeValues();
 } //_CODE_:greenSlider:386541:
 
 public void blueSliderChange(GCustomSlider source, GEvent event) { //_CODE_:blueSlider:699806:
-  println("blueSlider - GCustomSlider >> GEvent." + event + " @ " + millis());
+  changeShapeValues();
 } //_CODE_:blueSlider:699806:
 
 public void redSliderChange(GCustomSlider source, GEvent event) { //_CODE_:redSlider:415599:
-  println("redSlider - GCustomSlider >> GEvent." + event + " @ " + millis());
+  changeShapeValues();
 } //_CODE_:redSlider:415599:
 
 public void tilescreenshot(GButton source, GEvent event) { //_CODE_:savetilebutton:575000:

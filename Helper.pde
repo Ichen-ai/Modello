@@ -9,3 +9,12 @@ void getShapeValues(Shape s) {
   //s.hei = heightSlider.getValueI();
   //s.wid = widthSlider.getValueI();
 }
+
+void changeShapeValues() {
+  for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
+    Shape testShape = currentTile.ArrangedShapes.get(i);
+    if (testShape.isSelected) {
+      getShapeValues(testShape);
+    }
+  }
+}
