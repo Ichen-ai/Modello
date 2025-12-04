@@ -130,7 +130,7 @@ public void arrdroplist_clicked(GDropList source, GEvent event) { //_CODE_:arrTy
 } //_CODE_:arrTypedroplist:757056:
 
 public void arrxSpacing_slider(GCustomSlider source, GEvent event) { //_CODE_:X_Spacing:703950:
-  println("X_Spacing - GCustomSlider >> GEvent." + event + " @ " + millis());
+
   changeArrangementValues(currentPattern);
 } //_CODE_:X_Spacing:703950:
 
