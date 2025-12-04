@@ -13,6 +13,7 @@ void displayScreen(){
     library.setVisible(false);
     tutButton.setVisible(true);
     gui.setVisible(false);
+    ArrGUI.setVisible(false);
     windowName = "none";
   }
   

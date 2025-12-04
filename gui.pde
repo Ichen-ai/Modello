@@ -24,6 +24,11 @@ public void shapeTypeListClick(GDropList source, GEvent event) { //_CODE_:shapeT
 
 public void addShapeButtonClick(GButton source, GEvent event) { //_CODE_:addShapeButton:557350:
   println("addShapeButton - GButton >> GEvent." + event + " @ " + millis());
+  
+  //???????????????????????for testing!! REMOVE LATER
+  rect(250,250,100,100);
+  
+  
 } //_CODE_:addShapeButton:557350:
 
 public void removeShapeButtonClick(GButton source, GEvent event) { //_CODE_:removeShapeButton:980011:
@@ -41,6 +46,13 @@ public void blueSliderChange(GCustomSlider source, GEvent event) { //_CODE_:blue
 public void redSliderChange(GCustomSlider source, GEvent event) { //_CODE_:redSlider:415599:
   println("redSlider - GCustomSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:redSlider:415599:
+
+public void tilescreenshot(GButton source, GEvent event) { //_CODE_:savetilebutton:575000:
+  saveFrame("SavedTile.png");
+  currentPattern = new Arrangement();
+  
+  ArrGUI.setVisible(true);
+} //_CODE_:savetilebutton:575000:
 
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
   appc.background(230);
@@ -78,6 +90,15 @@ public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButto
 synchronized public void libraryDraw(PApplet appc, GWinData data) { //_CODE_:library:358380:
   appc.background(230);
 } //_CODE_:library:358380:
+
+synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:ArrGUI:776699:
+  appc.background(230);
+} //_CODE_:ArrGUI:776699:
+
+public void guibackbutton_clicked(GButton source, GEvent event) { //_CODE_:aguiback:763192:
+  //println("aguiback - GButton >> GEvent." + event + " @ " + millis());
+  ArrGUI.setVisible(false);
+} //_CODE_:aguiback:763192:
 
 
 
@@ -120,6 +141,10 @@ public void createGUI(){
   redSlider.setNumberFormat(G4P.DECIMAL, 2);
   redSlider.setOpaque(false);
   redSlider.addEventHandler(this, "redSliderChange");
+  savetilebutton = new GButton(gui, 124, 116, 80, 30);
+  savetilebutton.setText("Visualise Pattern!");
+  savetilebutton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  savetilebutton.addEventHandler(this, "tilescreenshot");
   tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 240, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
@@ -153,10 +178,19 @@ public void createGUI(){
   library.noLoop();
   library.setActionOnClose(G4P.KEEP_OPEN);
   library.addDrawHandler(this, "libraryDraw");
+  ArrGUI = GWindow.getWindow(this, "Window title", 100, 450, 240, 120, JAVA2D);
+  ArrGUI.noLoop();
+  ArrGUI.setActionOnClose(G4P.KEEP_OPEN);
+  ArrGUI.addDrawHandler(this, "win_draw1");
+  aguiback = new GButton(ArrGUI, 10, 83, 80, 30);
+  aguiback.setText("Back to Canvas");
+  aguiback.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  aguiback.addEventHandler(this, "guibackbutton_clicked");
   gui.loop();
   tutorial.loop();
   startWin.loop();
   library.loop();
+  ArrGUI.loop();
 }
 
 // Variable declarations 
@@ -169,6 +203,7 @@ GLabel label1;
 GCustomSlider greenSlider; 
 GCustomSlider blueSlider; 
 GCustomSlider redSlider; 
+GButton savetilebutton; 
 GWindow tutorial;
 GButton next; 
 GButton back; 
@@ -178,3 +213,5 @@ GButton start;
 GButton tutButton; 
 GButton libraryButton; 
 GWindow library;
+GWindow ArrGUI;
+GButton aguiback; 
