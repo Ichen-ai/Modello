@@ -9,6 +9,8 @@ class Arrangement{
   
   PVector pos;
   float size;
+  
+  String type;
  
   
   //*ignore* for personal reference, probably smth like shapelayer1 = new arrangement(shape s)
@@ -23,9 +25,24 @@ class Arrangement{
     this.size = 50;
     
     //note: default arrangement is singular of the shape in middle of screen?
-    this.defaultArrange();
+    this.type = "default";
     
   }
+  
+  void drawPattern(){
+    if (this.type.equals("default"))
+      this.defaultArrange();
+    
+    else if(this.type.equals("grid"))
+      this.drawGrid();
+    
+    else if(this.type.equals("halfdrop"))
+      this.drawHalfDrop();
+    
+    else if(this.type.equals("brick"))
+      this.drawBrick();
+  }
+  
   
   void defaultArrange(){
     this.pos = new PVector( width/2, height/2) ; //maybe a 2d slider for this default one
