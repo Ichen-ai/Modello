@@ -72,6 +72,10 @@ public void clearButtonClick(GButton source, GEvent event) { //_CODE_:clearButto
   currentTile.ArrangedShapes.clear();
 } //_CODE_:clearButton:526941:
 
+public void autoAlignClicked(GCheckbox source, GEvent event) { //_CODE_:autoAlign:584859:
+  println("autoAlign - GCheckbox >> GEvent." + event + " @ " + millis());
+} //_CODE_:autoAlign:584859:
+
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
   appc.background(230);
 } //_CODE_:tutorial:852036:
@@ -183,6 +187,11 @@ public void createGUI(){
   clearButton = new GButton(gui, 13, 153, 80, 30);
   clearButton.setText("Clear");
   clearButton.addEventHandler(this, "clearButtonClick");
+  autoAlign = new GCheckbox(gui, 110, 146, 120, 20);
+  autoAlign.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  autoAlign.setText("Allow auto align");
+  autoAlign.setOpaque(false);
+  autoAlign.addEventHandler(this, "autoAlignClicked");
   tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 240, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
@@ -247,6 +256,7 @@ GCustomSlider heightSlider;
 GLabel label2; 
 GCheckbox gridButton; 
 GButton clearButton; 
+GCheckbox autoAlign; 
 GWindow tutorial;
 GButton next; 
 GButton back; 
