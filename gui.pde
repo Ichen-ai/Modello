@@ -64,6 +64,14 @@ public void heightSliderChange(GCustomSlider source, GEvent event) { //_CODE_:he
   changeShapeValues();
 } //_CODE_:heightSlider:256807:
 
+public void gridClicked(GCheckbox source, GEvent event) { //_CODE_:gridButton:487609:
+  println("gridButton - GCheckbox >> GEvent." + event + " @ " + millis());
+} //_CODE_:gridButton:487609:
+
+public void clearButtonClick(GButton source, GEvent event) { //_CODE_:clearButton:526941:
+  currentTile.ArrangedShapes.clear();
+} //_CODE_:clearButton:526941:
+
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
   appc.background(230);
 } //_CODE_:tutorial:852036:
@@ -119,11 +127,11 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Modello");
-  gui = GWindow.getWindow(this, "GUI", 100, 200, 240, 200, JAVA2D);
+  gui = GWindow.getWindow(this, "GUI", 100, 200, 340, 200, JAVA2D);
   gui.noLoop();
   gui.setActionOnClose(G4P.KEEP_OPEN);
   gui.addDrawHandler(this, "guiDraw");
-  shapeTypeList = new GDropList(gui, 10, 9, 90, 80, 3, 10);
+  shapeTypeList = new GDropList(gui, 14, 9, 90, 80, 3, 10);
   shapeTypeList.setItems(loadStrings("list_593435"), 0);
   shapeTypeList.addEventHandler(this, "shapeTypeListClick");
   addShapeButton = new GButton(gui, 15, 44, 80, 30);
@@ -150,23 +158,31 @@ public void createGUI(){
   redSlider.setNumberFormat(G4P.DECIMAL, 2);
   redSlider.setOpaque(false);
   redSlider.addEventHandler(this, "redSliderChange");
-  savetilebutton = new GButton(gui, 13, 149, 80, 30);
+  savetilebutton = new GButton(gui, 247, 152, 80, 30);
   savetilebutton.setText("Visualise Pattern!");
   savetilebutton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   savetilebutton.addEventHandler(this, "tilescreenshot");
-  widthSlider = new GCustomSlider(gui, 112, 132, 100, 40, "grey_blue");
+  widthSlider = new GCustomSlider(gui, 220, 24, 100, 40, "grey_blue");
   widthSlider.setLimits(100.0, 0.0, 500.0);
   widthSlider.setNumberFormat(G4P.DECIMAL, 2);
   widthSlider.setOpaque(false);
   widthSlider.addEventHandler(this, "widthSliderChange");
-  heightSlider = new GCustomSlider(gui, 112, 156, 100, 40, "grey_blue");
+  heightSlider = new GCustomSlider(gui, 220, 48, 100, 40, "grey_blue");
   heightSlider.setLimits(100.0, 0.0, 500.0);
   heightSlider.setNumberFormat(G4P.DECIMAL, 2);
   heightSlider.setOpaque(false);
   heightSlider.addEventHandler(this, "heightSliderChange");
-  label2 = new GLabel(gui, 112, 113, 80, 20);
+  label2 = new GLabel(gui, 220, 6, 80, 20);
   label2.setText("Size Sliders");
   label2.setOpaque(false);
+  gridButton = new GCheckbox(gui, 111, 120, 120, 20);
+  gridButton.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  gridButton.setText("See grid");
+  gridButton.setOpaque(false);
+  gridButton.addEventHandler(this, "gridClicked");
+  clearButton = new GButton(gui, 13, 153, 80, 30);
+  clearButton.setText("Clear");
+  clearButton.addEventHandler(this, "clearButtonClick");
   tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 240, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
@@ -229,6 +245,8 @@ GButton savetilebutton;
 GCustomSlider widthSlider; 
 GCustomSlider heightSlider; 
 GLabel label2; 
+GCheckbox gridButton; 
+GButton clearButton; 
 GWindow tutorial;
 GButton next; 
 GButton back; 
