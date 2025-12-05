@@ -37,7 +37,6 @@ void draw() {
   }
 
   if (arrguiShow) {
-    background(0);
     currentPattern.drawPattern();
   }
 }
