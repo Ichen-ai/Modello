@@ -21,17 +21,18 @@ class Arrangement{
   
   Arrangement(){
     this.ATile = loadImage("SavedTile.png");
-    this.xSpacing = 50;
-    this.ySpacing = 50;
+    this.xSpacing = 100;
+    this.ySpacing = 100;
     this.pos = new PVector(0,0);
     this.hsize = 50;
     this.wsize = 50;
     
-    this.type = "Grid";    
+    //note: default arrangement is singular of the shape in middle of screen?
+    this.type = "default";
+    
   }
   
   void drawPattern(){
-    //note: default arrangement is singular of the shape tile in middle of screen
     if (this.type.equals("default") || this.type.equals("Select"))
       this.defaultArrange();
     
