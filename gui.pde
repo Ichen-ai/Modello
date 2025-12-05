@@ -55,6 +55,8 @@ public void tilescreenshot(GButton source, GEvent event) { //_CODE_:savetilebutt
   
   ArrGUI.setVisible(true);
   arrguiShow = true;
+  
+  arrTypedroplist.setSelected(0);
 } //_CODE_:savetilebutton:575000:
 
 public void widthSliderChange(GCustomSlider source, GEvent event) { //_CODE_:widthSlider:844943:
@@ -262,8 +264,9 @@ public void createGUI(){
   ArrangementType.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   ArrangementType.setText("Arrangement Type");
   ArrangementType.setOpaque(false);
-  arrTypedroplist = new GDropList(ArrGUI, 10, 28, 90, 80, 3, 10);
-  arrTypedroplist.setItems(loadStrings("list_757056"), 1);
+  arrTypedroplist = new GDropList(ArrGUI, 10, 28, 90, 120, 5, 10);
+  arrTypedroplist.setItems(loadStrings("list_757056"), 0);
+  arrTypedroplist.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   arrTypedroplist.addEventHandler(this, "arrdroplist_clicked");
   X_Spacing = new GCustomSlider(ArrGUI, 135, 26, 100, 40, "purple18px");
   X_Spacing.setLimits(50.0, 0.0, 500.0);
@@ -283,14 +286,14 @@ public void createGUI(){
   Spacing_Labels.setOpaque(false);
   SizeSliders = new GLabel(ArrGUI, 115, 114, 123, 20);
   SizeSliders.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  SizeSliders.setText("Size (width, height)");
+  SizeSliders.setText("Size (width, height, scale)");
   SizeSliders.setOpaque(false);
-  arrwidthslider = new GCustomSlider(ArrGUI, 114, 138, 95, 40, "purple18px");
+  arrwidthslider = new GCustomSlider(ArrGUI, 127, 135, 95, 40, "purple18px");
   arrwidthslider.setLimits(50.0, 20.0, 400.0);
   arrwidthslider.setNumberFormat(G4P.DECIMAL, 2);
   arrwidthslider.setOpaque(false);
   arrwidthslider.addEventHandler(this, "arrwidthslider_change1");
-  arrheightslider = new GCustomSlider(ArrGUI, 112, 165, 100, 40, "purple18px");
+  arrheightslider = new GCustomSlider(ArrGUI, 124, 161, 100, 40, "purple18px");
   arrheightslider.setLimits(50.0, 20.0, 400.0);
   arrheightslider.setNumberFormat(G4P.DECIMAL, 2);
   arrheightslider.setOpaque(false);
