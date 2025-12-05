@@ -37,6 +37,7 @@ void changeArrangementValues(Arrangement a) {
   }
   else{
     a.xSpacing = a.wsize;
+    X_Spacing.setValue(a.wsize);
   }
   float yspacingval = Y_Spacing.getValueF();
   if (yspacingval > a.hsize){
@@ -44,6 +45,7 @@ void changeArrangementValues(Arrangement a) {
   }
   else{
     a.ySpacing = a.hsize;
+    Y_Spacing.setValue(a.hsize);
   }
 
   a.hsize = arrheightslider.getValueI();
