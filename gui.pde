@@ -80,15 +80,15 @@ public void autoAlignClicked(GCheckbox source, GEvent event) { //_CODE_:autoAlig
 } //_CODE_:autoAlign:584859:
 
 public void bgRedSliderChange(GCustomSlider source, GEvent event) { //_CODE_:bgRedSlider:713595:
-  println("custom_slider1 - GCustomSlider >> GEvent." + event + " @ " + millis());
+  changeBgColour();
 } //_CODE_:bgRedSlider:713595:
 
 public void bgGreenSliderChange(GCustomSlider source, GEvent event) { //_CODE_:bgGreenSlider:262593:
-  println("custom_slider2 - GCustomSlider >> GEvent." + event + " @ " + millis());
+  changeBgColour();
 } //_CODE_:bgGreenSlider:262593:
 
 public void bgBlueSliderChange(GCustomSlider source, GEvent event) { //_CODE_:bgBlueSlider:417099:
-  println("bgBlueSlider - GCustomSlider >> GEvent." + event + " @ " + millis());
+  changeBgColour();
 } //_CODE_:bgBlueSlider:417099:
 
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
@@ -218,7 +218,7 @@ public void createGUI(){
   label2 = new GLabel(gui, 220, 6, 80, 20);
   label2.setText("Size Sliders");
   label2.setOpaque(false);
-  gridButton = new GCheckbox(gui, 216, 172, 120, 21);
+  gridButton = new GCheckbox(gui, 219, 79, 120, 21);
   gridButton.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   gridButton.setText("See grid");
   gridButton.setOpaque(false);
@@ -226,13 +226,12 @@ public void createGUI(){
   clearButton = new GButton(gui, 13, 131, 80, 30);
   clearButton.setText("Clear");
   clearButton.addEventHandler(this, "clearButtonClick");
-  autoAlign = new GCheckbox(gui, 216, 194, 120, 20);
+  autoAlign = new GCheckbox(gui, 219, 100, 120, 20);
   autoAlign.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   autoAlign.setText("Allow auto align");
   autoAlign.setOpaque(false);
   autoAlign.addEventHandler(this, "autoAlignClicked");
-  label3 = new GLabel(gui, 110, 118, 112, 20);
-  label3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label3 = new GLabel(gui, 110, 117, 112, 20);
   label3.setText("Background Colour");
   label3.setOpaque(false);
   bgRedSlider = new GCustomSlider(gui, 110, 137, 100, 40, "grey_blue");

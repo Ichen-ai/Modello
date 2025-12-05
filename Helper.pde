@@ -19,6 +19,15 @@ void changeShapeValues() {
   }
 }
 
+void changeBgColour() {
+  int r = bgRedSlider.getValueI();
+  int g = bgGreenSlider.getValueI();
+  int b = bgBlueSlider.getValueI();
+  
+  bgColour = color(r, g, b);
+
+}
+
 void changeArrangementValues(Arrangement a) {
   a.type = arrTypedroplist.getSelectedText();
   

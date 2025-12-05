@@ -15,7 +15,7 @@ Boolean arrguiShow = false;
 
 int savedPTilenum = 1;
 
-color bgcolour = color(255);
+color bgColour = color(255);
 
 
 
@@ -28,15 +28,15 @@ void setup() {
 
 void draw() {
   displayScreen();
-  background(bgcolour);
+  background(bgColour);
 
   imageMode(CENTER);
 
-  if (!arrguiShow){
+  if (!arrguiShow) {
     currentTile.drawTile();
   }
-  
-  if (arrguiShow){
+
+  if (arrguiShow) {
     background(0);
     currentPattern.drawPattern();
   }
