@@ -79,6 +79,18 @@ public void autoAlignClicked(GCheckbox source, GEvent event) { //_CODE_:autoAlig
   println("autoAlign - GCheckbox >> GEvent." + event + " @ " + millis());
 } //_CODE_:autoAlign:584859:
 
+public void bgRedSliderChange(GCustomSlider source, GEvent event) { //_CODE_:bgRedSlider:713595:
+  println("custom_slider1 - GCustomSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:bgRedSlider:713595:
+
+public void bgGreenSliderChange(GCustomSlider source, GEvent event) { //_CODE_:bgGreenSlider:262593:
+  println("custom_slider2 - GCustomSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:bgGreenSlider:262593:
+
+public void bgBlueSliderChange(GCustomSlider source, GEvent event) { //_CODE_:bgBlueSlider:417099:
+  println("bgBlueSlider - GCustomSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:bgBlueSlider:417099:
+
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
   appc.background(230);
 } //_CODE_:tutorial:852036:
@@ -158,7 +170,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Modello");
-  gui = GWindow.getWindow(this, "GUI", 100, 200, 340, 200, JAVA2D);
+  gui = GWindow.getWindow(this, "GUI", 100, 200, 340, 220, JAVA2D);
   gui.noLoop();
   gui.setActionOnClose(G4P.KEEP_OPEN);
   gui.addDrawHandler(this, "guiDraw");
@@ -189,7 +201,7 @@ public void createGUI(){
   redSlider.setNumberFormat(G4P.DECIMAL, 2);
   redSlider.setOpaque(false);
   redSlider.addEventHandler(this, "redSliderChange");
-  savetilebutton = new GButton(gui, 247, 152, 80, 30);
+  savetilebutton = new GButton(gui, 14, 174, 80, 30);
   savetilebutton.setText("Visualise Pattern!");
   savetilebutton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   savetilebutton.addEventHandler(this, "tilescreenshot");
@@ -206,19 +218,38 @@ public void createGUI(){
   label2 = new GLabel(gui, 220, 6, 80, 20);
   label2.setText("Size Sliders");
   label2.setOpaque(false);
-  gridButton = new GCheckbox(gui, 111, 120, 120, 20);
+  gridButton = new GCheckbox(gui, 216, 172, 120, 21);
   gridButton.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   gridButton.setText("See grid");
   gridButton.setOpaque(false);
   gridButton.addEventHandler(this, "gridClicked");
-  clearButton = new GButton(gui, 13, 153, 80, 30);
+  clearButton = new GButton(gui, 13, 131, 80, 30);
   clearButton.setText("Clear");
   clearButton.addEventHandler(this, "clearButtonClick");
-  autoAlign = new GCheckbox(gui, 110, 146, 120, 20);
+  autoAlign = new GCheckbox(gui, 216, 194, 120, 20);
   autoAlign.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   autoAlign.setText("Allow auto align");
   autoAlign.setOpaque(false);
   autoAlign.addEventHandler(this, "autoAlignClicked");
+  label3 = new GLabel(gui, 110, 118, 112, 20);
+  label3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label3.setText("Background Colour");
+  label3.setOpaque(false);
+  bgRedSlider = new GCustomSlider(gui, 110, 137, 100, 40, "grey_blue");
+  bgRedSlider.setLimits(255, 0, 255);
+  bgRedSlider.setNumberFormat(G4P.INTEGER, 0);
+  bgRedSlider.setOpaque(false);
+  bgRedSlider.addEventHandler(this, "bgRedSliderChange");
+  bgGreenSlider = new GCustomSlider(gui, 110, 160, 100, 40, "grey_blue");
+  bgGreenSlider.setLimits(255, 0, 255);
+  bgGreenSlider.setNumberFormat(G4P.INTEGER, 0);
+  bgGreenSlider.setOpaque(false);
+  bgGreenSlider.addEventHandler(this, "bgGreenSliderChange");
+  bgBlueSlider = new GCustomSlider(gui, 110, 183, 100, 40, "grey_blue");
+  bgBlueSlider.setLimits(255, 0, 255);
+  bgBlueSlider.setNumberFormat(G4P.INTEGER, 0);
+  bgBlueSlider.setOpaque(false);
+  bgBlueSlider.addEventHandler(this, "bgBlueSliderChange");
   tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 240, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
@@ -322,6 +353,10 @@ GLabel label2;
 GCheckbox gridButton; 
 GButton clearButton; 
 GCheckbox autoAlign; 
+GLabel label3; 
+GCustomSlider bgRedSlider; 
+GCustomSlider bgGreenSlider; 
+GCustomSlider bgBlueSlider; 
 GWindow tutorial;
 GButton next; 
 GButton back; 
