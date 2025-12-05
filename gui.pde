@@ -285,13 +285,12 @@ public void createGUI(){
   SizeSliders.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   SizeSliders.setText("Size (width, height)");
   SizeSliders.setOpaque(false);
-  arrwidthslider = new GCustomSlider(ArrGUI, 114, 138, 95, 40, "grey_blue");
+  arrwidthslider = new GCustomSlider(ArrGUI, 114, 138, 95, 40, "purple18px");
   arrwidthslider.setLimits(50.0, 20.0, 400.0);
   arrwidthslider.setNumberFormat(G4P.DECIMAL, 2);
   arrwidthslider.setOpaque(false);
   arrwidthslider.addEventHandler(this, "arrwidthslider_change1");
-  arrheightslider = new GCustomSlider(ArrGUI, 288, 140, 40, 100, "grey_blue");
-  arrheightslider.setRotation(PI/2, GControlMode.CORNER);
+  arrheightslider = new GCustomSlider(ArrGUI, 112, 165, 100, 40, "purple18px");
   arrheightslider.setLimits(50.0, 20.0, 400.0);
   arrheightslider.setNumberFormat(G4P.DECIMAL, 2);
   arrheightslider.setOpaque(false);

@@ -23,18 +23,18 @@ void changeArrangementValues(Arrangement a) {
   a.type = arrTypedroplist.getSelectedText();
   
   float xspacingval = X_Spacing.getValueF();
-  if (xspacingval > a.wsize/2){
+  if (xspacingval > a.wsize){
     a.xSpacing = xspacingval;
   }
   else{
-    a.xSpacing = a.wsize/2;
+    a.xSpacing = a.wsize;
   }
   float yspacingval = Y_Spacing.getValueF();
-  if (yspacingval > a.hsize/2){
+  if (yspacingval > a.hsize){
     a.ySpacing = yspacingval;
   }
   else{
-    a.ySpacing = a.hsize/2;
+    a.ySpacing = a.hsize;
   }
 
   a.hsize = arrheightslider.getValueI();

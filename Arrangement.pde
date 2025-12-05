@@ -21,8 +21,8 @@ class Arrangement{
   
   Arrangement(){
     this.ATile = loadImage("SavedTile.png");
-    this.xSpacing = 50;
-    this.ySpacing = 50;
+    this.xSpacing = 100;
+    this.ySpacing = 100;
     this.pos = new PVector(0,0);
     this.hsize = 50;
     this.wsize = 50;
@@ -84,7 +84,7 @@ class Arrangement{
       for(int j = 0; j < ynum; j++){
         
         float xPos = i*this.xSpacing + this.wsize/2.0;
-        float yPos = j*this.ySpacing + this.hsize/2.0;
+        float yPos = j*this.ySpacing ; //+ this.hsize/2.0
         
         if (i % 2 == 1){
           yPos += this.hsize/2;
@@ -107,7 +107,7 @@ class Arrangement{
     for (int i = 0; i < xnum; i++){
       for(int j = 0; j < ynum; j++){
         
-        float xPos = i*this.xSpacing + this.wsize/2.0;
+        float xPos = i*this.xSpacing;
         float yPos = j*this.ySpacing + this.hsize/2.0;
         
         if (j % 2 == 1){
