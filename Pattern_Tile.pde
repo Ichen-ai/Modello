@@ -7,7 +7,7 @@ class PatternTile {
   //constructor
   PatternTile() {
     ArrangedShapes = new ArrayList();
-    seeGrid = true;
+    seeGrid = false;
   }
 
   //methods

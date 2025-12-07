@@ -69,7 +69,9 @@ public void heightSliderChange(GCustomSlider source, GEvent event) { //_CODE_:he
 } //_CODE_:heightSlider:256807:
 
 public void gridClicked(GCheckbox source, GEvent event) { //_CODE_:gridButton:487609:
-  println("gridButton - GCheckbox >> GEvent." + event + " @ " + millis());
+  if (! currentTile.seeGrid) {
+    currentTile.seeGrid = true;
+  } else currentTile.seeGrid = false;
 } //_CODE_:gridButton:487609:
 
 public void clearButtonClick(GButton source, GEvent event) { //_CODE_:clearButton:526941:
