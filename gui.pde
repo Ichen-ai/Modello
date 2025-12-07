@@ -94,6 +94,14 @@ public void bgBlueSliderChange(GCustomSlider source, GEvent event) { //_CODE_:bg
   changeBgColour();
 } //_CODE_:bgBlueSlider:417099:
 
+public void fwdShapeButtonClick(GButton source, GEvent event) { //_CODE_:fwdShapeButton:317310:
+  println("fwdShapeButton - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:fwdShapeButton:317310:
+
+public void bwkShapeButtonClicked(GButton source, GEvent event) { //_CODE_:bwkShapeButton:867870:
+  println("bwkShapeButton - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:bwkShapeButton:867870:
+
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
   appc.background(230);
 } //_CODE_:tutorial:852036:
@@ -231,7 +239,7 @@ public void createGUI(){
   label2 = new GLabel(gui, 220, 6, 80, 20);
   label2.setText("Size Sliders");
   label2.setOpaque(false);
-  gridButton = new GCheckbox(gui, 219, 79, 120, 21);
+  gridButton = new GCheckbox(gui, 218, 171, 120, 21);
   gridButton.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   gridButton.setText("See grid");
   gridButton.setOpaque(false);
@@ -239,12 +247,12 @@ public void createGUI(){
   clearButton = new GButton(gui, 13, 131, 80, 30);
   clearButton.setText("Clear");
   clearButton.addEventHandler(this, "clearButtonClick");
-  autoAlign = new GCheckbox(gui, 219, 100, 120, 20);
+  autoAlign = new GCheckbox(gui, 217, 192, 120, 20);
   autoAlign.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   autoAlign.setText("Allow auto align");
   autoAlign.setOpaque(false);
   autoAlign.addEventHandler(this, "autoAlignClicked");
-  label3 = new GLabel(gui, 110, 117, 112, 20);
+  label3 = new GLabel(gui, 110, 116, 112, 20);
   label3.setText("Background Colour");
   label3.setOpaque(false);
   bgRedSlider = new GCustomSlider(gui, 110, 137, 100, 40, "grey_blue");
@@ -262,6 +270,15 @@ public void createGUI(){
   bgBlueSlider.setNumberFormat(G4P.INTEGER, 0);
   bgBlueSlider.setOpaque(false);
   bgBlueSlider.addEventHandler(this, "bgBlueSliderChange");
+  fwdShapeButton = new GButton(gui, 223, 92, 106, 30);
+  fwdShapeButton.setTextAlign(GAlign.CENTER, GAlign.RIGHT);
+  fwdShapeButton.setText("Move Shape Forwards");
+  fwdShapeButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  fwdShapeButton.addEventHandler(this, "fwdShapeButtonClick");
+  bwkShapeButton = new GButton(gui, 223, 129, 107, 30);
+  bwkShapeButton.setText("Move Shape Backwards");
+  bwkShapeButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  bwkShapeButton.addEventHandler(this, "bwkShapeButtonClicked");
   tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 240, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
@@ -374,6 +391,8 @@ GLabel label3;
 GCustomSlider bgRedSlider; 
 GCustomSlider bgGreenSlider; 
 GCustomSlider bgBlueSlider; 
+GButton fwdShapeButton; 
+GButton bwkShapeButton; 
 GWindow tutorial;
 GButton next; 
 GButton back; 
