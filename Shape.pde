@@ -75,8 +75,7 @@ class Shape {
         PVector v1 = PVector.sub(p, poly[i]);
         float dotProd = v1.dot(perpSides[i]);
         if ( dotProd < 0 ) in = false;
-      }
-      
+      }      
       return in;
     } else return false;
   }
