@@ -168,6 +168,10 @@ public void arrheislider_change1(GCustomSlider source, GEvent event) { //_CODE_:
   changeArrangementValues(currentPattern);
 } //_CODE_:arrheightslider:213641:
 
+public void addLibraryButtonClicked(GButton source, GEvent event) { //_CODE_:addLibraryButton:544916:
+  println("addLibraryButton - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:addLibraryButton:544916:
+
 
 
 // Create all the GUI controls. 
@@ -297,7 +301,7 @@ public void createGUI(){
   ArrGUI.noLoop();
   ArrGUI.setActionOnClose(G4P.KEEP_OPEN);
   ArrGUI.addDrawHandler(this, "win_draw1");
-  aguiback = new GButton(ArrGUI, 8, 163, 95, 30);
+  aguiback = new GButton(ArrGUI, 8, 152, 95, 30);
   aguiback.setText("Back to Canvas");
   aguiback.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   aguiback.addEventHandler(this, "guibackbutton_clicked");
@@ -309,36 +313,37 @@ public void createGUI(){
   arrTypedroplist.setItems(loadStrings("list_757056"), 0);
   arrTypedroplist.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   arrTypedroplist.addEventHandler(this, "arrdroplist_clicked");
-  X_Spacing = new GCustomSlider(ArrGUI, 135, 26, 100, 40, "purple18px");
+  X_Spacing = new GCustomSlider(ArrGUI, 135, 24, 100, 40, "grey_blue");
   X_Spacing.setLimits(50.0, 0.0, 500.0);
   X_Spacing.setNumberFormat(G4P.GREEN_SCHEME, 2);
   X_Spacing.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   X_Spacing.setOpaque(false);
   X_Spacing.addEventHandler(this, "arrxSpacing_slider");
-  Y_Spacing = new GCustomSlider(ArrGUI, 134, 68, 100, 40, "purple18px");
+  Y_Spacing = new GCustomSlider(ArrGUI, 135, 48, 100, 40, "grey_blue");
   Y_Spacing.setLimits(50.0, 0.0, 500.0);
   Y_Spacing.setNumberFormat(G4P.DECIMAL, 2);
   Y_Spacing.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   Y_Spacing.setOpaque(false);
   Y_Spacing.addEventHandler(this, "arrYSpacing_change1");
-  Spacing_Labels = new GLabel(ArrGUI, 140, 5, 80, 20);
-  Spacing_Labels.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  Spacing_Labels.setText("Spacing (x,y)");
+  Spacing_Labels = new GLabel(ArrGUI, 134, 5, 80, 20);
+  Spacing_Labels.setText("Spacing");
   Spacing_Labels.setOpaque(false);
-  SizeSliders = new GLabel(ArrGUI, 115, 114, 123, 20);
-  SizeSliders.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  SizeSliders.setText("Size (width, height, scale)");
+  SizeSliders = new GLabel(ArrGUI, 135, 89, 123, 20);
+  SizeSliders.setText("Size ");
   SizeSliders.setOpaque(false);
-  arrwidthslider = new GCustomSlider(ArrGUI, 127, 135, 95, 40, "purple18px");
+  arrwidthslider = new GCustomSlider(ArrGUI, 134, 109, 100, 40, "grey_blue");
   arrwidthslider.setLimits(50.0, 20.0, 400.0);
   arrwidthslider.setNumberFormat(G4P.DECIMAL, 2);
   arrwidthslider.setOpaque(false);
   arrwidthslider.addEventHandler(this, "arrwidthslider_change1");
-  arrheightslider = new GCustomSlider(ArrGUI, 124, 161, 100, 40, "purple18px");
+  arrheightslider = new GCustomSlider(ArrGUI, 134, 132, 100, 40, "grey_blue");
   arrheightslider.setLimits(50.0, 20.0, 400.0);
   arrheightslider.setNumberFormat(G4P.DECIMAL, 2);
   arrheightslider.setOpaque(false);
   arrheightslider.addEventHandler(this, "arrheislider_change1");
+  addLibraryButton = new GButton(ArrGUI, 7, 114, 97, 30);
+  addLibraryButton.setText("Add to Library");
+  addLibraryButton.addEventHandler(this, "addLibraryButtonClicked");
   gui.loop();
   tutorial.loop();
   startWin.loop();
@@ -387,3 +392,4 @@ GLabel Spacing_Labels;
 GLabel SizeSliders; 
 GCustomSlider arrwidthslider; 
 GCustomSlider arrheightslider; 
+GButton addLibraryButton; 
