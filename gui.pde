@@ -79,7 +79,9 @@ public void clearButtonClick(GButton source, GEvent event) { //_CODE_:clearButto
 } //_CODE_:clearButton:526941:
 
 public void autoAlignClicked(GCheckbox source, GEvent event) { //_CODE_:autoAlign:584859:
-  println("autoAlign - GCheckbox >> GEvent." + event + " @ " + millis());
+  if (! currentTile.autoAlign) {
+    currentTile.autoAlign = true;
+  } else currentTile.autoAlign = false;
 } //_CODE_:autoAlign:584859:
 
 public void bgRedSliderChange(GCustomSlider source, GEvent event) { //_CODE_:bgRedSlider:713595:
