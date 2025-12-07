@@ -95,11 +95,27 @@ public void bgBlueSliderChange(GCustomSlider source, GEvent event) { //_CODE_:bg
 } //_CODE_:bgBlueSlider:417099:
 
 public void fwdShapeButtonClick(GButton source, GEvent event) { //_CODE_:fwdShapeButton:317310:
-  println("fwdShapeButton - GButton >> GEvent." + event + " @ " + millis());
+  for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
+    Shape fwdShape = currentTile.ArrangedShapes.get(i);
+    
+    if (fwdShape.isSelected && i < currentTile.ArrangedShapes.size() - 1) {
+      Shape bckShape = currentTile.ArrangedShapes.get(i+1);
+      currentTile.ArrangedShapes.set(i, bckShape);
+      currentTile.ArrangedShapes.set(i+1, fwdShape);
+    }
+  }
 } //_CODE_:fwdShapeButton:317310:
 
 public void bwkShapeButtonClicked(GButton source, GEvent event) { //_CODE_:bwkShapeButton:867870:
-  println("bwkShapeButton - GButton >> GEvent." + event + " @ " + millis());
+  for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
+    Shape bckShape = currentTile.ArrangedShapes.get(i);
+    
+    if (bckShape.isSelected && i > 0) {
+      Shape fwdShape = currentTile.ArrangedShapes.get(i-1);
+      currentTile.ArrangedShapes.set(i, fwdShape);
+      currentTile.ArrangedShapes.set(i-1, bckShape);
+    }
+  }
 } //_CODE_:bwkShapeButton:867870:
 
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
