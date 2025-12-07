@@ -3,12 +3,14 @@ class PatternTile {
   //fields
   ArrayList <Shape> ArrangedShapes;
   boolean seeGrid, autoAlign;
+  float gridSize;
 
   //constructor
   PatternTile() {
-    ArrangedShapes = new ArrayList();
-    seeGrid = false;
-    autoAlign = false;
+    this.ArrangedShapes = new ArrayList();
+    this.seeGrid = false;
+    this.autoAlign = false;
+    this.gridSize = 25;
   }
 
   //methods
@@ -24,10 +26,10 @@ class PatternTile {
   void drawGrid() {
     stroke(180);
 
-    for (int x = 0; x <= width; x += 25) {
+    for (int x = 0; x <= width; x += this.gridSize) {
       line(x, 0, x, height);
     }
-    for (int y = 0; y <= height; y += 25) {
+    for (int y = 0; y <= height; y += this.gridSize) {
       line(0, y, width, y);
     }
   }
@@ -35,8 +37,8 @@ class PatternTile {
   void autoAlign() {    
     for (Shape s : currentTile.ArrangedShapes) {
 
-      float nearestX = round(s.pos.x / 25) * 25;
-      float nearestY = round(s.pos.y / 25) * 25;
+      float nearestX = round(s.pos.x / this.gridSize) * this.gridSize;
+      float nearestY = round(s.pos.y / this.gridSize) * this.gridSize;
 
       float dx = abs(nearestX - s.pos.x);
       float dy = abs(nearestY - s.pos.y);
