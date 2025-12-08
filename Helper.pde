@@ -52,7 +52,7 @@ void changeArrangementValues(Arrangement a) {
   a.wsize = arrwidthslider.getValueI();
 }
 
-void VisualisePattern(PatternTile p){  // MIGHT NOT WORK YET
+void VisualisePattern(PatternTile p){  
   if (TileStatus.equals("preparing")){
     p.seeGrid = false;
     gridButton.setSelected(false);
