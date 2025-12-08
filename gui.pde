@@ -153,6 +153,9 @@ public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButto
   windowName = "Library";
 } //_CODE_:libraryButton:312218:
 
+public void titleClicked(GImageButton source, GEvent event) { //_CODE_:title:537473:
+} //_CODE_:title:537473:
+
 synchronized public void libraryDraw(PApplet appc, GWinData data) { //_CODE_:library:358380:
   appc.background(230);
 } //_CODE_:library:358380:
@@ -209,7 +212,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Modello");
-  gui = GWindow.getWindow(this, "GUI", 100, 200, 340, 220, JAVA2D);
+  gui = GWindow.getWindow(this, "GUI", 100, 200, 380, 220, JAVA2D);
   gui.noLoop();
   gui.setActionOnClose(G4P.KEEP_OPEN);
   gui.addDrawHandler(this, "guiDraw");
@@ -225,17 +228,17 @@ public void createGUI(){
   label1 = new GLabel(gui, 112, 6, 80, 20);
   label1.setText("Colour Sliders");
   label1.setOpaque(false);
-  greenSlider = new GCustomSlider(gui, 112, 48, 100, 40, "grey_blue");
+  greenSlider = new GCustomSlider(gui, 131, 49, 100, 40, "grey_blue");
   greenSlider.setLimits(0.0, 0.0, 255.0);
   greenSlider.setNumberFormat(G4P.DECIMAL, 2);
   greenSlider.setOpaque(false);
   greenSlider.addEventHandler(this, "greenSliderClick");
-  blueSlider = new GCustomSlider(gui, 112, 72, 100, 40, "grey_blue");
+  blueSlider = new GCustomSlider(gui, 131, 72, 100, 40, "grey_blue");
   blueSlider.setLimits(0.0, 0.0, 255.0);
   blueSlider.setNumberFormat(G4P.DECIMAL, 2);
   blueSlider.setOpaque(false);
   blueSlider.addEventHandler(this, "blueSliderChange");
-  redSlider = new GCustomSlider(gui, 112, 25, 100, 40, "grey_blue");
+  redSlider = new GCustomSlider(gui, 131, 26, 100, 40, "grey_blue");
   redSlider.setLimits(255.0, 0.0, 255.0);
   redSlider.setNumberFormat(G4P.DECIMAL, 2);
   redSlider.setOpaque(false);
@@ -244,17 +247,17 @@ public void createGUI(){
   savetilebutton.setText("Visualise Pattern!");
   savetilebutton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   savetilebutton.addEventHandler(this, "tilescreenshot");
-  widthSlider = new GCustomSlider(gui, 220, 24, 100, 40, "grey_blue");
+  widthSlider = new GCustomSlider(gui, 265, 24, 100, 40, "grey_blue");
   widthSlider.setLimits(100.0, 0.0, 500.0);
   widthSlider.setNumberFormat(G4P.DECIMAL, 2);
   widthSlider.setOpaque(false);
   widthSlider.addEventHandler(this, "widthSliderChange");
-  heightSlider = new GCustomSlider(gui, 220, 48, 100, 40, "grey_blue");
+  heightSlider = new GCustomSlider(gui, 265, 49, 100, 40, "grey_blue");
   heightSlider.setLimits(100.0, 0.0, 500.0);
   heightSlider.setNumberFormat(G4P.DECIMAL, 2);
   heightSlider.setOpaque(false);
   heightSlider.addEventHandler(this, "heightSliderChange");
-  label2 = new GLabel(gui, 220, 6, 80, 20);
+  label2 = new GLabel(gui, 265, 4, 80, 20);
   label2.setText("Size Sliders");
   label2.setOpaque(false);
   gridButton = new GCheckbox(gui, 218, 171, 120, 21);
@@ -288,15 +291,27 @@ public void createGUI(){
   bgBlueSlider.setNumberFormat(G4P.INTEGER, 0);
   bgBlueSlider.setOpaque(false);
   bgBlueSlider.addEventHandler(this, "bgBlueSliderChange");
-  fwdShapeButton = new GButton(gui, 223, 92, 106, 30);
+  fwdShapeButton = new GButton(gui, 262, 93, 106, 30);
   fwdShapeButton.setTextAlign(GAlign.CENTER, GAlign.RIGHT);
   fwdShapeButton.setText("Move Shape Forwards");
   fwdShapeButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   fwdShapeButton.addEventHandler(this, "fwdShapeButtonClick");
-  bwkShapeButton = new GButton(gui, 223, 129, 107, 30);
+  bwkShapeButton = new GButton(gui, 262, 128, 107, 30);
   bwkShapeButton.setText("Move Shape Backwards");
   bwkShapeButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   bwkShapeButton.addEventHandler(this, "bwkShapeButtonClicked");
+  label4 = new GLabel(gui, 109, 38, 20, 20);
+  label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label4.setText("R");
+  label4.setOpaque(false);
+  label5 = new GLabel(gui, 109, 61, 20, 20);
+  label5.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label5.setText("G");
+  label5.setOpaque(false);
+  label6 = new GLabel(gui, 110, 84, 20, 20);
+  label6.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label6.setText("B");
+  label6.setOpaque(false);
   tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 240, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
@@ -326,6 +341,8 @@ public void createGUI(){
   libraryButton = new GButton(startWin, 210, 290, 80, 30);
   libraryButton.setText("Library");
   libraryButton.addEventHandler(this, "libraryClicked");
+  title = new GImageButton(startWin, 140, 34, 222, 104, new String[] { "MODELLO.png", "MODELLO.png", "MODELLO.png" } );
+  title.addEventHandler(this, "titleClicked");
   library = GWindow.getWindow(this, "Library", 1000, 400, 500, 400, JAVA2D);
   library.noLoop();
   library.setActionOnClose(G4P.KEEP_OPEN);
@@ -411,6 +428,9 @@ GCustomSlider bgGreenSlider;
 GCustomSlider bgBlueSlider; 
 GButton fwdShapeButton; 
 GButton bwkShapeButton; 
+GLabel label4; 
+GLabel label5; 
+GLabel label6; 
 GWindow tutorial;
 GButton next; 
 GButton back; 
@@ -419,6 +439,7 @@ GWindow startWin;
 GButton start; 
 GButton tutButton; 
 GButton libraryButton; 
+GImageButton title; 
 GWindow library;
 GButton closeLib; 
 GWindow ArrGUI;
