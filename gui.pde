@@ -50,14 +50,8 @@ public void redSliderChange(GCustomSlider source, GEvent event) { //_CODE_:redSl
 } //_CODE_:redSlider:415599:
 
 public void tilescreenshot(GButton source, GEvent event) { //_CODE_:savetilebutton:575000:
-  saveFrame("SavedTile.png");
-  currentPattern = new Arrangement();
-  
-  ArrGUI.setVisible(true);
-  arrguiShow = true;
-  
-  gui.setVisible(false);
-  arrTypedroplist.setSelected(1);
+  TileStatus = "preparing";
+  VisualisePattern(currentTile);
 } //_CODE_:savetilebutton:575000:
 
 public void widthSliderChange(GCustomSlider source, GEvent event) { //_CODE_:widthSlider:844943:

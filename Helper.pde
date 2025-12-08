@@ -51,3 +51,25 @@ void changeArrangementValues(Arrangement a) {
   a.hsize = arrheightslider.getValueI();
   a.wsize = arrwidthslider.getValueI();
 }
+
+void VisualisePattern(PatternTile p){  // MIGHT NOT WORK YET
+  if (TileStatus.equals("preparing")){
+    p.seeGrid = false;
+    gridButton.setSelected(false);
+    
+    TileStatus = "visualising";
+  }
+  
+  else if(TileStatus.equals("visualising")){
+    saveFrame("SavedTile.png");
+    currentPattern = new Arrangement();
+    
+    ArrGUI.setVisible(true);
+    arrguiShow = true;
+    
+    gui.setVisible(false);
+    arrTypedroplist.setSelected(1);
+    
+    TileStatus = "creating";
+  }
+}

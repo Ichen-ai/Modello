@@ -58,15 +58,13 @@ class Arrangement{
     int xnum = ceil(width/xSpacing);
     int ynum = ceil(height/ySpacing);
     
-    //int n = 0;
+  
     
     for (int i = 0; i < xnum; i++){
       for(int j = 0; j < ynum; j++){
         float xPos = i*this.xSpacing + this.wsize/2.0;
         float yPos = j*this.ySpacing + this.hsize/2.0;
-        //this.ArrangedShapes.add(new Shape(this.ArrangedShape.type, new PVector (xPos, yPos), this.ArrangedShape.hei, this.ArrangedShape.wid, int(red(this.ArrangedShape.colour)), int(green(this.ArrangedShape.colour)), int(blue(this.ArrangedShape.colour))));
-        //this.ArrangedShapes.get(n).drawShape();
-        //n ++;
+       
         
         image(ATile, xPos, yPos, wsize, hsize);
         }
@@ -77,21 +75,18 @@ class Arrangement{
     int xnum = ceil(width/xSpacing);
     int ynum = ceil(height/ySpacing) + 1;
     
-    //int n = 0;
+    
     
     for (int i = 0; i < xnum; i++){
       for(int j = 0; j < ynum; j++){
         
         float xPos = i*this.xSpacing + this.wsize/2.0;
-        float yPos = j*this.ySpacing ; //+ this.hsize/2.0
+        float yPos = j*this.ySpacing ; 
         
         if (i % 2 == 1){
           yPos += this.hsize/2;
         }
         
-        //this.ArrangedShapes.add(new Shape(this.ArrangedShape.type, new PVector (xPos, yPos), this.ArrangedShape.hei, this.ArrangedShape.wid, int(red(this.ArrangedShape.colour)), int(green(this.ArrangedShape.colour)), int(blue(this.ArrangedShape.colour))));
-        //this.ArrangedShapes.get(n).drawShape();
-        //n ++;
         image(ATile, xPos, yPos, wsize, hsize);
         }
       }
@@ -101,7 +96,6 @@ class Arrangement{
     int xnum = ceil(width/xSpacing) + 1;
     int ynum = ceil(height/ySpacing);
     
-    //int n = 0;
     
     for (int i = 0; i < xnum; i++){
       for(int j = 0; j < ynum; j++){
@@ -112,10 +106,6 @@ class Arrangement{
         if (j % 2 == 1){
           xPos += this.wsize/2.0;
         }
-        
-        //this.ArrangedShapes.add(new Shape(this.ArrangedShape.type, new PVector (xPos, yPos), this.ArrangedShape.hei, this.ArrangedShape.wid, int(red(this.ArrangedShape.colour)), int(green(this.ArrangedShape.colour)), int(blue(this.ArrangedShape.colour))));
-        //this.ArrangedShapes.get(n).drawShape();
-        //n ++;
         
         image(ATile, xPos, yPos, wsize, hsize);
         }

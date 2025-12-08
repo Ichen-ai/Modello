@@ -17,6 +17,7 @@ int savedPTilenum = 1;
 
 color bgColour = color(255);
 
+String TileStatus = "creating";
 
 
 
@@ -39,5 +40,9 @@ void draw() {
   if (arrguiShow) {
     background(bgColour);
     currentPattern.drawPattern();
+  }
+  
+  if (TileStatus.equals("visualising")){
+    VisualisePattern(currentTile);
   }
 }
