@@ -120,6 +120,10 @@ public void bwkShapeButtonClicked(GButton source, GEvent event) { //_CODE_:bwkSh
   }
 } //_CODE_:bwkShapeButton:867870:
 
+public void toStartClicked(GButton source, GEvent event) { //_CODE_:toStart:677194:
+  windowName = "Start";
+} //_CODE_:toStart:677194:
+
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
   appc.background(230);
 } //_CODE_:tutorial:852036:
@@ -212,7 +216,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Modello");
-  gui = GWindow.getWindow(this, "GUI", 100, 200, 380, 220, JAVA2D);
+  gui = GWindow.getWindow(this, "GUI", 100, 200, 380, 250, JAVA2D);
   gui.noLoop();
   gui.setActionOnClose(G4P.KEEP_OPEN);
   gui.addDrawHandler(this, "guiDraw");
@@ -273,7 +277,7 @@ public void createGUI(){
   autoAlign.setText("Allow auto align");
   autoAlign.setOpaque(false);
   autoAlign.addEventHandler(this, "autoAlignClicked");
-  label3 = new GLabel(gui, 110, 116, 112, 20);
+  label3 = new GLabel(gui, 109, 115, 80, 20);
   label3.setText("Background Colour");
   label3.setOpaque(false);
   bgRedSlider = new GCustomSlider(gui, 110, 137, 100, 40, "grey_blue");
@@ -312,6 +316,10 @@ public void createGUI(){
   label6.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label6.setText("B");
   label6.setOpaque(false);
+  toStart = new GButton(gui, 13, 213, 80, 30);
+  toStart.setText("Return");
+  toStart.setLocalColorScheme(GCScheme.RED_SCHEME);
+  toStart.addEventHandler(this, "toStartClicked");
   tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 240, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
@@ -431,6 +439,7 @@ GButton bwkShapeButton;
 GLabel label4; 
 GLabel label5; 
 GLabel label6; 
+GButton toStart; 
 GWindow tutorial;
 GButton next; 
 GButton back; 
