@@ -47,6 +47,7 @@ public void blueSliderChange(GCustomSlider source, GEvent event) { //_CODE_:blue
 
 public void redSliderChange(GCustomSlider source, GEvent event) { //_CODE_:redSlider:415599:
   changeShapeValues();
+  //title.
 } //_CODE_:redSlider:415599:
 
 public void tilescreenshot(GButton source, GEvent event) { //_CODE_:savetilebutton:575000:
@@ -125,7 +126,7 @@ public void toStartClicked(GButton source, GEvent event) { //_CODE_:toStart:6771
 } //_CODE_:toStart:677194:
 
 public void ssClicked(GButton source, GEvent event) { //_CODE_:ss:759812:
-  saveFrame("Screenshots/Screenshot " + screenshotNum + ".png");
+  saveFrame("savedPhotos/photo " + screenshotNum + ".png");
   screenshotNum++;
 } //_CODE_:ss:759812:
 
@@ -161,9 +162,6 @@ public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:
 public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButton:312218:
   windowName = "Library";
 } //_CODE_:libraryButton:312218:
-
-public void titleClicked(GImageButton source, GEvent event) { //_CODE_:title:537473:
-} //_CODE_:title:537473:
 
 synchronized public void libraryDraw(PApplet appc, GWinData data) { //_CODE_:library:358380:
   appc.background(230);
@@ -326,7 +324,7 @@ public void createGUI(){
   toStart.setLocalColorScheme(GCScheme.RED_SCHEME);
   toStart.addEventHandler(this, "toStartClicked");
   ss = new GButton(gui, 263, 214, 107, 30);
-  ss.setText("ScreenShot");
+  ss.setText("SAVE");
   ss.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   ss.addEventHandler(this, "ssClicked");
   tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 240, JAVA2D);
@@ -358,8 +356,6 @@ public void createGUI(){
   libraryButton = new GButton(startWin, 210, 290, 80, 30);
   libraryButton.setText("Library");
   libraryButton.addEventHandler(this, "libraryClicked");
-  title = new GImageButton(startWin, 140, 34, 222, 104, new String[] { "MODELLO.png", "MODELLO.png", "MODELLO.png" } );
-  title.addEventHandler(this, "titleClicked");
   library = GWindow.getWindow(this, "Library", 1000, 400, 500, 400, JAVA2D);
   library.noLoop();
   library.setActionOnClose(G4P.KEEP_OPEN);
@@ -458,7 +454,6 @@ GWindow startWin;
 GButton start; 
 GButton tutButton; 
 GButton libraryButton; 
-GImageButton title; 
 GWindow library;
 GButton closeLib; 
 GWindow ArrGUI;
