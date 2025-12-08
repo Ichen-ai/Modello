@@ -18,6 +18,8 @@ int savedPTilenum = 1;
 
 color bgColour = color(255);
 
+GImageButton title;
+
 
 
 
@@ -25,7 +27,7 @@ void setup() {
   size(500, 500);
   createGUI();
   
-  GImageButton title = new GImageButton(startWin, 140, 34, 222, 104, new String[] { "MODELLO.png", "MODELLO.png", "MODELLO.png" } );
+  title = new GImageButton(startWin, 140, 34, 222, 104, new String[] { "MODELLO.png", "MODELLO.png", "MODELLO.png" } );
 
 }
 
