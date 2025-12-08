@@ -119,11 +119,6 @@ public void toStartClicked(GButton source, GEvent event) { //_CODE_:toStart:6771
   windowName = "Start";
 } //_CODE_:toStart:677194:
 
-public void ssClicked(GButton source, GEvent event) { //_CODE_:ss:759812:
-  saveFrame("savedPhotos/photo " + screenshotNum + ".png");
-  screenshotNum++;
-} //_CODE_:ss:759812:
-
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
   appc.background(230);
 } //_CODE_:tutorial:852036:
@@ -203,6 +198,11 @@ public void arrheislider_change1(GCustomSlider source, GEvent event) { //_CODE_:
 public void addLibraryButtonClicked(GButton source, GEvent event) { //_CODE_:addLibraryButton:544916:
   println("addLibraryButton - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:addLibraryButton:544916:
+
+public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternSave:520565:
+  saveFrame("savedPhotos/photo " + screenshotNum + ".png");
+  screenshotNum++;
+} //_CODE_:patternSave:520565:
 
 
 
@@ -317,10 +317,6 @@ public void createGUI(){
   toStart.setText("Return");
   toStart.setLocalColorScheme(GCScheme.RED_SCHEME);
   toStart.addEventHandler(this, "toStartClicked");
-  ss = new GButton(gui, 263, 214, 107, 30);
-  ss.setText("SAVE");
-  ss.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
-  ss.addEventHandler(this, "ssClicked");
   tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 240, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
@@ -362,7 +358,7 @@ public void createGUI(){
   ArrGUI.noLoop();
   ArrGUI.setActionOnClose(G4P.KEEP_OPEN);
   ArrGUI.addDrawHandler(this, "win_draw1");
-  aguiback = new GButton(ArrGUI, 8, 152, 95, 30);
+  aguiback = new GButton(ArrGUI, 7, 152, 95, 30);
   aguiback.setText("Back to Canvas");
   aguiback.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   aguiback.addEventHandler(this, "guibackbutton_clicked");
@@ -405,6 +401,10 @@ public void createGUI(){
   addLibraryButton = new GButton(ArrGUI, 7, 114, 97, 30);
   addLibraryButton.setText("Add to Library");
   addLibraryButton.addEventHandler(this, "addLibraryButtonClicked");
+  patternSave = new GButton(ArrGUI, 7, 77, 97, 30);
+  patternSave.setText("Save Pattern");
+  patternSave.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
+  patternSave.addEventHandler(this, "patternSaveClicked");
   gui.loop();
   tutorial.loop();
   startWin.loop();
@@ -439,7 +439,6 @@ GLabel label4;
 GLabel label5; 
 GLabel label6; 
 GButton toStart; 
-GButton ss; 
 GWindow tutorial;
 GButton next; 
 GButton back; 
@@ -461,3 +460,4 @@ GLabel SizeSliders;
 GCustomSlider arrwidthslider; 
 GCustomSlider arrheightslider; 
 GButton addLibraryButton; 
+GButton patternSave; 
