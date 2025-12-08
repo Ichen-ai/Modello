@@ -4,6 +4,7 @@ String windowName = "Start";
 Boolean tutorialShow = false;
 int tutPage = 1;
 PFont titleFont;
+int screenshotNum;
 
 //Shape currentShape;
 PatternTile currentTile = new PatternTile();
