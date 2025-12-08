@@ -47,6 +47,7 @@ public void blueSliderChange(GCustomSlider source, GEvent event) { //_CODE_:blue
 
 public void redSliderChange(GCustomSlider source, GEvent event) { //_CODE_:redSlider:415599:
   changeShapeValues();
+  //title.
 } //_CODE_:redSlider:415599:
 
 public void tilescreenshot(GButton source, GEvent event) { //_CODE_:savetilebutton:575000:
@@ -118,6 +119,11 @@ public void toStartClicked(GButton source, GEvent event) { //_CODE_:toStart:6771
   windowName = "Start";
 } //_CODE_:toStart:677194:
 
+public void ssClicked(GButton source, GEvent event) { //_CODE_:ss:759812:
+  saveFrame("savedPhotos/photo " + screenshotNum + ".png");
+  screenshotNum++;
+} //_CODE_:ss:759812:
+
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
   appc.background(230);
 } //_CODE_:tutorial:852036:
@@ -150,9 +156,6 @@ public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:
 public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButton:312218:
   windowName = "Library";
 } //_CODE_:libraryButton:312218:
-
-public void titleClicked(GImageButton source, GEvent event) { //_CODE_:title:537473:
-} //_CODE_:title:537473:
 
 synchronized public void libraryDraw(PApplet appc, GWinData data) { //_CODE_:library:358380:
   appc.background(230);
@@ -258,7 +261,7 @@ public void createGUI(){
   label2 = new GLabel(gui, 265, 4, 80, 20);
   label2.setText("Size Sliders");
   label2.setOpaque(false);
-  gridButton = new GCheckbox(gui, 218, 171, 120, 21);
+  gridButton = new GCheckbox(gui, 217, 165, 120, 21);
   gridButton.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   gridButton.setText("See grid");
   gridButton.setOpaque(false);
@@ -266,7 +269,7 @@ public void createGUI(){
   clearButton = new GButton(gui, 13, 131, 80, 30);
   clearButton.setText("Clear");
   clearButton.addEventHandler(this, "clearButtonClick");
-  autoAlign = new GCheckbox(gui, 217, 192, 120, 20);
+  autoAlign = new GCheckbox(gui, 217, 190, 120, 20);
   autoAlign.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   autoAlign.setText("Allow auto align");
   autoAlign.setOpaque(false);
@@ -314,6 +317,10 @@ public void createGUI(){
   toStart.setText("Return");
   toStart.setLocalColorScheme(GCScheme.RED_SCHEME);
   toStart.addEventHandler(this, "toStartClicked");
+  ss = new GButton(gui, 263, 214, 107, 30);
+  ss.setText("SAVE");
+  ss.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
+  ss.addEventHandler(this, "ssClicked");
   tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 240, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
@@ -343,8 +350,6 @@ public void createGUI(){
   libraryButton = new GButton(startWin, 210, 290, 80, 30);
   libraryButton.setText("Library");
   libraryButton.addEventHandler(this, "libraryClicked");
-  title = new GImageButton(startWin, 140, 34, 222, 104, new String[] { "MODELLO.png", "MODELLO.png", "MODELLO.png" } );
-  title.addEventHandler(this, "titleClicked");
   library = GWindow.getWindow(this, "Library", 1000, 400, 500, 400, JAVA2D);
   library.noLoop();
   library.setActionOnClose(G4P.KEEP_OPEN);
@@ -434,6 +439,7 @@ GLabel label4;
 GLabel label5; 
 GLabel label6; 
 GButton toStart; 
+GButton ss; 
 GWindow tutorial;
 GButton next; 
 GButton back; 
@@ -442,7 +448,6 @@ GWindow startWin;
 GButton start; 
 GButton tutButton; 
 GButton libraryButton; 
-GImageButton title; 
 GWindow library;
 GButton closeLib; 
 GWindow ArrGUI;

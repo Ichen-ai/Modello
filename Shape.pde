@@ -33,7 +33,8 @@ class Shape {
     if (this.type.equals("ellipse")) {
       ellipse(this.pos.x, this.pos.y, this.wid, this.hei);
     } else if (this.type.equals("rectangle")) {
-      rect(this.pos.x, this.pos.y, this.hei, this.wid);
+      rect(this.pos.x, this.pos.y, this.wid, this.hei);
+      
     } else if (this.type.equals("triangle")) {
       x1 = this.pos.x - this.wid/2;
       y1 = this.pos.y + this.hei/2;
