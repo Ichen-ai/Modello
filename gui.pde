@@ -200,7 +200,7 @@ public void arrheislider_change1(GCustomSlider source, GEvent event) { //_CODE_:
 } //_CODE_:arrheightslider:213641:
 
 public void addLibraryButtonClicked(GButton source, GEvent event) { //_CODE_:addLibraryButton:544916:
-  
+  saveFrame("libraryIcon####.png");
 } //_CODE_:addLibraryButton:544916:
 
 public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternSave:520565:

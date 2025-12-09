@@ -32,6 +32,29 @@ void displayScreen(){
   //Users can see all their saved patterns together
   else if (windowName.equals("Library")){
     library.setVisible(true);
+    
+    //for loop to add all the images
+    int rows = numAddLib/4;
+    int columns = 4;
+    if (numAddLib > 10){
+      imageFileNum = "libraryIcon000"+numAddLib+".png";
+    }
+    else if (numAddLib > 100){
+      imageFileNum = "libraryIcon00"+numAddLib+".png";
+    }
+    else if (numAddLib > 100){
+      imageFileNum = "libraryIcon0"+numAddLib+".png";
+    }
+    else{
+      imageFileNum = "libraryIcon"+numAddLib+".png";
+    }
+    
+    for(int i = 0; i >= rows; i++){
+      for (int j = 0; j >= columns;  j++){
+        loadPattern = new GImageButton(ArrGUI, 200, 200, 50+100*j, 50+100*i, new String[] {imageFileNum, imageFileNum, imageFileNum} );
+      }
+    }
+    
     windowName = "none";
   }
   
