@@ -5,6 +5,8 @@ Boolean tutorialShow = false;
 int tutPage = 1;
 PFont titleFont;
 int screenshotNum;
+int numAddLib = 0;
+String imageFileNum;
 
 //Shape currentShape;
 PatternTile currentTile = new PatternTile();
@@ -20,7 +22,7 @@ color bgColour = color(255);
 
 String TileStatus = "creating";
 
-GImageButton title;
+GImageButton title, loadPattern;
 
 void setup() {
   size(500, 500);
