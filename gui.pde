@@ -218,7 +218,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Modello");
-  gui = GWindow.getWindow(this, "GUI", 100, 200, 420, 250, JAVA2D);
+  gui = GWindow.getWindow(this, "GUI", 100, 200, 400, 250, JAVA2D);
   gui.noLoop();
   gui.setActionOnClose(G4P.KEEP_OPEN);
   gui.addDrawHandler(this, "guiDraw");
@@ -303,12 +303,12 @@ public void createGUI(){
   bgBlueSlider.setNumberFormat(G4P.INTEGER, 0);
   bgBlueSlider.setOpaque(false);
   bgBlueSlider.addEventHandler(this, "bgBlueSliderChange");
-  fwdShapeButton = new GButton(gui, 241, 85, 143, 30);
+  fwdShapeButton = new GButton(gui, 239, 87, 143, 30);
   fwdShapeButton.setTextAlign(GAlign.CENTER, GAlign.RIGHT);
   fwdShapeButton.setText("Move Shape Forwards");
   fwdShapeButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   fwdShapeButton.addEventHandler(this, "fwdShapeButtonClick");
-  bwkShapeButton = new GButton(gui, 241, 123, 143, 30);
+  bwkShapeButton = new GButton(gui, 241, 123, 142, 30);
   bwkShapeButton.setText("Move Shape Backwards");
   bwkShapeButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   bwkShapeButton.addEventHandler(this, "bwkShapeButtonClicked");
@@ -346,12 +346,12 @@ public void createGUI(){
   label11.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label11.setText("B");
   label11.setOpaque(false);
-  gridSlider = new GCustomSlider(gui, 278, 201, 100, 40, "grey_blue");
+  gridSlider = new GCustomSlider(gui, 280, 201, 100, 40, "grey_blue");
   gridSlider.setLimits(25.0, 10.0, 50.0);
   gridSlider.setNumberFormat(G4P.DECIMAL, 2);
   gridSlider.setOpaque(false);
   gridSlider.addEventHandler(this, "gridSliderChange");
-  label12 = new GLabel(gui, 230, 204, 52, 28);
+  label12 = new GLabel(gui, 230, 206, 52, 28);
   label12.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label12.setText("Grid Size");
   label12.setOpaque(false);
