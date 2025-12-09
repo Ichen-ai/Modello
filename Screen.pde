@@ -36,18 +36,7 @@ void displayScreen(){
     //for loop to add all the images
     int rows = numAddLib/4;
     int columns = 4;
-    if (numAddLib > 10){
-      imageFileNum = "libraryIcon000"+numAddLib+".png";
-    }
-    else if (numAddLib > 100){
-      imageFileNum = "libraryIcon00"+numAddLib+".png";
-    }
-    else if (numAddLib > 100){
-      imageFileNum = "libraryIcon0"+numAddLib+".png";
-    }
-    else{
-      imageFileNum = "libraryIcon"+numAddLib+".png";
-    }
+    imageFileNum = "libraryIcon"+numAddLib+".png";
     
     for(int i = 0; i >= rows; i++){
       for (int j = 0; j >= columns;  j++){
