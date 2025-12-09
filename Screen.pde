@@ -52,6 +52,7 @@ void displayScreen(){
     for(int i = 0; i >= rows; i++){
       for (int j = 0; j >= columns;  j++){
         loadPattern = new GImageButton(ArrGUI, 200, 200, 50+100*j, 50+100*i, new String[] {imageFileNum, imageFileNum, imageFileNum} );
+        loadPattern.addEventHandler(ArrGUI, "loadPatternClicked");
       }
     }
     

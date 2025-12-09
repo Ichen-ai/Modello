@@ -73,3 +73,7 @@ void VisualisePattern(PatternTile p){
     TileStatus = "creating";
   }
 }
+
+public void loadPatternClicked(GImageButton source, GEvent event) {
+  
+}
