@@ -20,7 +20,8 @@ class Shape {
   }
 
   //methods
-  void drawShape() {
+  void drawShape() {  
+    stayInTile();
     if (isSelected) {
       this.strokeColor = color(255, 255, 0);
     } else {
@@ -79,5 +80,12 @@ class Shape {
       }      
       return in;
     } else return false;
+  }
+  
+  void stayInTile() {
+    if (this.pos.x > width) this.pos.x = width;
+    else if (this.pos.x < 0) this.pos.x = 0;
+    else if (this.pos.y > height) this.pos.y = height;
+    else if (this.pos.y < 0) this.pos.y = 0;
   }
 }
