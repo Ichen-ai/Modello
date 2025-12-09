@@ -120,7 +120,7 @@ public void toStartClicked(GButton source, GEvent event) { //_CODE_:toStart:6771
 } //_CODE_:toStart:677194:
 
 public void gridSliderChange(GCustomSlider source, GEvent event) { //_CODE_:gridSlider:954807:
-  println("gridSlider - GCustomSlider >> GEvent." + event + " @ " + millis());
+  currentTile.gridSize = gridSlider.getValueI();;
 } //_CODE_:gridSlider:954807:
 
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
