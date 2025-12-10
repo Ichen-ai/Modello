@@ -18,7 +18,7 @@ Boolean arrguiShow = false;
 
 int savedPTilenum = 1;
 
-color bgColour = color(255);
+color bgColour = color(100);
 
 String TileStatus = "creating";
 
