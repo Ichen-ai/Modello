@@ -422,12 +422,14 @@ public void createGUI(){
   arrTypedroplist.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   arrTypedroplist.addEventHandler(this, "arrdroplist_clicked");
   X_Spacing = new GCustomSlider(ArrGUI, 135, 24, 100, 40, "grey_blue");
+  X_Spacing.setShowValue(true);
   X_Spacing.setLimits(50.0, 0.0, 500.0);
   X_Spacing.setNumberFormat(G4P.GREEN_SCHEME, 2);
   X_Spacing.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   X_Spacing.setOpaque(false);
   X_Spacing.addEventHandler(this, "arrxSpacing_slider");
   Y_Spacing = new GCustomSlider(ArrGUI, 135, 48, 100, 40, "grey_blue");
+  Y_Spacing.setShowValue(true);
   Y_Spacing.setLimits(50.0, 0.0, 500.0);
   Y_Spacing.setNumberFormat(G4P.DECIMAL, 2);
   Y_Spacing.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
@@ -440,11 +442,13 @@ public void createGUI(){
   SizeSliders.setText("Size ");
   SizeSliders.setOpaque(false);
   arrwidthslider = new GCustomSlider(ArrGUI, 134, 109, 100, 40, "grey_blue");
+  arrwidthslider.setShowValue(true);
   arrwidthslider.setLimits(50.0, 20.0, 400.0);
   arrwidthslider.setNumberFormat(G4P.DECIMAL, 2);
   arrwidthslider.setOpaque(false);
   arrwidthslider.addEventHandler(this, "arrwidthslider_change1");
   arrheightslider = new GCustomSlider(ArrGUI, 134, 132, 100, 40, "grey_blue");
+  arrheightslider.setShowValue(true);
   arrheightslider.setLimits(50.0, 20.0, 400.0);
   arrheightslider.setNumberFormat(G4P.DECIMAL, 2);
   arrheightslider.setOpaque(false);
