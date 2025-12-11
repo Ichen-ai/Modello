@@ -82,6 +82,10 @@ void iconLocation(){
   }
 }
 
-public void loadPatternClicked(GImageButton source, GEvent event) {
-  
+public void handleButtonEvents(GImageButton source, GEvent event) {
+  if (event == GEvent.CLICKED) {
+    for (int i = 0; i <= numAddLib; i++){
+      if (source == libraryImgs.get(i)) println("button", i, "clicked");
+    }
+  }
 }

@@ -30,6 +30,9 @@ GImageButton title, loadPattern;
 void setup() {
   size(500, 500);
   createGUI();
+  
+  library.setVisible(false);
+  tutorial.setVisible(false);
 }
 
 

@@ -6,15 +6,13 @@ void displayScreen(){
   //(idk this is a placeholder for now cuz gui not drawn)
   //Start screen
   if (windowName.equals("Start")){
-    tutorial.setVisible(false);
     surface.setVisible(false);
-    library.setVisible(false);
     tutButton.setVisible(true);
     gui.setVisible(false);
     ArrGUI.setVisible(false);
     startWin.setVisible(true);
     
-    title = new GImageButton(startWin, 80, 34, 333, 156, new String[] { "MODELLO.png", "MODELLO.png", "MODELLO.png" } );
+    title = new GImageButton(startWin, 80, 34, 333, 156, new String[] { "MODELLO.png" } );
     
     windowName = "none";
   }
@@ -42,13 +40,12 @@ void displayScreen(){
         if (drawn < numAddLib){
           libraryImgs.get(4*i+j);
           drawn++;
-          println("draw");
         }
         else{
           return;
         }
         
-        //loadPattern.addEventHandler(ArrGUI, "loadPatternClicked");
+        //loadPattern.addEventHandler(library, "loadPatternClicked");
       }
     }
     
