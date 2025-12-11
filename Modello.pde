@@ -74,7 +74,7 @@ void exit(){
     }
     
     else{
-      println("doesn't exist");
+      println(f, "doesn't exist");
     }
   }
   
