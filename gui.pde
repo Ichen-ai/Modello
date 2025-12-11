@@ -153,7 +153,7 @@ public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:
 } //_CODE_:tutButton:584753:
 
 public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButton:312218:
-  windowName = "Library";
+  libraryShow = true;
 } //_CODE_:libraryButton:312218:
 
 synchronized public void libraryDraw(PApplet appc, GWinData data) { //_CODE_:library:358380:
@@ -161,7 +161,7 @@ synchronized public void libraryDraw(PApplet appc, GWinData data) { //_CODE_:lib
 } //_CODE_:library:358380:
 
 public void closeLibClicked(GButton source, GEvent event) { //_CODE_:closeLib:641587:
-  library.setVisible(false);
+  libraryShow = false;
 } //_CODE_:closeLib:641587:
 
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:ArrGUI:776699:

@@ -29,12 +29,11 @@ void displayScreen(){
   }
   
   //Users can see all their saved patterns together
-  else if (windowName.equals("Library")){
+  if (libraryShow == true){
     library.setVisible(true);
     
     //for loop to add all the images
     imageFileNum = "libraryIcon"+numAddLib+".png";
-    int drawn = 0;
     
     for(int i = 0; i <= iconY+1; i++){
       for (int j = 0; j <= iconX+1;  j++){

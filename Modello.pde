@@ -2,6 +2,7 @@ import g4p_controls. *;
 
 String windowName = "Start";
 Boolean tutorialShow = false;
+Boolean libraryShow = false;
 int tutPage = 1;
 PFont titleFont;
 int screenshotNum;
@@ -9,6 +10,7 @@ int numAddLib = 0;
 String imageFileNum;
 int iconX = 0;
 int iconY = 0;
+int drawn = 0;
 
 //Shape currentShape;
 PatternTile currentTile = new PatternTile();
