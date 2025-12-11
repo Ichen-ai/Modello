@@ -36,8 +36,8 @@ void displayScreen(){
     imageFileNum = "libraryIcon"+numAddLib+".png";
     int drawn = 0;
     
-    for(int i = 0; i <= iconX+1; i++){
-      for (int j = 0; j <= iconY+1;  j++){
+    for(int i = 0; i <= iconY+1; i++){
+      for (int j = 0; j <= iconX+1;  j++){
         if (drawn < numAddLib){
           libraryImgs.get(4*i+j);
           drawn++;
