@@ -214,6 +214,11 @@ public void addLibraryButtonClicked(GButton source, GEvent event) { //_CODE_:add
 } //_CODE_:addLibraryButton:544916:
 
 public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternSave:520565:
+  if (!SaveConfirmed){
+    patternSave.setText("Saved!");
+    SaveTime = millis();
+    SaveConfirmed = true;
+  }
   saveFrame("savedPhotos/photo " + screenshotNum + ".png");
   screenshotNum++;
 } //_CODE_:patternSave:520565:

@@ -31,6 +31,9 @@ int savedPTilenum = 1;
 color bgColour = color(100);
 String TileStatus = "creating";
 
+Boolean SaveConfirmed = false;
+float SaveTime;
+
 GImageButton title, loadPattern;
 
 void setup() {
@@ -61,6 +64,11 @@ void draw() {
   
   if (TileStatus.equals("visualising")){ //Calls helper function to take screenshot after the grid/selection border is removed
     VisualisePattern(currentTile);
+  }
+  
+  if (SaveConfirmed && millis() - SaveTime > 2000){
+    patternSave.setText("Export Pattern");
+    SaveConfirmed = false;
   }
 }
 
