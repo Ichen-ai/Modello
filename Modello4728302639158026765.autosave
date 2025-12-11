@@ -1,4 +1,4 @@
-import g4p_controls. *;
+import g4p.
 
 String windowName = "Start";
 Boolean tutorialShow = false;
@@ -6,9 +6,9 @@ int tutPage = 1;
 PFont titleFont;
 int screenshotNum;
 int numAddLib = 0;
-String imageFileNum;
 int iconX = 0;
 int iconY = 0;
+String imageFileNum;
 
 //Shape currentShape;
 PatternTile currentTile = new PatternTile();
@@ -52,3 +52,4 @@ void draw() {
     VisualisePattern(currentTile);
   }
 }
+>>>>>>> Stashed changes

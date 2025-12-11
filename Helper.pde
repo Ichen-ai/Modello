@@ -74,6 +74,14 @@ void VisualisePattern(PatternTile p){
   }
 }
 
+void iconLocation(){
+  iconX++;
+  if (iconX >= 4){
+    iconX = 0;
+    iconY++;
+  }
+}
+
 public void loadPatternClicked(GImageButton source, GEvent event) {
   
 }
