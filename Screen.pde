@@ -23,6 +23,7 @@ void displayScreen(){
     surface.setVisible(true);
     startWin.setVisible(false);
     
+    //we set the window to none because when we set the visibility multiple times, it causes the screen to flash
     windowName = "none";
     
   }
@@ -78,6 +79,7 @@ void displayScreen(){
     
   }
   else{
+    //tutorial closed
     tutorial.setVisible(false);
   }
   

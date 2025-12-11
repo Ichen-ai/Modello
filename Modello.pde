@@ -15,7 +15,7 @@ PatternTile currentTile = new PatternTile();
 Arrangement currentPattern;
 
 ArrayList<Arrangement> Patterns; //complete patterns saved, might not be needed we will see
-ArrayList<GImageButton> libraryImgs = new ArrayList();
+ArrayList<GImageButton> libraryImgs = new ArrayList(); //an arraylist that stores the saved images as icons
 
 Boolean arrguiShow = false;
 
@@ -31,6 +31,7 @@ void setup() {
   size(500, 500);
   createGUI();
   
+  //sets these as false at the start of the program
   library.setVisible(false);
   tutorial.setVisible(false);
 }

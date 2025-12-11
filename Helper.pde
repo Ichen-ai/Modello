@@ -74,6 +74,7 @@ void VisualisePattern(PatternTile p){
   }
 }
 
+//math the icon locations
 void iconLocation(){
   iconX++;
   if (iconX >= 4){
@@ -82,6 +83,7 @@ void iconLocation(){
   }
 }
 
+//event handler. This sets what happens when the user clicks on the buttons in library
 public void handleButtonEvents(GImageButton source, GEvent event) {
   if (event == GEvent.CLICKED) {
     for (int i = 0; i <= numAddLib; i++){
