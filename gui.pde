@@ -360,7 +360,7 @@ public void createGUI(){
   label12.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label12.setText("Grid Size");
   label12.setOpaque(false);
-  tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 240, JAVA2D);
+  tutorial = GWindow.getWindow(this, "Tutorial", 510, 200, 480, 240, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
   tutorial.addDrawHandler(this, "tutDraw");
@@ -389,7 +389,7 @@ public void createGUI(){
   libraryButton = new GButton(startWin, 210, 290, 80, 30);
   libraryButton.setText("Library");
   libraryButton.addEventHandler(this, "libraryClicked");
-  library = GWindow.getWindow(this, "Library", 1000, 400, 500, 400, JAVA2D);
+  library = GWindow.getWindow(this, "Library", 500, 150, 500, 400, JAVA2D);
   library.noLoop();
   library.setActionOnClose(G4P.KEEP_OPEN);
   library.addDrawHandler(this, "libraryDraw");
@@ -397,7 +397,7 @@ public void createGUI(){
   closeLib.setText("CLOSE");
   closeLib.setLocalColorScheme(GCScheme.RED_SCHEME);
   closeLib.addEventHandler(this, "closeLibClicked");
-  ArrGUI = GWindow.getWindow(this, "Window title", 100, 450, 280, 200, JAVA2D);
+  ArrGUI = GWindow.getWindow(this, "Window title", 100, 200, 280, 200, JAVA2D);
   ArrGUI.noLoop();
   ArrGUI.setActionOnClose(G4P.KEEP_OPEN);
   ArrGUI.addDrawHandler(this, "win_draw1");
