@@ -68,7 +68,7 @@ void VisualisePattern(PatternTile p){
     arrguiShow = true;
     
     gui.setVisible(false);
-    arrTypedroplist.setSelected(1);
+    arrTypedroplist.setSelected(0);
     
     TileStatus = "creating";
   }

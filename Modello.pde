@@ -1,6 +1,8 @@
+// Importing necessary tools
 import g4p_controls. *;
 import java.io.File;
 
+// Initialising values
 String windowName = "Start";
 Boolean tutorialShow = false;
 Boolean libraryShow = false;
@@ -13,53 +15,55 @@ int iconX = 0;
 int iconY = 0;
 int drawn = 0;
 
-//Shape currentShape;
+// Creating placeholder Tile and Arrangement
 PatternTile currentTile = new PatternTile();
 Arrangement currentPattern;
 
-ArrayList<Arrangement> Patterns; //complete patterns saved, might not be needed we will see
+//Arraylists to store saved values
+ArrayList<Arrangement> SavedPatterns; //complete patterns saved (with arrangement settings and values)
+ArrayList<PatternTile> SavedTiles; // complete tiles saved (with shape settings and values)
 ArrayList<GImageButton> libraryImgs = new ArrayList(); //an arraylist that stores the saved images as icons
 
+//More initialising and creating of global variables
 Boolean arrguiShow = false;
-
 int savedPTilenum = 1;
 
 color bgColour = color(100);
-
 String TileStatus = "creating";
 
 GImageButton title, loadPattern;
 
 void setup() {
   size(500, 500);
-  createGUI();
+  createGUI(); //Creating GUI controls
   frameRate(120);
   
-  //sets these as false at the start of the program
+  //sets these windows as false (not showing) at the start of the program
   library.setVisible(false);
   tutorial.setVisible(false);
 }
 
 
 void draw() {
-  displayScreen();
-  background(bgColour);
+  displayScreen(); // Displays the current screen
+  background(bgColour); 
 
-  imageMode(CENTER);
+  imageMode(CENTER); //Positions images by their central coordinates
 
   if (!arrguiShow) {
-    currentTile.drawTile();
+    currentTile.drawTile(); // Draws the tiles if arrangement screen is not open
   }
 
   if (arrguiShow) {
     background(bgColour);
-    currentPattern.drawPattern();
+    currentPattern.drawPattern(); //Draws pattern with arrangements if on that screen
   }
   
-  if (TileStatus.equals("visualising")){
+  if (TileStatus.equals("visualising")){ //Calls helper function to take screenshot after the grid/selection border is removed
     VisualisePattern(currentTile);
   }
 }
+
 
 void exit(){
   for (int i = 0; i <= numAddLib; i++){    
