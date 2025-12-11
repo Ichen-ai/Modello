@@ -202,7 +202,7 @@ public void arrheislider_change1(GCustomSlider source, GEvent event) { //_CODE_:
 public void addLibraryButtonClicked(GButton source, GEvent event) { //_CODE_:addLibraryButton:544916:
   saveFrame("libraryIcon"+numAddLib+".png");
   imageFileNum = "libraryIcon"+numAddLib+".png";
-  libraryImgs.add(new GImageButton(ArrGUI, 56+50*iconX, 67+50*iconY, 100, 100, new String[] {imageFileNum} ));
+  libraryImgs.add(new GImageButton(library, 56+100*iconX, 30+100*iconY, 75, 75, new String[] {imageFileNum} ));
   numAddLib++;
   iconLocation();
   
