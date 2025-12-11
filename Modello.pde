@@ -1,4 +1,5 @@
 import g4p_controls. *;
+import java.io.File;
 
 String windowName = "Start";
 Boolean tutorialShow = false;
@@ -32,6 +33,7 @@ GImageButton title, loadPattern;
 void setup() {
   size(500, 500);
   createGUI();
+  frameRate(120);
   
   //sets these as false at the start of the program
   library.setVisible(false);
@@ -57,4 +59,24 @@ void draw() {
   if (TileStatus.equals("visualising")){
     VisualisePattern(currentTile);
   }
+}
+
+void exit(){
+  for (int i = 0; i <= numAddLib; i++){    
+    File f = dataFile("libraryIcon"+numAddLib+".png");
+    if (f.exists()){
+      if (f.delete()){
+        println("deleted");
+      }
+      else{
+        println("not deleted");
+      }
+    }
+    
+    else{
+      println("doesn't exist");
+    }
+  }
+  
+  super.exit();
 }
