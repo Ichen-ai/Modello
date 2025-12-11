@@ -42,6 +42,7 @@ void displayScreen(){
           drawn++;
         }
         else{
+          
           return;
         }
         
@@ -49,7 +50,9 @@ void displayScreen(){
       }
     }
     
-    windowName = "none";
+  }
+  else{
+    library.setVisible(false);
   }
   
   //Basic tutorial on how to use the program
