@@ -35,18 +35,18 @@ void displayScreen(){
     //for loop to add all the images
     imageFileNum = "libraryIcon"+numAddLib+".png";
     
-    for(int i = 0; i <= iconY+1; i++){
-      for (int j = 0; j <= iconX+1;  j++){
-        if (drawn < numAddLib){
-          libraryImgs.get(4*i+j);
-          drawn++;
+    synchronized(libraryImgs){
+      for(int i = 0; i <= iconY+1; i++){
+        for (int j = 0; j <= iconX+1;  j++){
+          if (drawn < numAddLib){
+            libraryImgs.get(4*i+j);
+            drawn++;
+          }
+          else{
+            
+            return;
+          }
         }
-        else{
-          
-          return;
-        }
-        
-        //loadPattern.addEventHandler(library, "loadPatternClicked");
       }
     }
     

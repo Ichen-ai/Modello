@@ -14,6 +14,7 @@ String imageFileNum;
 int iconX = 0;
 int iconY = 0;
 int drawn = 0;
+boolean shouldExit = false;
 
 // Creating placeholder Tile and Arrangement
 PatternTile currentTile = new PatternTile();
@@ -81,25 +82,25 @@ void draw() {
     addLibraryButton.setText("Add to Library");
     LibrConfirmed = false;
   }
+  
+  if (shouldExit == true){
+    exit();
+    return;
+  }
 }
 
 
 void exit(){
   for (int i = 0; i < numAddLib; i++){    
     File f = dataFile("libraryIcon"+i+".png");
-    if (f.exists()){
-      if (f.delete()){
-        println("deleted");
-      }
-      else{
-        println("not deleted");
-      }
-    }
-    
-    else{
-      println(f, "doesn't exist");
-    }
+    if (f.exists()) f.delete();
   }
+    
+  if (gui != null) gui.forceClose();
+  if (tutorial != null) tutorial.forceClose();
+  if (startWin != null) startWin.forceClose();
+  if (library != null) library.forceClose();
+  if (ArrGUI != null) ArrGUI.forceClose();
   
   super.exit();
 }
