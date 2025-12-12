@@ -12,7 +12,7 @@ void displayScreen(){
     ArrGUI.setVisible(false);
     startWin.setVisible(true);
     
-    title = new GImageButton(startWin, 80, 34, 333, 156, new String[] { "MODELLO.png" } );
+    title = new GImageButton(startWin, 80, 34, 333, 156, new String[] { "Assets/MODELLO.png" } );
     
     windowName = "none";
   }
