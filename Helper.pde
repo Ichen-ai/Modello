@@ -90,15 +90,17 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
       if (source == libraryImgs.get(i)){
         currentTile = SavedTiles.get(i);
         currentPattern = SavedPatterns.get(i);
-        currentPattern.ATile = loadImage("libraryIcon"+i+".png");
+        currentPattern.ATile = SavedTileImgs.get(i);
         
         windowName = "Create";
         arrguiShow = true;
+        library.setVisible(false);
       }
     }
   }
 }
 
+// Function to help copy over the values the user wants to save
 void setLibraryArrangementValues(Arrangement ar){
     ar.xSpacing = currentPattern.xSpacing;
     ar.ySpacing = currentPattern.ySpacing;

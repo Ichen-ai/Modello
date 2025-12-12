@@ -218,6 +218,9 @@ public void addLibraryButtonClicked(GButton source, GEvent event) { //_CODE_:add
   setLibraryTileValues(TileAddLibrary);
   SavedTiles.add(TileAddLibrary);
   
+  PImage TileImgAddLibrary = loadImage("SavedTile.png");
+  SavedTileImgs.add(TileImgAddLibrary);
+  
   
 } //_CODE_:addLibraryButton:544916:
 
