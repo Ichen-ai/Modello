@@ -204,6 +204,12 @@ public void arrheislider_change1(GCustomSlider source, GEvent event) { //_CODE_:
 } //_CODE_:arrheightslider:213641:
 
 public void addLibraryButtonClicked(GButton source, GEvent event) { //_CODE_:addLibraryButton:544916:
+if (!LibrConfirmed){
+    addLibraryButton.setText("Added!");
+    LibrTime = millis();
+    LibrConfirmed = true;
+  }
+  
   saveFrame(dataPath("libraryIcon"+numAddLib+".png"));
   imageFileNum = "libraryIcon"+numAddLib+".png";
   libraryImgs.add(new GImageButton(library, 56+100*iconX, 30+100*iconY, 75, 75, new String[] {imageFileNum} ));
@@ -225,11 +231,13 @@ public void addLibraryButtonClicked(GButton source, GEvent event) { //_CODE_:add
 } //_CODE_:addLibraryButton:544916:
 
 public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternSave:520565:
+//Shows confirmation of "saved!" for user
   if (!SaveConfirmed){
     patternSave.setText("Saved!");
     SaveTime = millis();
     SaveConfirmed = true;
   }
+  
   saveFrame("savedPhotos/photo " + screenshotNum + ".png");
   screenshotNum++;
 } //_CODE_:patternSave:520565:

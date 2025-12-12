@@ -35,6 +35,9 @@ String TileStatus = "creating";
 Boolean SaveConfirmed = false;
 float SaveTime;
 
+Boolean LibrConfirmed = false;
+float LibrTime;
+
 GImageButton title, loadPattern;
 
 void setup() {
@@ -67,9 +70,16 @@ void draw() {
     VisualisePattern(currentTile);
   }
   
+  //Changes the text of the export pattern back after 2 seconds if the user has clicked on it
   if (SaveConfirmed && millis() - SaveTime > 2000){
     patternSave.setText("Export Pattern");
     SaveConfirmed = false;
+  }
+  
+  //Resets the text of the save to library pattern after 3 seconds if the user has clicked on it
+  if (LibrConfirmed && millis() - LibrTime > 3000){
+    addLibraryButton.setText("Add to Library");
+    LibrConfirmed = false;
   }
 }
 
