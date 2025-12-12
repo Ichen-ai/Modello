@@ -82,6 +82,7 @@ void iconLocation(){
   }
 }
 
+boolean editingPastTile = false;
 //event handler. This sets what happens when the user clicks on the buttons in library
 public void handleButtonEvents(GImageButton source, GEvent event) {
   if (event == GEvent.CLICKED) {
@@ -92,10 +93,7 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
         currentPattern.ATile = SavedTileImgs.get(i);
         
         arrguiShow = true;
-        ArrGUI.setVisible(true);
-        gui.setVisible(false);
-        library.setVisible(false);
-        
+        editingPastTile = true;
         windowName = "Create";
       }
     }
