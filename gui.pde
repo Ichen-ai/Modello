@@ -242,6 +242,10 @@ public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternS
   screenshotNum++;
 } //_CODE_:patternSave:520565:
 
+public void libraryClicked2(GButton source, GEvent event) { //_CODE_:libraryButton2:502722:
+  libraryShow = true;
+} //_CODE_:libraryButton2:502722:
+
 
 
 // Create all the GUI controls. 
@@ -268,20 +272,17 @@ public void createGUI(){
   label1.setText("Colour Sliders");
   label1.setOpaque(false);
   greenSlider = new GCustomSlider(gui, 129, 52, 100, 40, "grey_blue");
-  greenSlider.setShowValue(true);
   greenSlider.setLimits(0.0, 0.0, 255.0);
   greenSlider.setNumberFormat(G4P.DECIMAL, 2);
   greenSlider.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   greenSlider.setOpaque(false);
   greenSlider.addEventHandler(this, "greenSliderClick");
   blueSlider = new GCustomSlider(gui, 129, 75, 100, 40, "grey_blue");
-  blueSlider.setShowValue(true);
   blueSlider.setLimits(0.0, 0.0, 255.0);
   blueSlider.setNumberFormat(G4P.DECIMAL, 2);
   blueSlider.setOpaque(false);
   blueSlider.addEventHandler(this, "blueSliderChange");
   redSlider = new GCustomSlider(gui, 129, 29, 100, 40, "grey_blue");
-  redSlider.setShowValue(true);
   redSlider.setLimits(255.0, 0.0, 255.0);
   redSlider.setNumberFormat(G4P.DECIMAL, 2);
   redSlider.setLocalColorScheme(GCScheme.RED_SCHEME);
@@ -292,14 +293,12 @@ public void createGUI(){
   savetilebutton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   savetilebutton.addEventHandler(this, "tilescreenshot");
   widthSlider = new GCustomSlider(gui, 281, 19, 100, 40, "grey_blue");
-  widthSlider.setShowValue(true);
   widthSlider.setLimits(100.0, 0.0, 500.0);
   widthSlider.setNumberFormat(G4P.DECIMAL, 2);
   widthSlider.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
   widthSlider.setOpaque(false);
   widthSlider.addEventHandler(this, "widthSliderChange");
   heightSlider = new GCustomSlider(gui, 281, 41, 100, 40, "grey_blue");
-  heightSlider.setShowValue(true);
   heightSlider.setLimits(100.0, 0.0, 500.0);
   heightSlider.setNumberFormat(G4P.DECIMAL, 2);
   heightSlider.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
@@ -325,21 +324,18 @@ public void createGUI(){
   label3.setText("Background Colour");
   label3.setOpaque(false);
   bgRedSlider = new GCustomSlider(gui, 129, 155, 100, 40, "grey_blue");
-  bgRedSlider.setShowValue(true);
   bgRedSlider.setLimits(255, 0, 255);
   bgRedSlider.setNumberFormat(G4P.INTEGER, 0);
   bgRedSlider.setLocalColorScheme(GCScheme.RED_SCHEME);
   bgRedSlider.setOpaque(false);
   bgRedSlider.addEventHandler(this, "bgRedSliderChange");
   bgGreenSlider = new GCustomSlider(gui, 129, 178, 100, 40, "grey_blue");
-  bgGreenSlider.setShowValue(true);
   bgGreenSlider.setLimits(255, 0, 255);
   bgGreenSlider.setNumberFormat(G4P.INTEGER, 0);
   bgGreenSlider.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   bgGreenSlider.setOpaque(false);
   bgGreenSlider.addEventHandler(this, "bgGreenSliderChange");
   bgBlueSlider = new GCustomSlider(gui, 129, 201, 100, 40, "grey_blue");
-  bgBlueSlider.setShowValue(true);
   bgBlueSlider.setLimits(255, 0, 255);
   bgBlueSlider.setNumberFormat(G4P.INTEGER, 0);
   bgBlueSlider.setOpaque(false);
@@ -388,7 +384,6 @@ public void createGUI(){
   label11.setText("B");
   label11.setOpaque(false);
   gridSlider = new GCustomSlider(gui, 278, 201, 100, 40, "grey_blue");
-  gridSlider.setShowValue(true);
   gridSlider.setLimits(25.0, 10.0, 50.0);
   gridSlider.setNumberFormat(G4P.DECIMAL, 2);
   gridSlider.setOpaque(false);
@@ -438,11 +433,11 @@ public void createGUI(){
   closeLib.setText("CLOSE");
   closeLib.setLocalColorScheme(GCScheme.RED_SCHEME);
   closeLib.addEventHandler(this, "closeLibClicked");
-  ArrGUI = GWindow.getWindow(this, "Window title", 100, 450, 280, 200, JAVA2D);
+  ArrGUI = GWindow.getWindow(this, "Window title", 100, 450, 280, 230, JAVA2D);
   ArrGUI.noLoop();
   ArrGUI.setActionOnClose(G4P.KEEP_OPEN);
   ArrGUI.addDrawHandler(this, "win_draw1");
-  aguiback = new GButton(ArrGUI, 7, 152, 95, 30);
+  aguiback = new GButton(ArrGUI, 90, 190, 95, 30);
   aguiback.setText("Back to Canvas");
   aguiback.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   aguiback.addEventHandler(this, "guibackbutton_clicked");
@@ -455,14 +450,12 @@ public void createGUI(){
   arrTypedroplist.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   arrTypedroplist.addEventHandler(this, "arrdroplist_clicked");
   X_Spacing = new GCustomSlider(ArrGUI, 135, 24, 100, 40, "grey_blue");
-  X_Spacing.setShowValue(true);
   X_Spacing.setLimits(50.0, 0.0, 500.0);
   X_Spacing.setNumberFormat(G4P.GREEN_SCHEME, 2);
   X_Spacing.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   X_Spacing.setOpaque(false);
   X_Spacing.addEventHandler(this, "arrxSpacing_slider");
   Y_Spacing = new GCustomSlider(ArrGUI, 135, 48, 100, 40, "grey_blue");
-  Y_Spacing.setShowValue(true);
   Y_Spacing.setLimits(50.0, 0.0, 500.0);
   Y_Spacing.setNumberFormat(G4P.DECIMAL, 2);
   Y_Spacing.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
@@ -475,24 +468,25 @@ public void createGUI(){
   SizeSliders.setText("Size ");
   SizeSliders.setOpaque(false);
   arrwidthslider = new GCustomSlider(ArrGUI, 134, 109, 100, 40, "grey_blue");
-  arrwidthslider.setShowValue(true);
   arrwidthslider.setLimits(50.0, 20.0, 400.0);
   arrwidthslider.setNumberFormat(G4P.DECIMAL, 2);
   arrwidthslider.setOpaque(false);
   arrwidthslider.addEventHandler(this, "arrwidthslider_change1");
   arrheightslider = new GCustomSlider(ArrGUI, 134, 132, 100, 40, "grey_blue");
-  arrheightslider.setShowValue(true);
   arrheightslider.setLimits(50.0, 20.0, 400.0);
   arrheightslider.setNumberFormat(G4P.DECIMAL, 2);
   arrheightslider.setOpaque(false);
   arrheightslider.addEventHandler(this, "arrheislider_change1");
-  addLibraryButton = new GButton(ArrGUI, 7, 114, 97, 30);
+  addLibraryButton = new GButton(ArrGUI, 10, 110, 97, 30);
   addLibraryButton.setText("Add to Library");
   addLibraryButton.addEventHandler(this, "addLibraryButtonClicked");
-  patternSave = new GButton(ArrGUI, 7, 77, 97, 30);
+  patternSave = new GButton(ArrGUI, 10, 70, 97, 30);
   patternSave.setText("Export Pattern");
   patternSave.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   patternSave.addEventHandler(this, "patternSaveClicked");
+  libraryButton2 = new GButton(ArrGUI, 10, 150, 97, 30);
+  libraryButton2.setText("Library");
+  libraryButton2.addEventHandler(this, "libraryClicked2");
   gui.loop();
   tutorial.loop();
   startWin.loop();
@@ -557,3 +551,4 @@ GCustomSlider arrwidthslider;
 GCustomSlider arrheightslider; 
 GButton addLibraryButton; 
 GButton patternSave; 
+GButton libraryButton2; 

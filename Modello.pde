@@ -85,8 +85,8 @@ void draw() {
 
 
 void exit(){
-  for (int i = 0; i <= numAddLib; i++){    
-    File f = dataFile("libraryIcon"+numAddLib+".png");
+  for (int i = 0; i < numAddLib; i++){    
+    File f = dataFile("libraryIcon"+i+".png");
     if (f.exists()){
       if (f.delete()){
         println("deleted");
