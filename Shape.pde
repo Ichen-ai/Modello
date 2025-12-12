@@ -1,12 +1,12 @@
 
 class Shape {
   //fields
-  String type;
-  PVector pos;
+  String type; //the type of shape
+  PVector pos; //the position of the center of the shape
   int hei, wid;
   color colour, strokeColor;
-  boolean isSelected;
-  float x1, y1, x2, y2, x3, y3;
+  boolean isSelected; //will check if user has selected the shape
+  float x1, y1, x2, y2, x3, y3; //corners for triangle shape
 
   //constructor
   Shape(String t, PVector p, int h, int w, int r, int g, int b) {
@@ -15,26 +15,27 @@ class Shape {
     this.hei = h;
     this.wid = w;
     this.colour = color(r, g, b);
-    this.strokeColor = this.colour;
-    this.isSelected = false;
+    this.strokeColor = this.colour; //the inital stroke colour is the same as the shape colour
+    this.isSelected = false; //the shape is not selected in the beginning
   }
 
   //methods
   void drawShape() {  
-    stayInTile();
+    stayInTile(); //ensures that the shape stays within the tile
     if (isSelected) {
-      this.strokeColor = color(255, 255, 0);
+      this.strokeColor = color(255, 255, 0); //will change stroke colour to allow user to visually see what shape was selected
     } else {
-      this.strokeColor = this.colour;
+      this.strokeColor = this.colour; //otherwise, if unselected will be "invisible"
     }
     stroke(this.strokeColor);
     fill(this.colour);
     rectMode(CENTER);
 
     if (this.type.equals("ellipse")) {
-      ellipse(this.pos.x, this.pos.y, this.wid, this.hei);
+      ellipse(this.pos.x, this.pos.y, this.wid, this.hei); //creates a shape
+      
     } else if (this.type.equals("rectangle")) {
-      rect(this.pos.x, this.pos.y, this.wid, this.hei);
+      rect(this.pos.x, this.pos.y, this.wid, this.hei); //creates a rectangle
       
     } else if (this.type.equals("triangle")) {
       x1 = this.pos.x - this.wid/2;
@@ -43,46 +44,47 @@ class Shape {
       y2 = this.pos.y - this.hei/2;
       x3 = this.pos.x + this.wid/2;
       y3 = this.pos.y + this.hei/2;
-      triangle(x1, y1, x2, y2, x3, y3);
+      triangle(x1, y1, x2, y2, x3, y3); //creates a triangle
     }
   }
 
-  boolean inShape(PVector p) {
+  boolean inShape(PVector p) { //used to see if users click is within a shape
     if (this.type.equals("ellipse")) {
-      return (pow((p.x - this.pos.x), 2)/pow(this.wid/2, 2)) + (pow((p.y - this.pos.y), 2)/pow(this.hei/2, 2)) <= 1;
+      return (pow((p.x - this.pos.x), 2)/pow(this.wid/2, 2)) + (pow((p.y - this.pos.y), 2)/pow(this.hei/2, 2)) <= 1; //formula to tell if the users click is within an ellipse
       
-    } else if (this.type.equals("rectangle")) {
+    } else if (this.type.equals("rectangle")) { //tells if users click is within a rectangle
       return p.x < this.pos.x + this.wid/2
         && p.x > this.pos.x - this.wid/2
         && p.y < this.pos.y + this.hei/2
         && p.y > this.pos.y - this.hei/2;
-        
+
     } else if (this.type.equals("triangle")) {
-      PVector[] poly = new PVector[3];
+      PVector[] vert = new PVector[3]; //used to hold triangle corners
       PVector[] sides = new PVector[3];
       PVector[] perpSides = new PVector[3];
 
-      poly[0] = new PVector(x1, y1);
-      poly[1] = new PVector(x2, y2);
-      poly[2] = new PVector(x3, y3);
+      vert[0] = new PVector(x1, y1);
+      vert[1] = new PVector(x2, y2);
+      vert[2] = new PVector(x3, y3);
 
       for (int i = 0; i < 3; i++) {
-        sides[i] = PVector.sub(poly[(i+1)%3], poly[i]);
+        sides[i] = PVector.sub(vert[(i+1)%3], vert[i]);
         perpSides[i] = new PVector(-sides[i].y, sides[i].x);
       }
 
       boolean in = true;
 
       for (int i = 0; i < 3; i++) {
-        PVector v1 = PVector.sub(p, poly[i]);
+        PVector v1 = PVector.sub(p, vert[i]);
         float dotProd = v1.dot(perpSides[i]);
         if ( dotProd < 0 ) in = false;
       }      
       return in;
+      
     } else return false;
   }
   
-  void stayInTile() {
+  void stayInTile() { //function checks if shape is within the screen of canvas
     if (this.pos.x > width) this.pos.x = width;
     else if (this.pos.x < 0) this.pos.x = 0;
     else if (this.pos.y > height) this.pos.y = height;
