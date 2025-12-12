@@ -54,7 +54,7 @@ void setup() {
   startClickImg = new GImageButton(tutorial, 100, 50, 300, 220, new String[] { "Assets/startClick.png"} );
   createScreenImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/createScreen.png"} );
   guiAddShapeImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/guiAddShape.png"} );
-  selectShapeImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/selectShape.png"} );
+  selectShapeImg = new GImageButton(tutorial, 100, 50, 300, 220, new String[] { "Assets/selectShape.png"} );
   GUIImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/GUI.png"} );
   VPCImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/visualizePatternClicked.png"} );
   VPImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/visualizePattern.png"} );
@@ -63,7 +63,7 @@ void setup() {
   libraryImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/library.png"} );
   arrGUIImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/arrGUI.png"} );
   tutorialEnd = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/MODELLOTUT.png"} );
-  tutorialLabel = new GLabel(tutorial, 120, 8, 200, 100);
+  tutorialLabel = new GLabel(tutorial, 50, 8, 380, 50);
   
 
   // Set initial state
