@@ -98,6 +98,8 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
           ArrGUI.setVisible(true);
           gui.setVisible(false);
           library.setVisible(false);
+          
+          windowName = "Create";
         }
       }
     }

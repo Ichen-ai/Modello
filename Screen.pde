@@ -3,9 +3,6 @@
 void displayScreen(){
   fill(0);
   
-  GImageButton startImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/start.png"} );
-  GImageButton startClickImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/startClick.png"} );
-  
   //(idk this is a placeholder for now cuz gui not drawn)
   //Start screen
   if (windowName.equals("Start")){

@@ -39,11 +39,25 @@ float SaveTime;
 Boolean LibrConfirmed = false;
 float LibrTime;
 
-GImageButton title, loadPattern;
+
+//Global GImageButton Variables
+GImageButton title, loadPattern, startImg, startClickImg, createScreenImg, guiAddShapeImg, selectShapeImg;
 
 void setup() {
   size(500, 500);
   createGUI(); //Creating GUI controls
+  
+  // Initialize GImageButtons
+  startImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/start.png"} );
+  startClickImg = new GImageButton(tutorial, 100, 50, 300, 220, new String[] { "Assets/startClick.png"} );
+  createScreenImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/createScreen.png"} );
+  guiAddShapeImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/guiAddShape.png"} );
+  selectShapeImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/selectShape.png"} );
+  
+
+  // Set initial state
+  startImg.setVisible(false);
+  startClickImg.setVisible(false);
   
   //sets these windows as false (not showing) at the start of the program
   library.setVisible(false);
