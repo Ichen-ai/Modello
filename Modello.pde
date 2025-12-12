@@ -61,7 +61,7 @@ void setup() {
   addToLibImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/addToLibrary.png"} );
   libraryClickedImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/libraryClicked.png"} );
   libraryImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/library.png"} );
-  arrGUIImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/arrGUI.png"} );
+  arrGUIImg = new GImageButton(tutorial, 120, 70, 250, 220, new String[] { "Assets/arrGUI.png"} );
   tutorialEnd = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/MODELLOTUT.png"} );
   tutorialLabel = new GLabel(tutorial, 50, 8, 380, 50);
   
