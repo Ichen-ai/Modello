@@ -186,12 +186,11 @@ public void arrdroplist_clicked(GDropList source, GEvent event) { //_CODE_:arrTy
 } //_CODE_:arrTypedroplist:757056:
 
 public void arrxSpacing_slider(GCustomSlider source, GEvent event) { //_CODE_:X_Spacing:703950:
-
   changeArrangementValues(currentPattern);
 } //_CODE_:X_Spacing:703950:
 
 public void arrYSpacing_change1(GCustomSlider source, GEvent event) { //_CODE_:Y_Spacing:640983:
-changeArrangementValues(currentPattern);
+  changeArrangementValues(currentPattern);
   
 } //_CODE_:Y_Spacing:640983:
 
@@ -204,29 +203,33 @@ public void arrheislider_change1(GCustomSlider source, GEvent event) { //_CODE_:
 } //_CODE_:arrheightslider:213641:
 
 public void addLibraryButtonClicked(GButton source, GEvent event) { //_CODE_:addLibraryButton:544916:
+// Changes text on the button to "Added!" and records current time
 if (!LibrConfirmed){
     addLibraryButton.setText("Added!");
     LibrTime = millis();
     LibrConfirmed = true;
   }
   
+  //Saves a screenshot of the entire pattern to the Library
   saveFrame(dataPath("libraryIcon"+numAddLib+".png"));
   imageFileNum = "libraryIcon"+numAddLib+".png";
-  libraryImgs.add(new GImageButton(library, 56+100*iconX, 30+100*iconY, 75, 75, new String[] {imageFileNum} ));
+  libraryImgs.add(new GImageButton(library, 56+100*iconX, 30+100*iconY, 75, 75, new String[] {imageFileNum} )); //Creates a new GImageButton in the Library
   numAddLib++;
   iconLocation();
   
+  //Creates a copy of the current pattern's arrangemenet to be added to the saved patterns
   Arrangement ArrangementAddLibrary = new Arrangement();
   setLibraryArrangementValues(ArrangementAddLibrary);
   SavedPatterns.add(ArrangementAddLibrary);
   
+  //Creates a copy of the current pattern's tiles to be added to the saved pattern tiles
   PatternTile TileAddLibrary = new PatternTile();
   setLibraryTileValues(TileAddLibrary);
   SavedTiles.add(TileAddLibrary);
   
+  //Adds a copy of the current pattern's tile image to the saved tile images
   PImage TileImgAddLibrary = loadImage("SavedTile.png");
   SavedTileImgs.add(TileImgAddLibrary);
-  
   
 } //_CODE_:addLibraryButton:544916:
 
@@ -234,11 +237,11 @@ public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternS
 //Shows confirmation of "saved!" for user
   if (!SaveConfirmed){
     patternSave.setText("Saved!");
-    SaveTime = millis();
+    SaveTime = millis(); //Records the current millisecond count so that this text change can show for 2 seconds
     SaveConfirmed = true;
   }
   
-  saveFrame("savedPhotos/photo " + screenshotNum + ".png");
+  saveFrame("savedPhotos/photo " + screenshotNum + ".png"); //saves a screenshot of the pattern into the savedPhotos folder!
   screenshotNum++;
 } //_CODE_:patternSave:520565:
 

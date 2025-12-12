@@ -76,7 +76,7 @@ void draw() {
     SaveConfirmed = false;
   }
   
-  //Resets the text of the save to library pattern after 3 seconds if the user has clicked on it
+  //Resets the text of the save to library pattern back after 3 seconds if the user has clicked on it
   if (LibrConfirmed && millis() - LibrTime > 3000){
     addLibraryButton.setText("Add to Library");
     LibrConfirmed = false;
