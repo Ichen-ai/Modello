@@ -10,12 +10,10 @@ void getShapeValues(Shape s) {
 }
 
 void changeShapeValues() {
-  synchronized(currentTile.ArrangedShapes){
-    for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
-      Shape testShape = currentTile.ArrangedShapes.get(i);
-      if (testShape.isSelected) {
-        getShapeValues(testShape);
-      }
+  for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
+    Shape testShape = currentTile.ArrangedShapes.get(i);
+    if (testShape.isSelected) {
+      getShapeValues(testShape);
     }
   }
 }
@@ -87,20 +85,18 @@ void iconLocation(){
 //event handler. This sets what happens when the user clicks on the buttons in library
 public void handleButtonEvents(GImageButton source, GEvent event) {
   if (event == GEvent.CLICKED) {
-    synchronized(libraryImgs){
-      for (int i = 0; i <= numAddLib; i++){
-        if (source == libraryImgs.get(i)){
-          currentTile = SavedTiles.get(i);
-          currentPattern = SavedPatterns.get(i);
-          currentPattern.ATile = SavedTileImgs.get(i);
-          
-          arrguiShow = true;
-          ArrGUI.setVisible(true);
-          gui.setVisible(false);
-          library.setVisible(false);
-          
-          windowName = "Create";
-        }
+    for (int i = 0; i <= numAddLib; i++){
+      if (source == libraryImgs.get(i)){
+        currentTile = SavedTiles.get(i);
+        currentPattern = SavedPatterns.get(i);
+        currentPattern.ATile = SavedTileImgs.get(i);
+        
+        arrguiShow = true;
+        ArrGUI.setVisible(true);
+        gui.setVisible(false);
+        library.setVisible(false);
+        
+        windowName = "Create";
       }
     }
   }
@@ -120,9 +116,8 @@ void setLibraryArrangementValues(Arrangement ar){
 void setLibraryTileValues(PatternTile ti){
     ti.ArrangedShapes = new ArrayList();
     
-    synchronized(currentTile.ArrangedShapes){
-      for (Shape ts: currentTile.ArrangedShapes){
-        ti.ArrangedShapes.add(new Shape(ts.type, ts.pos, ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
-      }
+    for (Shape ts: currentTile.ArrangedShapes){
+      ti.ArrangedShapes.add(new Shape(ts.type, ts.pos, ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
     }
+  
 }

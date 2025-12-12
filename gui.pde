@@ -214,25 +214,23 @@ if (!LibrConfirmed){
   saveFrame(dataPath("libraryIcon"+numAddLib+".png"));
   imageFileNum = "libraryIcon"+numAddLib+".png";
   
-  synchronized(libraryImgs){
-    libraryImgs.add(new GImageButton(library, 56+100*iconX, 30+100*iconY, 75, 75, new String[] {imageFileNum} )); //Creates a new GImageButton in the Library
-    numAddLib++;
-    iconLocation();
-    
-    //Creates a copy of the current pattern's arrangemenet to be added to the saved patterns
-    Arrangement ArrangementAddLibrary = new Arrangement();
-    setLibraryArrangementValues(ArrangementAddLibrary);
-    SavedPatterns.add(ArrangementAddLibrary);
-    
-    //Creates a copy of the current pattern's tiles to be added to the saved pattern tiles
-    PatternTile TileAddLibrary = new PatternTile();
-    setLibraryTileValues(TileAddLibrary);
-    SavedTiles.add(TileAddLibrary);
-    
-    //Adds a copy of the current pattern's tile image to the saved tile images
-    PImage TileImgAddLibrary = loadImage("SavedTile.png");
-    SavedTileImgs.add(TileImgAddLibrary);
-  }
+  libraryImgs.add(new GImageButton(library, 56+100*iconX, 30+100*iconY, 75, 75, new String[] {imageFileNum} )); //Creates a new GImageButton in the Library
+  numAddLib++;
+  iconLocation();
+  
+  //Creates a copy of the current pattern's arrangemenet to be added to the saved patterns
+  Arrangement ArrangementAddLibrary = new Arrangement();
+  setLibraryArrangementValues(ArrangementAddLibrary);
+  SavedPatterns.add(ArrangementAddLibrary);
+  
+  //Creates a copy of the current pattern's tiles to be added to the saved pattern tiles
+  PatternTile TileAddLibrary = new PatternTile();
+  setLibraryTileValues(TileAddLibrary);
+  SavedTiles.add(TileAddLibrary);
+  
+  //Adds a copy of the current pattern's tile image to the saved tile images
+  PImage TileImgAddLibrary = loadImage("SavedTile.png");
+  SavedTileImgs.add(TileImgAddLibrary);
   
 } //_CODE_:addLibraryButton:544916:
 

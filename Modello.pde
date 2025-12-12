@@ -41,7 +41,7 @@ float LibrTime;
 
 
 //Global GImageButton Variables
-GImageButton title, loadPattern, startImg, startClickImg, createScreenImg, guiAddShapeImg, selectShapeImg;
+GImageButton title, loadPattern, startImg, startClickImg, createScreenImg, guiAddShapeImg, selectShapeImg, GUIImg, VPCImg, VPImg, addToLibImg, libraryClickedImg, libraryImg, arrGUIImg;
 
 void setup() {
   size(500, 500);
@@ -53,6 +53,13 @@ void setup() {
   createScreenImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/createScreen.png"} );
   guiAddShapeImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/guiAddShape.png"} );
   selectShapeImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/selectShape.png"} );
+  GUIImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/GUI.png"} );
+  VPCImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/visualizePatternClicked.png"} );
+  VPImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/visualizePattern.png"} );
+  addToLibImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/addToLibrary.png"} );
+  libraryClickedImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/libraryClicked.png"} );
+  libraryImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/library.png"} );
+  arrGUIImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/arrGUI.png"} );
   
 
   // Set initial state
