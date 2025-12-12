@@ -3,6 +3,9 @@
 void displayScreen(){
   fill(0);
   
+  GImageButton startImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/start.png"} );
+  GImageButton startClickImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/startClick.png"} );
+  
   //(idk this is a placeholder for now cuz gui not drawn)
   //Start screen
   if (windowName.equals("Start")){
@@ -64,12 +67,19 @@ void displayScreen(){
       next.setVisible(true);
       back.setVisible(false);
       finish.setVisible(false);
+      
+      startImg.setVisible(true);
+      startClickImg.setVisible(false);
     }
     //second tutorial page
     else if (tutPage == 2){
       next.setVisible(true);
       back.setVisible(true);
       finish.setVisible(false);
+      
+      startImg.setVisible(false);
+      startClickImg.setVisible(true);
+      
     }
     //last tutorial page
     else{

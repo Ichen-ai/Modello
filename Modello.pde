@@ -44,7 +44,6 @@ GImageButton title, loadPattern;
 void setup() {
   size(500, 500);
   createGUI(); //Creating GUI controls
-  frameRate(120);
   
   //sets these windows as false (not showing) at the start of the program
   library.setVisible(false);

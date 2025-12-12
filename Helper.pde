@@ -1,4 +1,3 @@
-
 void getShapeValues(Shape s) {
   s.type = shapeTypeList.getSelectedText();
   int r = redSlider.getValueI();
