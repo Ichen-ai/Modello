@@ -20,8 +20,8 @@ PatternTile currentTile = new PatternTile();
 Arrangement currentPattern;
 
 //Arraylists to store saved values
-ArrayList<Arrangement> SavedPatterns; //complete patterns saved (with arrangement settings and values)
-ArrayList<PatternTile> SavedTiles; // complete tiles saved (with shape settings and values)
+ArrayList<Arrangement> SavedPatterns = new ArrayList(); //complete patterns saved (with arrangement settings and values)
+ArrayList<PatternTile> SavedTiles = new ArrayList(); // complete tiles saved (with shape settings and values)
 ArrayList<GImageButton> libraryImgs = new ArrayList(); //an arraylist that stores the saved images as icons
 
 //More initialising and creating of global variables

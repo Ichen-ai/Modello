@@ -210,6 +210,14 @@ public void addLibraryButtonClicked(GButton source, GEvent event) { //_CODE_:add
   numAddLib++;
   iconLocation();
   
+  Arrangement ArrangementAddLibrary = new Arrangement();
+  setLibraryArrangementValues(ArrangementAddLibrary);
+  SavedPatterns.add(ArrangementAddLibrary);
+  
+  PatternTile TileAddLibrary = new PatternTile();
+  setLibraryTileValues(TileAddLibrary);
+  SavedTiles.add(TileAddLibrary);
+  
   
 } //_CODE_:addLibraryButton:544916:
 

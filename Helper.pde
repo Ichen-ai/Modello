@@ -88,8 +88,30 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
   if (event == GEvent.CLICKED) {
     for (int i = 0; i <= numAddLib; i++){
       if (source == libraryImgs.get(i)){
-        println("button", i, "clicked");
+        currentTile = SavedTiles.get(i);
+        currentPattern = SavedPatterns.get(i);
+        currentPattern.ATile = loadImage("libraryIcon"+i+".png");
+        
+        windowName = "Create";
+        arrguiShow = true;
       }
     }
   }
+}
+
+void setLibraryArrangementValues(Arrangement ar){
+    ar.xSpacing = currentPattern.xSpacing;
+    ar.ySpacing = currentPattern.ySpacing;
+    ar.pos = new PVector(currentPattern.pos.x,currentPattern.pos.y);
+    ar.hsize = currentPattern.hsize;
+    ar.wsize = currentPattern.wsize;
+    ar.type = currentPattern.type;   
+}
+
+
+void setLibraryTileValues(PatternTile ti){
+    ti.ArrangedShapes = new ArrayList();
+    for (Shape ts: currentTile.ArrangedShapes){
+      ti.ArrangedShapes.add(new Shape(ts.type, ts.pos, ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
+    }
 }
