@@ -41,13 +41,15 @@ float LibrTime;
 
 
 //Global GImageButton Variables
-GImageButton title, loadPattern, startImg, startClickImg, createScreenImg, guiAddShapeImg, selectShapeImg, GUIImg, VPCImg, VPImg, addToLibImg, libraryClickedImg, libraryImg, arrGUIImg;
+GImageButton title, loadPattern, startImg, startClickImg, createScreenImg, guiAddShapeImg, selectShapeImg, GUIImg, VPCImg, VPImg, addToLibImg, libraryClickedImg, libraryImg, arrGUIImg, tutorialEnd;
+GLabel tutorialLabel;
 
 void setup() {
   size(500, 500);
   createGUI(); //Creating GUI controls
   
-  // Initialize GImageButtons
+  // Initialize G4P classes
+  title = new GImageButton(startWin, 80, 34, 333, 156, new String[] { "Assets/MODELLO.png" } );
   startImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/start.png"} );
   startClickImg = new GImageButton(tutorial, 100, 50, 300, 220, new String[] { "Assets/startClick.png"} );
   createScreenImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/createScreen.png"} );
@@ -60,6 +62,8 @@ void setup() {
   libraryClickedImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/libraryClicked.png"} );
   libraryImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/library.png"} );
   arrGUIImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/arrGUI.png"} );
+  tutorialEnd = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/MODELLOTUT.png"} );
+  tutorialLabel = new GLabel(tutorial, 120, 8, 200, 100);
   
 
   // Set initial state
