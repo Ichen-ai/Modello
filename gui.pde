@@ -249,7 +249,7 @@ public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternS
 } //_CODE_:patternSave:520565:
 
 public void libraryClicked2(GButton source, GEvent event) { //_CODE_:libraryButton2:502722:
-  println("libraryButton2 - GButton >> GEvent." + event + " @ " + millis());
+  libraryShow = true;
 } //_CODE_:libraryButton2:502722:
 
 
