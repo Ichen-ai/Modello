@@ -94,8 +94,9 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
           currentPattern = SavedPatterns.get(i);
           currentPattern.ATile = SavedTileImgs.get(i);
           
-          windowName = "Create";
           arrguiShow = true;
+          ArrGUI.setVisible(true);
+          gui.setVisible(false);
           library.setVisible(false);
         }
       }
