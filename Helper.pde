@@ -106,7 +106,7 @@ void iconLocation(){
   }
 }
 
-boolean editingPastTile = false;
+
 //event handler. This sets what happens when the user clicks on the buttons in library
 public void handleButtonEvents(GImageButton source, GEvent event) {
   if (event == GEvent.CLICKED) {
