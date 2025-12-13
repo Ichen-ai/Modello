@@ -87,14 +87,14 @@ class Arrangement{
     int ynum = ceil(height/ySpacing);
     
     
-    for (int i = 0; i < xnum; i++){
+    for (int i = 0; i < xnum; i++){ //nested for loops to draw grid-style
       for(int j = 0; j < ynum; j++){
         
         float xPos = i*this.xSpacing;
         float yPos = j*this.ySpacing + this.hsize/2.0;
         
         if (j % 2 == 1){
-          xPos += this.wsize/2.0; //Adds an offset value for every other row
+          xPos += this.wsize/2.0; //Adds an offset value for every other row to create brick illusion
         }
         
         image(ATile, xPos, yPos, wsize, hsize);
@@ -102,5 +102,22 @@ class Arrangement{
       }
    }
   
+  
+  void drawWave(){
+    int xnum = ceil(width/xSpacing);
+    int ynum = ceil(height/ySpacing);
+    
+    
+    for (int i = 0; i < xnum; i++){ //nested for loops to draw tiles
+      for(int j = 0; j < ynum+1; j++){
+        
+        float xPos = i*this.xSpacing + this.wsize/2.0;
+        float yPos = j*this.ySpacing + this.hsize/2.0 + this.hsize/2.0*sin(xPos);
+        
+        
+        image(ATile, xPos, yPos, wsize, hsize);
+        }
+      }
+  }
  
 }
