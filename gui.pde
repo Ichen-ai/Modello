@@ -298,13 +298,14 @@ public void createGUI(){
   savetilebutton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   savetilebutton.addEventHandler(this, "tilescreenshot");
   widthSlider = new GCustomSlider(gui, 281, 19, 100, 40, "grey_blue");
-  widthSlider.setLimits(100.0, 0.0, 500.0);
+  widthSlider.setLimits(100.0, 5.0, 500.0);
   widthSlider.setNumberFormat(G4P.DECIMAL, 2);
   widthSlider.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
   widthSlider.setOpaque(false);
   widthSlider.addEventHandler(this, "widthSliderChange");
   heightSlider = new GCustomSlider(gui, 281, 41, 100, 40, "grey_blue");
-  heightSlider.setLimits(100.0, 0.0, 500.0);
+  heightSlider.setShowValue(true);
+  heightSlider.setLimits(100.0, 5.0, 500.0);
   heightSlider.setNumberFormat(G4P.DECIMAL, 2);
   heightSlider.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
   heightSlider.setOpaque(false);
