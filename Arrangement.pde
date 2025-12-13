@@ -122,5 +122,9 @@ class Arrangement{
         }
       }
   }
+  
+  void drawPinwheel(){
+    
+  }
  
 }
