@@ -68,16 +68,16 @@ class Shape {
       vert[2] = new PVector(x3, y3);
 
       for (int i = 0; i < 3; i++) {
-        sides[i] = PVector.sub(vert[(i+1)%3], vert[i]);
-        perpSides[i] = new PVector(-sides[i].y, sides[i].x);
+        sides[i] = PVector.sub(vert[(i+1)%3], vert[i]); //creates a vector along each edge of the triangle (%3 wraps the triangle around)
+        perpSides[i] = new PVector(-sides[i].y, sides[i].x); //creates a perpendicular vector to each edge
       }
 
       boolean in = true;
 
       for (int i = 0; i < 3; i++) {
-        PVector v1 = PVector.sub(p, vert[i]);
-        float dotProd = v1.dot(perpSides[i]);
-        if ( dotProd < 0 ) in = false;
+        PVector v1 = PVector.sub(p, vert[i]); //creates a vector from the vertice to the mouse click
+        float dotProd = v1.dot(perpSides[i]); //finds the dot product, which tells where the point is
+        if ( dotProd < 0 ) in = false; //negative dot product means the point is outside the triangle
       }      
       return in;
       
