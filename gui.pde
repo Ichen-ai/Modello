@@ -99,6 +99,7 @@ public void fwdShapeButtonClick(GButton source, GEvent event) { //_CODE_:fwdShap
       Shape bckShape = currentTile.ArrangedShapes.get(i+1);
       currentTile.ArrangedShapes.set(i, bckShape);
       currentTile.ArrangedShapes.set(i+1, fwdShape);
+      break;
     }
   }
 } //_CODE_:fwdShapeButton:317310:
