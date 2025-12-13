@@ -43,8 +43,7 @@ class Arrangement{
   }
   
   
-  
-  
+  //Method to draw a standard grid from the tiles
   void drawGrid(){
     //Calculates how many tiles will fit on the screen
     int xnum = ceil(width/xSpacing);
@@ -62,7 +61,7 @@ class Arrangement{
       }
     }
     
-    
+   //Method to draw a half-drop spacing of tiles
    void drawHalfDrop(){
     int xnum = ceil(width/xSpacing);
     int ynum = ceil(height/ySpacing) + 1; //Accounts for an extra tile height wise
@@ -82,7 +81,7 @@ class Arrangement{
       }
    }
    
-   
+   //Method to draw a brick spacing of tiles
    void drawBrick(){
     int xnum = ceil(width/xSpacing) + 1; //Accounts for an extra tile horizontally
     int ynum = ceil(height/ySpacing);

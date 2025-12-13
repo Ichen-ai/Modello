@@ -16,7 +16,7 @@ int iconY = 0;
 int drawn = 0;
 boolean shouldExit = false;
 
-// Creating placeholder Tile and Arrangement
+// Creating placeholder Tile and Arrangement variables to be filled as they are created
 PatternTile currentTile = new PatternTile();
 Arrangement currentPattern;
 
@@ -33,6 +33,7 @@ int savedPTilenum = 1;
 color bgColour = color(100);
 String TileStatus = "creating";
 
+//Variables to track when the saving buttons are clicked
 Boolean SaveConfirmed = false;
 float SaveTime;
 
@@ -107,13 +108,14 @@ void draw() {
     LibrConfirmed = false;
   }
   
+  //Calls the exit function if the user has clicked on the exit button
   if (shouldExit == true){
     exit();
     return;
   }
 }
 
-
+//Function to close the program
 void exit(){
   for (int i = 0; i < numAddLib; i++){    
     File f = dataFile("libraryIcon"+i+".png");
