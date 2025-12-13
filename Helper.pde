@@ -114,8 +114,10 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
   }
 }
 
-// Function to help create a copy of the arrangement objectthe user wants to save
-void setLibraryArrangementValues(Arrangement ar){
+// Function to help create a copy of the arrangement the user wants to save
+void setLibraryArrangementValues(Arrangement ar){ // (With ar being the copied arrangement)
+
+    //Copies all respective values using the current pattern's
     ar.xSpacing = currentPattern.xSpacing;
     ar.ySpacing = currentPattern.ySpacing;
     ar.pos = new PVector(currentPattern.pos.x,currentPattern.pos.y);
@@ -124,11 +126,11 @@ void setLibraryArrangementValues(Arrangement ar){
     ar.type = currentPattern.type;   
 }
 
-// Function 
-void setLibraryTileValues(PatternTile ti){
+// Function to help create a copy of the current pattern tile the user wants to save
+void setLibraryTileValues(PatternTile ti){ //(with ti being the current pattern tile)
     ti.ArrangedShapes = new ArrayList();
     
-    for (Shape ts: currentTile.ArrangedShapes){
+    for (Shape ts: currentTile.ArrangedShapes){ //adds a copy of every shape involved in the current tile to the copy's arraylist
       ti.ArrangedShapes.add(new Shape(ts.type, ts.pos, ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
     }
   
