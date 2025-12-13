@@ -90,4 +90,10 @@ class Shape {
     if (this.pos.y > height) this.pos.y = height;
     if (this.pos.y < 0) this.pos.y = 0;
   }
+  
+  int typeNum() {
+    if (this.type.equals("ellipse")) return 0;
+    else if (this.type.equals("rectangle")) return 1;
+    else return 2;
+  }
 }

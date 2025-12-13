@@ -29,6 +29,7 @@ void currentShapeValues(Shape s) {
   blueSlider.setValue(blue(s.colour));
   heightSlider.setValue(s.hei);
   widthSlider.setValue(s.wid);
+  shapeTypeList.setSelected(s.typeNum());
 }
 
 // Changes the background colour based on current slider values
