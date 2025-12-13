@@ -22,6 +22,15 @@ void changeShapeValues() {
   }
 }
 
+
+void currentShapeValues(Shape s) {
+  redSlider.setValue(red(s.colour));
+  greenSlider.setValue(green(s.colour));
+  blueSlider.setValue(blue(s.colour));
+  heightSlider.setValue(s.hei);
+  widthSlider.setValue(s.wid);
+}
+
 // Changes the background colour based on current slider values
 void changeBgColour() {
   int r = bgRedSlider.getValueI();

@@ -9,6 +9,7 @@ void mouseClicked() {
     if (testShape.inShape(mousePos)) {
       onObject = true;
       testShape.isSelected = true;
+      currentShapeValues(testShape);
       break;
     }
   }
