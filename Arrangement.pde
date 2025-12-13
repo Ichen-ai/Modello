@@ -40,14 +40,17 @@ class Arrangement{
     
     else if(this.type.equals("Brick"))
       this.drawBrick();
+    
+    else if(this.type.equals("Wave"))
+      this.drawWave();
   }
   
   
   //Method to draw a standard grid from the tiles
   void drawGrid(){
     //Calculates how many tiles will fit on the screen
-    int xnum = ceil(width/xSpacing);
-    int ynum = ceil(height/ySpacing);
+    int xnum = ceil(width/this.xSpacing);
+    int ynum = ceil(height/this.ySpacing);
     
     //Utilises a nested for loop to draw the images in a grid formation
     for (int i = 0; i < xnum; i++){
@@ -63,8 +66,8 @@ class Arrangement{
     
    //Method to draw a half-drop spacing of tiles
    void drawHalfDrop(){
-    int xnum = ceil(width/xSpacing);
-    int ynum = ceil(height/ySpacing) + 1; //Accounts for an extra tile height wise
+    int xnum = ceil(width/this.xSpacing);
+    int ynum = ceil(height/this.ySpacing) + 1; //Accounts for an extra tile height wise
     
     for (int i = 0; i < xnum; i++){
       for(int j = 0; j < ynum; j++){
@@ -83,8 +86,8 @@ class Arrangement{
    
    //Method to draw a brick spacing of tiles
    void drawBrick(){
-    int xnum = ceil(width/xSpacing) + 1; //Accounts for an extra tile horizontally
-    int ynum = ceil(height/ySpacing);
+    int xnum = ceil(width/this.xSpacing) + 1; //Accounts for an extra tile horizontally
+    int ynum = ceil(height/this.ySpacing);
     
     
     for (int i = 0; i < xnum; i++){ //nested for loops to draw grid-style
@@ -104,15 +107,15 @@ class Arrangement{
   
   
   void drawWave(){
-    int xnum = ceil(width/xSpacing);
-    int ynum = ceil(height/ySpacing);
+    int xnum = ceil(width/this.xSpacing);
+    int ynum = ceil(height/this.ySpacing);
     
     
-    for (int i = 0; i < xnum; i++){ //nested for loops to draw tiles
-      for(int j = 0; j < ynum+1; j++){
+    for (int i = 0; i < xnum + 1; i++){ //nested for loops to draw tiles
+      for(int j = 0; j < ynum + 2; j++){
         
-        float xPos = i*this.xSpacing + this.wsize/2.0;
-        float yPos = j*this.ySpacing + this.hsize/2.0 + this.hsize/2.0*sin(xPos);
+        float xPos = i*this.xSpacing - this.wsize/2.0;
+        float yPos = j*this.ySpacing - this.hsize/2.0 + 25*sin(xPos*0.02);
         
         
         image(ATile, xPos, yPos, wsize, hsize);
