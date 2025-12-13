@@ -92,8 +92,8 @@ class Shape {
   }
   
   int typeNum() {
-    if (this.type.equals("ellipse")) return 1;
-    else if (this.type.equals("rectangle")) return 2;
-    else return 3;
+    if (this.type.equals("ellipse")) return 0;
+    else if (this.type.equals("rectangle")) return 1;
+    else return 2;
   }
 }
