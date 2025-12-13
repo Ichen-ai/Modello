@@ -2,7 +2,7 @@
 
 //Gets the current values of the GUI and applies it to the current (selected) shape
 void getShapeValues(Shape s) {
-  s.type = shapeTypeList.getSelectedText();
+  s.type = shapeTypeList.getSelectedIndex();
   int r = redSlider.getValueI();
   int g = greenSlider.getValueI();
   int b = blueSlider.getValueI();
@@ -29,7 +29,7 @@ void currentShapeValues(Shape s) {
   blueSlider.setValue(blue(s.colour));
   heightSlider.setValue(s.hei);
   widthSlider.setValue(s.wid);
-  shapeTypeList.setSelected(s.typeNum());
+  shapeTypeList.setSelected(s.type);
 }
 
 // Changes the background colour based on current slider values

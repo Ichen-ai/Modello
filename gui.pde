@@ -23,7 +23,7 @@ public void shapeTypeListClick(GDropList source, GEvent event) { //_CODE_:shapeT
 } //_CODE_:shapeTypeList:593435:
 
 public void addShapeButtonClick(GButton source, GEvent event) { //_CODE_:addShapeButton:557350:
-  Shape newShape = new Shape("ellipse", new PVector(250, 250), 50, 100, 200, 0, 0);
+  Shape newShape = new Shape(0, new PVector(250, 250), 50, 100, 200, 0, 0);
   getShapeValues(newShape);
   this.currentTile.ArrangedShapes.add(newShape);
 } //_CODE_:addShapeButton:557350:

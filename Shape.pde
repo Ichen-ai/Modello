@@ -1,7 +1,7 @@
 
 class Shape {
   //fields
-  String type; //the type of shape
+  int type; //the type of shape
   PVector pos; //the position of the center of the shape
   int hei, wid;
   color colour, strokeColor;
@@ -9,7 +9,7 @@ class Shape {
   float x1, y1, x2, y2, x3, y3; //corners for triangle shape
 
   //constructor
-  Shape(String t, PVector p, int h, int w, int r, int g, int b) {
+  Shape(int t, PVector p, int h, int w, int r, int g, int b) {
     this.type = t;
     this.pos = p;
     this.hei = h;
@@ -31,13 +31,13 @@ class Shape {
     fill(this.colour);
     rectMode(CENTER);
 
-    if (this.type.equals("ellipse")) {
+    if (this.type == 0) {
       ellipse(this.pos.x, this.pos.y, this.wid, this.hei); //creates a shape
       
-    } else if (this.type.equals("rectangle")) {
+    } else if (this.type == 1) {
       rect(this.pos.x, this.pos.y, this.wid, this.hei); //creates a rectangle
       
-    } else if (this.type.equals("triangle")) {
+    } else if (this.type == 2) {
       x1 = this.pos.x - this.wid/2;
       y1 = this.pos.y + this.hei/2;
       x2 = this.pos.x;
@@ -49,16 +49,16 @@ class Shape {
   }
 
   boolean inShape(PVector p) { //used to see if users click is within a shape
-    if (this.type.equals("ellipse")) {
+    if (this.type == 0) {
       return (pow((p.x - this.pos.x), 2)/pow(this.wid/2, 2)) + (pow((p.y - this.pos.y), 2)/pow(this.hei/2, 2)) <= 1; //formula to tell if the users click is within an ellipse
       
-    } else if (this.type.equals("rectangle")) { //tells if users click is within a rectangle
+    } else if (this.type == 1) { //tells if users click is within a rectangle
       return p.x < this.pos.x + this.wid/2
         && p.x > this.pos.x - this.wid/2
         && p.y < this.pos.y + this.hei/2
         && p.y > this.pos.y - this.hei/2;
 
-    } else if (this.type.equals("triangle")) {
+    } else if (this.type == 2) {
       PVector[] vert = new PVector[3]; //used to hold triangle corners
       PVector[] sides = new PVector[3];
       PVector[] perpSides = new PVector[3];
@@ -89,11 +89,5 @@ class Shape {
     if (this.pos.x < 0) this.pos.x = 0;
     if (this.pos.y > height) this.pos.y = height;
     if (this.pos.y < 0) this.pos.y = 0;
-  }
-  
-  int typeNum() {
-    if (this.type.equals("ellipse")) return 0;
-    else if (this.type.equals("rectangle")) return 1;
-    else return 2;
   }
 }
