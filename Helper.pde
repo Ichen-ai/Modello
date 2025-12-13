@@ -1,3 +1,6 @@
+//Helper Functions
+
+//Gets the current values of the GUI and applies it to the current (selected) shape
 void getShapeValues(Shape s) {
   s.type = shapeTypeList.getSelectedText();
   int r = redSlider.getValueI();
@@ -9,6 +12,7 @@ void getShapeValues(Shape s) {
   s.wid = widthSlider.getValueI();
 }
 
+// Calls the function above after determining which shape is selected (to apply shape values)
 void changeShapeValues() {
   for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
     Shape testShape = currentTile.ArrangedShapes.get(i);
@@ -18,58 +22,68 @@ void changeShapeValues() {
   }
 }
 
+// Changes the background colour based on current slider values
 void changeBgColour() {
   int r = bgRedSlider.getValueI();
   int g = bgGreenSlider.getValueI();
   int b = bgBlueSlider.getValueI();
   
   bgColour = color(r, g, b);
-
 }
 
+// Applies the changes the user has made to the arrangement GUI 
 void changeArrangementValues(Arrangement a) {
   a.type = arrTypedroplist.getSelectedText();
   
-  float xspacingval = X_Spacing.getValueF();
-  if (xspacingval > a.wsize){
+  float xspacingval = X_Spacing.getValueF(); // Extracts the value of x-spacing from the slider
+  if (xspacingval > a.wsize){ //Checks if the spacing is greater than the width of a tile)
     a.xSpacing = xspacingval;
   }
+  
   else{
-    a.xSpacing = a.wsize;
-    X_Spacing.setValue(a.wsize);
+    a.xSpacing = a.wsize; //ensures that the image cannot overlap horizontally(ensures spacing is always greater than or equal tothe width)
+    X_Spacing.setValue(a.wsize); //updates the slider if the smaller value would cause it to overlap
   }
-  float yspacingval = Y_Spacing.getValueF();
-  if (yspacingval > a.hsize){
+  
+  float yspacingval = Y_Spacing.getValueF(); // Extracts the value of y-spacing from the slider
+  if (yspacingval > a.hsize){ //Checks if the spacing is greater than the height of a tile
     a.ySpacing = yspacingval;
   }
+  
   else{
-    a.ySpacing = a.hsize;
-    Y_Spacing.setValue(a.hsize);
+    a.ySpacing = a.hsize; //ensures that the image cannot overlap vertically
+    Y_Spacing.setValue(a.hsize); //updating the slider to match the condition above
   }
 
+  //Sets width and height of tile to match the user's changes to the GUI
   a.hsize = arrheightslider.getValueI();
   a.wsize = arrwidthslider.getValueI();
 }
 
+//Helper function to prepare the current  screen for screenshotting
 void VisualisePattern(PatternTile p){  
+  
+  //Called when the user first presses the "Visualise Button" pattern
   if (TileStatus.equals("preparing")){
-    p.seeGrid = false;
-    gridButton.setSelected(false);
+    p.seeGrid = false; //Turns off the grid 
+    gridButton.setSelected(false); //Updates the gui to unselect the grid button
     
     TileStatus = "visualising";
   }
   
+  //Called in the next frame when the tile is prepared
   else if(TileStatus.equals("visualising")){
-    saveFrame("SavedTile.png");
-    currentPattern = new Arrangement();
+    saveFrame("SavedTile.png"); //Saves a screenshot of the current pattern tile
+    currentPattern = new Arrangement(); //Creates a new arrangement object that uses the image just saved
     
-    ArrGUI.setVisible(true);
+    //Updates the GUI screens 
+    ArrGUI.setVisible(true); //Shows arrangement GUI screen
     arrguiShow = true;
     
-    gui.setVisible(false);
-    arrTypedroplist.setSelected(0);
+    gui.setVisible(false); //Hides the tile's GUI screen
+    arrTypedroplist.setSelected(0); //Ensures the drop list value is set to grid initially
     
-    TileStatus = "creating";
+    TileStatus = "creating"; //Updates status
   }
 }
 
@@ -100,7 +114,7 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
   }
 }
 
-// Function to help copy over the values the user wants to save
+// Function to help create a copy of the arrangement objectthe user wants to save
 void setLibraryArrangementValues(Arrangement ar){
     ar.xSpacing = currentPattern.xSpacing;
     ar.ySpacing = currentPattern.ySpacing;
@@ -110,7 +124,7 @@ void setLibraryArrangementValues(Arrangement ar){
     ar.type = currentPattern.type;   
 }
 
-
+// Function 
 void setLibraryTileValues(PatternTile ti){
     ti.ArrangedShapes = new ArrayList();
     
