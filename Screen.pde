@@ -18,15 +18,14 @@ void displayScreen(){
   
   //"Create" screen is the screen which the user will create the pattern
   else if (windowName.equals("Create")){
-    if (editingPastTile) {
-      ArrGUI.setVisible(true); 
-      editingPastTile = false;
-    } else gui.setVisible(true);
-    
+    if (editingPastTile) ArrGUI.setVisible(true); else gui.setVisible(true);
     surface.setVisible(true);
-    startWin.setVisible(false);    
+    startWin.setVisible(false);
+    editingPastTile = false;
+    
     //we set the window to none because when we set the visibility multiple times, it causes the screen to flash
     windowName = "none";
+    
   }
   
   //Users can see all their saved patterns together
