@@ -41,6 +41,8 @@ float SaveTime;
 Boolean LibrConfirmed = false;
 float LibrTime;
 
+Boolean requestLibSave = false;
+
 
 //Global GImageButton Variables
 GImageButton title, loadPattern, startImg, startClickImg, createScreenImg, guiAddShapeImg, selectShapeImg, GUIImg, VPCImg, VPImg, addToLibImg, libraryClickedImg, libraryImg, arrGUIImg, tutorialEnd;
@@ -107,6 +109,12 @@ void draw() {
   if (LibrConfirmed && millis() - LibrTime > 3000){
     addLibraryButton.setText("Add to Library");
     LibrConfirmed = false;
+  }
+  
+  //execute the request to save, put at the end of the program to ensure entire frame loaded
+  if (requestLibSave) {
+    executeAddToLibrary();
+    requestLibSave = false;
   }
   
   //Calls the exit function if the user has clicked on the exit button

@@ -150,3 +150,27 @@ void setLibraryTileValues(PatternTile ti){ //(with ti being the current pattern 
     }
   
 }
+
+//Saves a screenshot of the entire pattern to the Library
+void executeAddToLibrary() {
+  PImage icon = get();
+  
+  icon.save("libraryIcon" + numAddLib + ".png");
+  imageFileNum = "libraryIcon" + numAddLib + ".png";
+
+  libraryImgs.add(new GImageButton(library, 56 + 100 * iconX, 30 + 100 * iconY, 75, 75, new String[] { imageFileNum }));
+  
+  numAddLib++;
+  iconLocation();
+
+  Arrangement ArrangementAddLibrary = new Arrangement();
+  setLibraryArrangementValues(ArrangementAddLibrary); 
+  SavedPatterns.add(ArrangementAddLibrary);
+  
+  PatternTile TileAddLibrary = new PatternTile();
+  setLibraryTileValues(TileAddLibrary); 
+  SavedTiles.add(TileAddLibrary);
+  
+  PImage TileImgAddLibrary = loadImage("SavedTile.png");
+  SavedTileImgs.add(TileImgAddLibrary);
+}
