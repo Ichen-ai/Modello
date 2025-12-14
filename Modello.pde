@@ -118,7 +118,7 @@ void draw() {
   }
   
   //Calls the exit function if the user has clicked on the exit button
-  if (shouldExit == true){
+  if (shouldExit == true && frameCount > 5){
     exit();
     return;
   }
