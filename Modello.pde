@@ -126,7 +126,7 @@ void draw() {
 
 //Function to close the program
 void exit(){
-  for (int i = 0; i < numAddLib; i++){    
+  for (int i = 0; i < numAddLib+1; i++){    
     File f = dataFile("libraryIcon"+i+".png");
     if (f.exists()) f.delete();
   }
