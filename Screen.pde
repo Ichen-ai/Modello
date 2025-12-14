@@ -32,9 +32,7 @@ void displayScreen(){
   }
   
   //Users can see all their saved patterns together
-  if (libraryShow == true){
-    library.setVisible(true);
-    
+  if (libraryShow == true){ 
     //for loop to add all the images
     imageFileNum = "libraryIcon"+numAddLib+".png";
     for(int i = 0; i <= iconY+1; i++){
@@ -50,14 +48,10 @@ void displayScreen(){
     }
     
   }
-  else{
-    library.setVisible(false);
-  }
-  
+
   //Basic tutorial on how to use the program
   //    Create second window(popup)
   if (tutorialShow == true){
-    tutorial.setVisible(true);
     //first tutorial page
     if (tutPage == 1){
       next.setVisible(true);
@@ -337,11 +331,6 @@ void displayScreen(){
       
       tutorialLabel.setText("");
     }
-  }
-  
-  else{
-    //tutorial closed
-    tutorial.setVisible(false);
   }
   
 }

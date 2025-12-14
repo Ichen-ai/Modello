@@ -138,6 +138,7 @@ public void backClicked(GButton source, GEvent event) { //_CODE_:back:491218:
 
 public void finishClicked(GButton source, GEvent event) { //_CODE_:finish:597876:
   tutorialShow = false;
+  tutorial.setVisible(false);
 } //_CODE_:finish:597876:
 
 synchronized public void startWinDraw(PApplet appc, GWinData data) { //_CODE_:startWin:587259:
@@ -151,10 +152,12 @@ public void startClicked(GButton source, GEvent event) { //_CODE_:start:897298:
 public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:584753:
   tutPage = 1;
   tutorialShow = true;
+  tutorial.setVisible(true);
 } //_CODE_:tutButton:584753:
 
 public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButton:312218:
   libraryShow = true;
+  library.setVisible(true);
 } //_CODE_:libraryButton:312218:
 
 public void exitClicked(GButton source, GEvent event) { //_CODE_:exit:855732:
@@ -167,6 +170,7 @@ synchronized public void libraryDraw(PApplet appc, GWinData data) { //_CODE_:lib
 
 public void closeLibClicked(GButton source, GEvent event) { //_CODE_:closeLib:641587:
   libraryShow = false;
+  library.setVisible(false);
 } //_CODE_:closeLib:641587:
 
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:ArrGUI:776699:
