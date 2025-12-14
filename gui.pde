@@ -212,7 +212,7 @@ if (!LibrConfirmed){
   }
   
   //Saves a screenshot of the entire pattern to the Library
-  saveFrame("libraryIcon"+numAddLib+".png");
+  saveFrame("libraryIcons/libraryIcon"+numAddLib+".png");
   imageFileNum = "libraryIcon"+numAddLib+".png";
   
   libraryImgs.add(new GImageButton(library, 56+100*iconX, 30+100*iconY, 75, 75, new String[] {imageFileNum} )); //Creates a new GImageButton in the Library
