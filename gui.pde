@@ -234,6 +234,7 @@ public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternS
 
 public void libraryClicked2(GButton source, GEvent event) { //_CODE_:libraryButton2:502722:
   libraryShow = true;
+  library.setVisible(true);
 } //_CODE_:libraryButton2:502722:
 
 
