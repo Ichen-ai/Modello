@@ -117,9 +117,13 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
   if (event == GEvent.CLICKED) {
     for (int i = 0; i <= numAddLib; i++){
       if (source == libraryImgs.get(i)){
-        currentTile = SavedTiles.get(i);
-        currentPattern = SavedPatterns.get(i);
-        currentPattern.ATile = SavedTileImgs.get(i);
+        PatternTile newTile = SavedTiles.get(i);
+        Arrangement newPattern = SavedPatterns.get(i);
+        PImage newATile = SavedTileImgs.get(i);
+        
+        currentTile = newTile;
+        currentPattern = newPattern;
+        currentPattern.ATile = newATile;
         
         arrguiShow = true;
         editingPastTile = true;
@@ -131,14 +135,21 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
 
 // Function to help create a copy of the arrangement the user wants to save
 void setLibraryArrangementValues(Arrangement ar){ // (With ar being the copied arrangement)
+    
+    float newXspacing = currentPattern.xSpacing;
+    float newYspacing = currentPattern.ySpacing;
+    PVector newPos = new PVector(currentPattern.pos.x,currentPattern.pos.y);
+    float newHeight = currentPattern.hsize;
+    float newWidth = currentPattern.wsize;
+    String newType = currentPattern.type;
 
     //Copies all respective values using the current pattern's
-    ar.xSpacing = currentPattern.xSpacing;
-    ar.ySpacing = currentPattern.ySpacing;
-    ar.pos = new PVector(currentPattern.pos.x,currentPattern.pos.y);
-    ar.hsize = currentPattern.hsize;
-    ar.wsize = currentPattern.wsize;
-    ar.type = currentPattern.type;   
+    ar.xSpacing = newXspacing;
+    ar.ySpacing = newYspacing;
+    ar.pos = newPos;
+    ar.hsize = newHeight;
+    ar.wsize = newWidth;
+    ar.type = newType;   
 }
 
 // Function to help create a copy of the current pattern tile the user wants to save
@@ -146,7 +157,7 @@ void setLibraryTileValues(PatternTile ti){ //(with ti being the current pattern 
     ti.ArrangedShapes = new ArrayList();
     
     for (Shape ts: currentTile.ArrangedShapes){ //adds a copy of every shape involved in the current tile to the copy's arraylist
-      ti.ArrangedShapes.add(new Shape(ts.type, ts.pos, ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
+      ti.ArrangedShapes.add(new Shape(ts.type, new PVector(ts.pos.x, ts.pos.y), ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
     }
   
 }
