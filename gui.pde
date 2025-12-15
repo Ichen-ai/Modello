@@ -64,7 +64,7 @@ public void heightSliderChange(GCustomSlider source, GEvent event) { //_CODE_:he
 } //_CODE_:heightSlider:256807:
 
 public void gridClicked(GCheckbox source, GEvent event) { //_CODE_:gridButton:487609:
-  if (gridButton.isSelected() == true) {
+  if (gridButton.isSelected()) {
     currentTile.seeGrid = true;
   } else currentTile.seeGrid = false;
 } //_CODE_:gridButton:487609:
@@ -74,7 +74,7 @@ public void clearButtonClick(GButton source, GEvent event) { //_CODE_:clearButto
 } //_CODE_:clearButton:526941:
 
 public void autoAlignClicked(GCheckbox source, GEvent event) { //_CODE_:autoAlign:584859:
-  if (autoAlign.isSelected() == true) {
+  if (autoAlign.isSelected()) {
     currentTile.autoAlign = true;
   } else currentTile.autoAlign = false;
 } //_CODE_:autoAlign:584859:
@@ -119,8 +119,11 @@ public void bwkShapeButtonClicked(GButton source, GEvent event) { //_CODE_:bwkSh
 public void toStartClicked(GButton source, GEvent event) { //_CODE_:toStart:677194:
   gui.setVisible(false);
   ArrGUI.setVisible(false);
+  colPick.setVisible(false);
   
   startWin.setVisible(true);
+  
+  colPickCheckbox.setSelected(false);
   
   windowName = "Start";
   hideWindow();
@@ -131,7 +134,7 @@ public void gridSliderChange(GCustomSlider source, GEvent event) { //_CODE_:grid
 } //_CODE_:gridSlider:954807:
 
 public void colPickCheckboxClicked(GCheckbox source, GEvent event) { //_CODE_:colPickCheckbox:369430:
-  if (colPickCheckbox.isSelected() == true) {
+  if (colPickCheckbox.isSelected()) {
     seeColPick = true;
     colPick.setVisible(true);
   } else {
