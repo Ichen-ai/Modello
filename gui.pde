@@ -64,7 +64,7 @@ public void heightSliderChange(GCustomSlider source, GEvent event) { //_CODE_:he
 } //_CODE_:heightSlider:256807:
 
 public void gridClicked(GCheckbox source, GEvent event) { //_CODE_:gridButton:487609:
-  if (! currentTile.seeGrid) {
+  if (gridButton.isSelected() == true) {
     currentTile.seeGrid = true;
   } else currentTile.seeGrid = false;
 } //_CODE_:gridButton:487609:
@@ -74,7 +74,7 @@ public void clearButtonClick(GButton source, GEvent event) { //_CODE_:clearButto
 } //_CODE_:clearButton:526941:
 
 public void autoAlignClicked(GCheckbox source, GEvent event) { //_CODE_:autoAlign:584859:
-  if (! currentTile.autoAlign) {
+  if (autoAlign.isSelected() == true) {
     currentTile.autoAlign = true;
   } else currentTile.autoAlign = false;
 } //_CODE_:autoAlign:584859:
@@ -131,9 +131,13 @@ public void gridSliderChange(GCustomSlider source, GEvent event) { //_CODE_:grid
 } //_CODE_:gridSlider:954807:
 
 public void colPickCheckboxClicked(GCheckbox source, GEvent event) { //_CODE_:colPickCheckbox:369430:
-  if (! seeColPick) {
+  if (colPickCheckbox.isSelected() == true) {
     seeColPick = true;
-  } else seeColPick = false;
+    colPick.setVisible(true);
+  } else {
+    seeColPick = false;
+    colPick.setVisible(false);
+  }
 } //_CODE_:colPickCheckbox:369430:
 
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
@@ -293,6 +297,15 @@ public void setShapeColClick(GButton source, GEvent event) { //_CODE_:setShapeCo
 public void setBgColClick(GButton source, GEvent event) { //_CODE_:setBgCol:655976:
   println("setBgCol - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:setBgCol:655976:
+
+public void PickColourCheckboxClicked(GCheckbox source, GEvent event) { //_CODE_:PickColourCheckbox:663486:
+  if (PickColourCheckbox.isSelected() == true) {
+    findingColour = true;
+  }
+  else {
+    findingColour = false;
+  }
+} //_CODE_:PickColourCheckbox:663486:
 
 
 
@@ -611,6 +624,12 @@ public void createGUI(){
   setBgCol = new GButton(colPick, 146, 63, 80, 44);
   setBgCol.setText("Set Background Colour");
   setBgCol.addEventHandler(this, "setBgColClick");
+  PickColourCheckbox = new GCheckbox(colPick, 115, 3, 120, 20);
+  PickColourCheckbox.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  PickColourCheckbox.setText("Picking Colour");
+  PickColourCheckbox.setOpaque(false);
+  PickColourCheckbox.addEventHandler(this, "PickColourCheckboxClicked");
+  PickColourCheckbox.setSelected(true);
   gui.loop();
   tutorial.loop();
   startWin.loop();
@@ -692,3 +711,4 @@ GLabel label17;
 GLabel label18; 
 GLabel label19; 
 GButton setBgCol; 
+GCheckbox PickColourCheckbox; 

@@ -37,30 +37,39 @@ void changeBgColour() {
   int r = bgRedSlider.getValueI();
   int g = bgGreenSlider.getValueI();
   int b = bgBlueSlider.getValueI();
-  
+
   bgColour = color(r, g, b);
 }
 
-// Applies the changes the user has made to the arrangement GUI 
+void getColour(PVector p) {
+  color c = bgColour;
+  for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
+    Shape testShape = currentTile.ArrangedShapes.get(i);
+    if (testShape.inShape(p)) {
+      c = testShape.colour;
+    }
+  }
+  colPickRedSlider.setValue(red(c));
+  colPickGreenSlider.setValue(green(c));
+  colPickBlueSlider.setValue(blue(c));
+}
+
+// Applies the changes the user has made to the arrangement GUI
 void changeArrangementValues(Arrangement a) {
   a.type = arrTypedroplist.getSelectedText();
-  
+
   float xspacingval = X_Spacing.getValueF(); // Extracts the value of x-spacing from the slider
-  if (xspacingval > a.wsize){ //Checks if the spacing is greater than the width of a tile)
+  if (xspacingval > a.wsize) { //Checks if the spacing is greater than the width of a tile)
     a.xSpacing = xspacingval;
-  }
-  
-  else{
+  } else {
     a.xSpacing = a.wsize; //ensures that the image cannot overlap horizontally(ensures spacing is always greater than or equal tothe width)
     X_Spacing.setValue(a.wsize); //updates the slider if the smaller value would cause it to overlap
   }
-  
+
   float yspacingval = Y_Spacing.getValueF(); // Extracts the value of y-spacing from the slider
-  if (yspacingval > a.hsize){ //Checks if the spacing is greater than the height of a tile
+  if (yspacingval > a.hsize) { //Checks if the spacing is greater than the height of a tile
     a.ySpacing = yspacingval;
-  }
-  
-  else{
+  } else {
     a.ySpacing = a.hsize; //ensures that the image cannot overlap vertically
     Y_Spacing.setValue(a.hsize); //updating the slider to match the condition above
   }
@@ -71,41 +80,41 @@ void changeArrangementValues(Arrangement a) {
 }
 
 //Helper function to prepare the current  screen for screenshotting
-void VisualisePattern(PatternTile p){  
-  
+void VisualisePattern(PatternTile p) {
+
   //Called when the user first presses the "Visualise Button" pattern
-  if (TileStatus.equals("preparing")){
-    p.seeGrid = false; //Turns off the grid 
+  if (TileStatus.equals("preparing")) {
+    p.seeGrid = false; //Turns off the grid
     gridButton.setSelected(false); //Updates the gui to unselect the grid button
-    
+
     for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
       if (currentTile.ArrangedShapes.get(i).isSelected) currentTile.ArrangedShapes.get(i).isSelected = false;
     }
-    
+
     redraw();
     TileStatus = "visualising";
   }
-  
+
   //Called in the next frame when the tile is prepared
-  else if(TileStatus.equals("visualising")){
+  else if (TileStatus.equals("visualising")) {
     saveFrame("SavedTile.png"); //Saves a screenshot of the current pattern tile
     currentPattern = new Arrangement(); //Creates a new arrangement object that uses the image just saved
-    
-    //Updates the GUI screens 
+
+    //Updates the GUI screens
     ArrGUI.setVisible(true); //Shows arrangement GUI screen
     arrguiShow = true;
-    
+
     gui.setVisible(false); //Hides the tile's GUI screen
     arrTypedroplist.setSelected(0); //Ensures the drop list value is set to grid initially
-    
+
     TileStatus = "creating"; //Updates status
   }
 }
 
 //math the icon locations
-void iconLocation(){
+void iconLocation() {
   iconX++;
-  if (iconX >= 4){
+  if (iconX >= 4) {
     iconX = 0;
     iconY++;
   }
@@ -115,32 +124,32 @@ void iconLocation(){
 //event handler. This sets what happens when the user clicks on the buttons in library
 public void handleButtonEvents(GImageButton source, GEvent event) {
   if (event == GEvent.CLICKED) {
-    for (int i = 0; i <= numAddLib; i++){
-      if (source == libraryImgs.get(i)){
-        
+    for (int i = 0; i <= numAddLib; i++) {
+      if (source == libraryImgs.get(i)) {
+
         //Extracts the pattern saved in the library based on which pattern the user wishes to access
         PatternTile newTile = SavedTiles.get(i);
         Arrangement newPattern = SavedPatterns.get(i);
         PImage newATile = SavedTileImgs.get(i);
         int[] newColour = savedBGColors.get(i);
-        
+
         // Calls helper functions so that the current pattern displayed is the one saved
         tilefromLibrary(newTile);
         patternfromLibrary(newPattern);
-        
+
         currentPattern.ATile = newATile;
-        
+
         int r = newColour[0];
         int g = newColour[1];
         int b = newColour[2];
-        
-        bgColour = color(r,g,b);
-        
+
+        bgColour = color(r, g, b);
+
         arrguiShow = true;
         editingPastTile = true;
         libraryShow = false;
         windowName = "Create";
-        
+
         library.setVisible(false);
         startWin.setVisible(false);
         ArrGUI.setVisible(true);
@@ -152,104 +161,100 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
 }
 
 //Function that creates a copy of the saved pattern tile and assigns it to be the current tile
-void tilefromLibrary(PatternTile pt){
-   currentTile.ArrangedShapes = new ArrayList();
-    
-    for (Shape ts: pt.ArrangedShapes){ //adds a copy of every shape from the saved tile to the current tile's arraylist
-      currentTile.ArrangedShapes.add(new Shape(ts.type, new PVector(ts.pos.x, ts.pos.y), ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
-    }
+void tilefromLibrary(PatternTile pt) {
+  currentTile.ArrangedShapes = new ArrayList();
+
+  for (Shape ts : pt.ArrangedShapes) { //adds a copy of every shape from the saved tile to the current tile's arraylist
+    currentTile.ArrangedShapes.add(new Shape(ts.type, new PVector(ts.pos.x, ts.pos.y), ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
+  }
 }
 
 // Function to help create a copy of the arrangement the user wants to save
-void patternfromLibrary(Arrangement a){ // (With ar being the copied arrangement)
-    
-    float newXspacing = a.xSpacing;
-    float newYspacing = a.ySpacing;
-    PVector newPos = new PVector(a.pos.x,a.pos.y);
-    float newHeight = a.hsize;
-    float newWidth = a.wsize;
-    String newType = a.type;
+void patternfromLibrary(Arrangement a) { // (With ar being the copied arrangement)
 
-    //Copies all respective values using the current pattern's
-    currentPattern.xSpacing = newXspacing;
-    currentPattern.ySpacing = newYspacing;
-    currentPattern.pos = newPos;
-    currentPattern.hsize = newHeight;
-    currentPattern.wsize = newWidth;
-    currentPattern.type = newType;   
-    
-    //Displays the current arrangement values on the GUI
-    arrwidthslider.setValue(newWidth);
-    arrheightslider.setValue(newHeight);
-    Y_Spacing.setValue(newYspacing);
-    X_Spacing.setValue(newXspacing);
-    
-    
+  float newXspacing = a.xSpacing;
+  float newYspacing = a.ySpacing;
+  PVector newPos = new PVector(a.pos.x, a.pos.y);
+  float newHeight = a.hsize;
+  float newWidth = a.wsize;
+  String newType = a.type;
+
+  //Copies all respective values using the current pattern's
+  currentPattern.xSpacing = newXspacing;
+  currentPattern.ySpacing = newYspacing;
+  currentPattern.pos = newPos;
+  currentPattern.hsize = newHeight;
+  currentPattern.wsize = newWidth;
+  currentPattern.type = newType;
+
+  //Displays the current arrangement values on the GUI
+  arrwidthslider.setValue(newWidth);
+  arrheightslider.setValue(newHeight);
+  Y_Spacing.setValue(newYspacing);
+  X_Spacing.setValue(newXspacing);
 }
 
 
 // Function to help create a copy of the arrangement the user wants to save
-void setLibraryArrangementValues(Arrangement ar){ // (With ar being the copied arrangement)
-    
-    float newXspacing = currentPattern.xSpacing;
-    float newYspacing = currentPattern.ySpacing;
-    PVector newPos = new PVector(currentPattern.pos.x,currentPattern.pos.y);
-    float newHeight = currentPattern.hsize;
-    float newWidth = currentPattern.wsize;
-    String newType = currentPattern.type;
+void setLibraryArrangementValues(Arrangement ar) { // (With ar being the copied arrangement)
 
-    //Copies all respective values using the current pattern's
-    ar.xSpacing = newXspacing;
-    ar.ySpacing = newYspacing;
-    ar.pos = newPos;
-    ar.hsize = newHeight;
-    ar.wsize = newWidth;
-    ar.type = newType;   
-    
+  float newXspacing = currentPattern.xSpacing;
+  float newYspacing = currentPattern.ySpacing;
+  PVector newPos = new PVector(currentPattern.pos.x, currentPattern.pos.y);
+  float newHeight = currentPattern.hsize;
+  float newWidth = currentPattern.wsize;
+  String newType = currentPattern.type;
+
+  //Copies all respective values using the current pattern's
+  ar.xSpacing = newXspacing;
+  ar.ySpacing = newYspacing;
+  ar.pos = newPos;
+  ar.hsize = newHeight;
+  ar.wsize = newWidth;
+  ar.type = newType;
 }
 
 // Function to help create a copy of the current pattern tile the user wants to save
-void setLibraryTileValues(PatternTile ti){ //(with ti being the current pattern tile)
-    ti.ArrangedShapes = new ArrayList();
-    
-    for (Shape ts: currentTile.ArrangedShapes){ //adds a copy of every shape involved in the current tile to the copy's arraylist
-      ti.ArrangedShapes.add(new Shape(ts.type, new PVector(ts.pos.x, ts.pos.y), ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
-    }
-  
+void setLibraryTileValues(PatternTile ti) { //(with ti being the current pattern tile)
+  ti.ArrangedShapes = new ArrayList();
+
+  for (Shape ts : currentTile.ArrangedShapes) { //adds a copy of every shape involved in the current tile to the copy's arraylist
+    ti.ArrangedShapes.add(new Shape(ts.type, new PVector(ts.pos.x, ts.pos.y), ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
+  }
 }
 
 //Function that saves the pattern to the library
 void executeAddToLibrary() {
   PImage icon = get();
-  
+
   //Saves a screenshot of the pattern to be used as a library icon
   icon.save("libraryIcon" + numAddLib + ".png");
   imageFileNum = "libraryIcon" + numAddLib + ".png";
 
   libraryImgs.add(new GImageButton(library, 56 + 100 * iconX, 30 + 100 * iconY, 75, 75, new String[] { imageFileNum })); //Adds the library icon
-  
+
   numAddLib++;
   iconLocation();
 
   //Saves a copy of the arrangement settings that the user would like to save
-  Arrangement ArrangementAddLibrary = new Arrangement(); //creates new placeholder 
+  Arrangement ArrangementAddLibrary = new Arrangement(); //creates new placeholder
   setLibraryArrangementValues(ArrangementAddLibrary); //Calls the other helper function that fills the placeholder with a copy of the arrangement values
   SavedPatterns.add(ArrangementAddLibrary); //Adds it to the library arraylist
-  
+
   //Saves a copy og the pattern tile settings that the user would like to save to library
   PatternTile TileAddLibrary = new PatternTile(); // Creates new placeholder tile
   setLibraryTileValues(TileAddLibrary);  //Calls the other helper function that fills the placeholder with the shapes in the tile
   SavedTiles.add(TileAddLibrary); //Adds it to the library arraylist
-  
+
   //Saves the pattern tile to the library arraylist
   PImage TileImgAddLibrary = loadImage("SavedTile.png");
   SavedTileImgs.add(TileImgAddLibrary);
-  
+
   //Saves the background colour of the pattern to the library
-  savedBGColors.add(new int[]{int(red(bgColour)), int(green(bgColour)) , int(blue(bgColour))});
+  savedBGColors.add(new int[]{int(red(bgColour)), int(green(bgColour)), int(blue(bgColour))});
 }
 
-void updateTutorialButtons(){
+void updateTutorialButtons() {
   startImg.setVisible(false);
   startClickImg.setVisible(false);
   createScreenImg.setVisible(false);
@@ -263,100 +268,91 @@ void updateTutorialButtons(){
   libraryImg.setVisible(false);
   arrGUIImg.setVisible(false);
   tutorialEnd.setVisible(false);
-  
+
   //first tutorial page
-  if (tutPage == 1){
+  if (tutPage == 1) {
     next.setVisible(true);
     back.setVisible(false);
     finish.setVisible(false);
-    
+
     startImg.setVisible(true);
   }
   //second tutorial page
-  else if (tutPage == 2){
+  else if (tutPage == 2) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-    
+
     startClickImg.setVisible(true);
   }
   //continued
-  else if (tutPage == 3){
+  else if (tutPage == 3) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-    
+
     createScreenImg.setVisible(true);
-  }
-  else if (tutPage == 4){
+  } else if (tutPage == 4) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-    
+
     guiAddShapeImg.setVisible(true);
-  }
-  else if (tutPage == 5){
+  } else if (tutPage == 5) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-    
+
     selectShapeImg.setVisible(true);
-  }
-  else if (tutPage == 6){
+  } else if (tutPage == 6) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-    
+
     GUIImg.setVisible(true);
-  }
-  else if (tutPage == 7){
+  } else if (tutPage == 7) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-    
+
     VPCImg.setVisible(true);
-  }
-  else if (tutPage == 8){
+  } else if (tutPage == 8) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-    
+
     VPImg.setVisible(true);
-  }
-  else if (tutPage == 9){
+  } else if (tutPage == 9) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-    
+
     addToLibImg.setVisible(true);
-  }
-  else if (tutPage == 10){
+  } else if (tutPage == 10) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-    
+
     libraryClickedImg.setVisible(true);
-  }
-  else if (tutPage == 11){
+  } else if (tutPage == 11) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-    
+
     libraryImg.setVisible(true);
-  }
-  else if (tutPage == 12){
+  } else if (tutPage == 12) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-    
+
     arrGUIImg.setVisible(true);
   }
   //last tutorial page
-  else{
+  else {
     next.setVisible(false);
     back.setVisible(true);
     finish.setVisible(true);
-    
+
     tutorialEnd.setVisible(true);
   }
 }
