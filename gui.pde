@@ -165,6 +165,8 @@ public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:
   
   tutorial.setVisible(true);
   
+  updateTutorialButtons();
+  
   next.setVisible(true);
   back.setVisible(false);
   finish.setVisible(false);
