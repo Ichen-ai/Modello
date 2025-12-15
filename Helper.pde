@@ -162,19 +162,21 @@ void setLibraryTileValues(PatternTile ti){ //(with ti being the current pattern 
   
 }
 
-//Saves a screenshot of the entire pattern to the Library
+//Function that saves the pattern to the library
 void executeAddToLibrary() {
   PImage icon = get();
   
+  //Saves a screenshot of the pattern to be used as a library icon
   icon.save("libraryIcon" + numAddLib + ".png");
   imageFileNum = "libraryIcon" + numAddLib + ".png";
 
-  libraryImgs.add(new GImageButton(library, 56 + 100 * iconX, 30 + 100 * iconY, 75, 75, new String[] { imageFileNum }));
+  libraryImgs.add(new GImageButton(library, 56 + 100 * iconX, 30 + 100 * iconY, 75, 75, new String[] { imageFileNum })); //Adds the library icon
   
   numAddLib++;
   iconLocation();
 
-  Arrangement ArrangementAddLibrary = new Arrangement();
+  //Saves a copy of the arrangement settings that the user would like to save
+  Arrangement ArrangementAddLibrary = new Arrangement(); //creates new placeholder 
   setLibraryArrangementValues(ArrangementAddLibrary); 
   SavedPatterns.add(ArrangementAddLibrary);
   
