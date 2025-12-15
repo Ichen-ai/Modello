@@ -291,11 +291,17 @@ public void cloPickBlueSliderChange(GCustomSlider source, GEvent event) { //_COD
 } //_CODE_:colPickBlueSlider:696466:
 
 public void setShapeColClick(GButton source, GEvent event) { //_CODE_:setShapeCol:444619:
-  println("setShapeCol - GButton >> GEvent." + event + " @ " + millis());
+  redSlider.setValue(colPickRedSlider.getValueI());
+  greenSlider.setValue(colPickGreenSlider.getValueI());
+  blueSlider.setValue(colPickBlueSlider.getValueI());
+  changeShapeValues();
 } //_CODE_:setShapeCol:444619:
 
 public void setBgColClick(GButton source, GEvent event) { //_CODE_:setBgCol:655976:
-  println("setBgCol - GButton >> GEvent." + event + " @ " + millis());
+  bgRedSlider.setValue(colPickRedSlider.getValueI());
+  bgGreenSlider.setValue(colPickGreenSlider.getValueI());
+  bgBlueSlider.setValue(colPickBlueSlider.getValueI());
+  changeBgColour();
 } //_CODE_:setBgCol:655976:
 
 public void PickColourCheckboxClicked(GCheckbox source, GEvent event) { //_CODE_:PickColourCheckbox:663486:
