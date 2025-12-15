@@ -116,14 +116,14 @@ void iconLocation(){
 public void handleButtonEvents(GImageButton source, GEvent event) {
   if (event == GEvent.CLICKED) {
     for (int i = 0; i <= numAddLib; i++){
+  
       if (source == libraryImgs.get(i)){
-        
-        //Extracts the pattern saved in the library based on which pattern the user wishes to access
+        //Extracts the saved objects from each of their respective arraylists 
         PatternTile newTile = SavedTiles.get(i);
         Arrangement newPattern = SavedPatterns.get(i);
         PImage newATile = SavedTileImgs.get(i);
         
-        // Calls helper functions so that the current pattern displayed is the one saved
+        //Calls other helper functions to assign copies of the objects to show as the current pattern
         tilefromLibrary(newTile);
         patternfromLibrary(newPattern);
         
@@ -132,28 +132,24 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
         arrguiShow = true;
         editingPastTile = true;
         windowName = "Create";
-        
-        startWin.setVisible(false);
-        ArrGUI.setVisible(true);
-        gui.setVisible(false);
-        showWindow();
       }
     }
   }
 }
 
-//Function that creates a copy of the saved pattern tile and assigns it to be the current tile
-void tilefromLibrary(PatternTile pt){
+//Function that creates a copy of the tile saved in the library to be set as the current tile
+void tilefromLibrary(PatternTile t){
    currentTile.ArrangedShapes = new ArrayList();
     
-    for (Shape ts: pt.ArrangedShapes){ //adds a copy of every shape from the saved tile to the current tile's arraylist
+    for (Shape ts: t.ArrangedShapes){ //adds a copy of every shape in the saved tile to the current tile's arraylist
       currentTile.ArrangedShapes.add(new Shape(ts.type, new PVector(ts.pos.x, ts.pos.y), ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
     }
 }
 
-// Function to help create a copy of the arrangement the user wants to save
-void patternfromLibrary(Arrangement a){ // (With ar being the copied arrangement)
+//Function that creates a copy of the arrangement saved in the library to be set as the current arrangement
+void patternfromLibrary(Arrangement a){ 
     
+   //Extracts all values from the saved arrangement
     float newXspacing = a.xSpacing;
     float newYspacing = a.ySpacing;
     PVector newPos = new PVector(a.pos.x,a.pos.y);
@@ -161,23 +157,14 @@ void patternfromLibrary(Arrangement a){ // (With ar being the copied arrangement
     float newWidth = a.wsize;
     String newType = a.type;
 
-    //Copies all respective values using the current pattern's
+    //Copies all respective values to the current pattern's
     currentPattern.xSpacing = newXspacing;
     currentPattern.ySpacing = newYspacing;
     currentPattern.pos = newPos;
     currentPattern.hsize = newHeight;
     currentPattern.wsize = newWidth;
     currentPattern.type = newType;   
-    
-    //Displays the current arrangement values on the GUI
-    arrwidthslider.setValue(newWidth);
-    arrheightslider.setValue(newHeight);
-    Y_Spacing.setValue(newYspacing);
-    X_Spacing.setValue(newXspacing);
-    
-    
 }
-
 
 // Function to help create a copy of the arrangement the user wants to save
 void setLibraryArrangementValues(Arrangement ar){ // (With ar being the copied arrangement)
@@ -196,7 +183,6 @@ void setLibraryArrangementValues(Arrangement ar){ // (With ar being the copied a
     ar.hsize = newHeight;
     ar.wsize = newWidth;
     ar.type = newType;   
-    
 }
 
 // Function to help create a copy of the current pattern tile the user wants to save
@@ -222,17 +208,19 @@ void executeAddToLibrary() {
   numAddLib++;
   iconLocation();
 
-  //Saves a copy of the arrangement settings that the user would like to save
-  Arrangement ArrangementAddLibrary = new Arrangement(); //creates new placeholder 
-  setLibraryArrangementValues(ArrangementAddLibrary); 
-  SavedPatterns.add(ArrangementAddLibrary);
+  //Saves a copy of the arrangement settings to be added to the library
+  Arrangement ArrangementAddLibrary = new Arrangement(); // Creates new placeholder for the copied arrangmenet
+  setLibraryArrangementValues(ArrangementAddLibrary); // Calls another helper function that creates an independent arrangement with the vals copied
+  SavedPatterns.add(ArrangementAddLibrary); //Adds the copied arrangement to the arraylist accessed by the library
   
-  PatternTile TileAddLibrary = new PatternTile();
-  setLibraryTileValues(TileAddLibrary); 
-  SavedTiles.add(TileAddLibrary);
+  //Saves a copy of the tile's shapes to be added to the library
+  PatternTile TileAddLibrary = new PatternTile(); //Creates new placeholder for the copied tile
+  setLibraryTileValues(TileAddLibrary); // Calls another helper function that creates an independent arrangement with the values copied
+  SavedTiles.add(TileAddLibrary); //Adds the copied tile object to the arraylist used by the library
   
+  //Saves the current tile's screenshot to be added to the library
   PImage TileImgAddLibrary = loadImage("SavedTile.png");
-  SavedTileImgs.add(TileImgAddLibrary);
+  SavedTileImgs.add(TileImgAddLibrary); //Adds it to the arraylist used by the library
 }
 
 void updateTutorialButtons(){
