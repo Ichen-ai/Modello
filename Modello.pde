@@ -27,6 +27,7 @@ ArrayList<Arrangement> SavedPatterns = new ArrayList(); //complete patterns save
 ArrayList<PatternTile> SavedTiles = new ArrayList(); // complete tiles saved (with shape settings and values)
 ArrayList<GImageButton> libraryImgs = new ArrayList(); //an arraylist that stores the saved images as icons
 ArrayList<PImage> SavedTileImgs = new ArrayList(); //an arraylist that stores the saved tile images
+ArrayList<int[]> savedBGColors = new ArrayList<int[]>(); //an arraylist that stores the background colours for the saved patterns
 
 //More initialising and creating of global variables
 Boolean arrguiShow = false;

@@ -122,12 +122,19 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
         PatternTile newTile = SavedTiles.get(i);
         Arrangement newPattern = SavedPatterns.get(i);
         PImage newATile = SavedTileImgs.get(i);
+        int[] newColour = savedBGColors.get(i);
         
         // Calls helper functions so that the current pattern displayed is the one saved
         tilefromLibrary(newTile);
         patternfromLibrary(newPattern);
         
         currentPattern.ATile = newATile;
+        
+        int r = newColour[0];
+        int g = newColour[1];
+        int b = newColour[2];
+        
+        bgColour = color(r,g,b);
         
         arrguiShow = true;
         editingPastTile = true;
@@ -226,15 +233,20 @@ void executeAddToLibrary() {
 
   //Saves a copy of the arrangement settings that the user would like to save
   Arrangement ArrangementAddLibrary = new Arrangement(); //creates new placeholder 
-  setLibraryArrangementValues(ArrangementAddLibrary); 
-  SavedPatterns.add(ArrangementAddLibrary);
+  setLibraryArrangementValues(ArrangementAddLibrary); //Calls the other helper function that fills the placeholder with a copy of the arrangement values
+  SavedPatterns.add(ArrangementAddLibrary); //Adds it to the library arraylist
   
-  PatternTile TileAddLibrary = new PatternTile();
-  setLibraryTileValues(TileAddLibrary); 
-  SavedTiles.add(TileAddLibrary);
+  //Saves a copy og the pattern tile settings that the user would like to save to library
+  PatternTile TileAddLibrary = new PatternTile(); // Creates new placeholder tile
+  setLibraryTileValues(TileAddLibrary);  //Calls the other helper function that fills the placeholder with the shapes in the tile
+  SavedTiles.add(TileAddLibrary); //Adds it to the library arraylist
   
+  //Saves the pattern tile to the library arraylist
   PImage TileImgAddLibrary = loadImage("SavedTile.png");
   SavedTileImgs.add(TileImgAddLibrary);
+  
+  //Saves the background colour of the pattern to the library
+  savedBGColors.add(new int[]{int(red(bgColour)), int(green(bgColour)) , int(blue(bgColour))});
 }
 
 void updateTutorialButtons(){
