@@ -88,11 +88,10 @@ void VisualisePattern(PatternTile p) {
     gridButton.setSelected(false); //Updates the gui to unselect the grid button
 
     for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
-      if (currentTile.ArrangedShapes.get(i).isSelected) currentTile.ArrangedShapes.get(i).isSelected = false;
+      currentTile.ArrangedShapes.get(i).isSelected = false;
     }
-
-    redraw();
     TileStatus = "visualising";
+    redraw();
   }
 
   //Called in the next frame when the tile is prepared
