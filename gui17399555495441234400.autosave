@@ -117,11 +117,6 @@ public void bwkShapeButtonClicked(GButton source, GEvent event) { //_CODE_:bwkSh
 } //_CODE_:bwkShapeButton:867870:
 
 public void toStartClicked(GButton source, GEvent event) { //_CODE_:toStart:677194:
-  gui.setVisible(false);
-  ArrGUI.setVisible(false);
-  
-  startWin.setVisible(true);
-  
   windowName = "Start";
 } //_CODE_:toStart:677194:
 
@@ -135,19 +130,14 @@ synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutoria
 
 public void nextClicked(GButton source, GEvent event) { //_CODE_:next:783622:
   tutPage += 1;
-  
-  updateTutorialButtons();
 } //_CODE_:next:783622:
 
 public void backClicked(GButton source, GEvent event) { //_CODE_:back:491218:
   tutPage -= 1;
-  
-  updateTutorialButtons();
 } //_CODE_:back:491218:
 
 public void finishClicked(GButton source, GEvent event) { //_CODE_:finish:597876:
   tutorialShow = false;
-  tutorial.setVisible(false);
 } //_CODE_:finish:597876:
 
 synchronized public void startWinDraw(PApplet appc, GWinData data) { //_CODE_:startWin:587259:
@@ -155,28 +145,16 @@ synchronized public void startWinDraw(PApplet appc, GWinData data) { //_CODE_:st
 } //_CODE_:startWin:587259:
 
 public void startClicked(GButton source, GEvent event) { //_CODE_:start:897298:
-  startWin.setVisible(false);
-  gui.setVisible(true);
-  
   windowName = "Create";
 } //_CODE_:start:897298:
 
 public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:584753:
   tutPage = 1;
   tutorialShow = true;
-  
-  tutorial.setVisible(true);
-  
-  updateTutorialButtons();
-  
-  next.setVisible(true);
-  back.setVisible(false);
-  finish.setVisible(false);
 } //_CODE_:tutButton:584753:
 
 public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButton:312218:
   libraryShow = true;
-  library.setVisible(true);
 } //_CODE_:libraryButton:312218:
 
 public void exitClicked(GButton source, GEvent event) { //_CODE_:exit:855732:
@@ -189,7 +167,6 @@ synchronized public void libraryDraw(PApplet appc, GWinData data) { //_CODE_:lib
 
 public void closeLibClicked(GButton source, GEvent event) { //_CODE_:closeLib:641587:
   libraryShow = false;
-  library.setVisible(false);
 } //_CODE_:closeLib:641587:
 
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:ArrGUI:776699:
@@ -234,8 +211,27 @@ if (!LibrConfirmed){
     LibrConfirmed = true;
   }
   
-  //Request to save a screenshot of the entire pattern to the Library
-  requestLibSave = true;
+  //Saves a screenshot of the entire pattern to the Library
+  saveFrame("libraryIcons/libraryIcon"+numAddLib+".png");
+  imageFileNum = "libraryIcons/libraryIcon"+numAddLib+".png";
+  
+  libraryImgs.add(new GImageButton(library, 56+100*iconX, 30+100*iconY, 75, 75, new String[] {imageFileNum} )); //Creates a new GImageButton in the Library
+  numAddLib++;
+  iconLocation();
+  
+  //Creates a copy of the current pattern's arrangemenet to be added to the saved patterns
+  Arrangement ArrangementAddLibrary = new Arrangement();
+  setLibraryArrangementValues(ArrangementAddLibrary);
+  SavedPatterns.add(ArrangementAddLibrary);
+  
+  //Creates a copy of the current pattern's tiles to be added to the saved pattern tiles
+  PatternTile TileAddLibrary = new PatternTile();
+  setLibraryTileValues(TileAddLibrary);
+  SavedTiles.add(TileAddLibrary);
+  
+  //Adds a copy of the current pattern's tile image to the saved tile images
+  PImage TileImgAddLibrary = loadImage("SavedTile.png");
+  SavedTileImgs.add(TileImgAddLibrary);
   
 } //_CODE_:addLibraryButton:544916:
 
@@ -253,7 +249,6 @@ public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternS
 
 public void libraryClicked2(GButton source, GEvent event) { //_CODE_:libraryButton2:502722:
   libraryShow = true;
-  library.setVisible(true);
 } //_CODE_:libraryButton2:502722:
 
 

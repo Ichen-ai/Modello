@@ -7,9 +7,8 @@ String windowName = "Start";
 Boolean tutorialShow = false;
 Boolean libraryShow = false;
 int tutPage = 1;
-PFont titleFont;
 int screenshotNum;
-int numAddLib = -1; //starts at negative one because first value is 0 in a list (after it has been added)
+int numAddLib = 0;
 String imageFileNum;
 int iconX = 0;
 int iconY = 0;
@@ -40,8 +39,6 @@ float SaveTime;
 
 Boolean LibrConfirmed = false;
 float LibrTime;
-
-Boolean requestLibSave = false;
 
 
 //Global GImageButton Variables
@@ -74,26 +71,9 @@ void setup() {
   startImg.setVisible(false);
   startClickImg.setVisible(false);
   
-  //sets these windows/gimagebuttons as false (not showing) at the start of the program
-  startWin.setVisible(true);
+  //sets these windows as false (not showing) at the start of the program
   library.setVisible(false);
   tutorial.setVisible(false);
-  gui.setVisible(false);
-  ArrGUI.setVisible(false);
-  startImg.setVisible(false);
-  startClickImg.setVisible(false);
-  startClickImg.setVisible(false);
-  createScreenImg.setVisible(false);
-  guiAddShapeImg.setVisible(false);
-  selectShapeImg.setVisible(false);
-  GUIImg.setVisible(false);
-  VPCImg.setVisible(false);
-  VPImg.setVisible(false);
-  addToLibImg.setVisible(false);
-  libraryClickedImg.setVisible(false);
-  libraryImg.setVisible(false);
-  arrGUIImg.setVisible(false);
-  tutorialEnd.setVisible(false);
 }
 
 
@@ -128,15 +108,8 @@ void draw() {
     LibrConfirmed = false;
   }
   
-  //execute the request to save, put at the end of the program to ensure entire frame loaded
-  if (requestLibSave) {
-    executeAddToLibrary();
-    requestLibSave = false;
-  }
-  
   //Calls the exit function if the user has clicked on the exit button
-  if (shouldExit == true && frameCount > 5){
-    noLoop();
+  if (shouldExit == true){
     exit();
     return;
   }
@@ -144,7 +117,7 @@ void draw() {
 
 //Function to close the program
 void exit(){
-  for (int i = 0; i <= numAddLib+1; i++){    
+  for (int i = 0; i < numAddLib; i++){    
     File f = dataFile("libraryIcon"+i+".png");
     if (f.exists()) f.delete();
   }

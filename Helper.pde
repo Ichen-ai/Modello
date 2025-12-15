@@ -78,6 +78,11 @@ void VisualisePattern(PatternTile p){
     p.seeGrid = false; //Turns off the grid 
     gridButton.setSelected(false); //Updates the gui to unselect the grid button
     
+    for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
+      if (currentTile.ArrangedShapes.get(i).isSelected) currentTile.ArrangedShapes.get(i).isSelected = false;
+    }
+    
+    redraw();
     TileStatus = "visualising";
   }
   
@@ -112,9 +117,13 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
   if (event == GEvent.CLICKED) {
     for (int i = 0; i <= numAddLib; i++){
       if (source == libraryImgs.get(i)){
-        currentTile = SavedTiles.get(i);
-        currentPattern = SavedPatterns.get(i);
-        currentPattern.ATile = SavedTileImgs.get(i);
+        PatternTile newTile = SavedTiles.get(i);
+        Arrangement newPattern = SavedPatterns.get(i);
+        PImage newATile = SavedTileImgs.get(i);
+        
+        currentTile = newTile;
+        currentPattern = newPattern;
+        currentPattern.ATile = newATile;
         
         arrguiShow = true;
         editingPastTile = true;
@@ -126,14 +135,21 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
 
 // Function to help create a copy of the arrangement the user wants to save
 void setLibraryArrangementValues(Arrangement ar){ // (With ar being the copied arrangement)
+    
+    float newXspacing = currentPattern.xSpacing;
+    float newYspacing = currentPattern.ySpacing;
+    PVector newPos = new PVector(currentPattern.pos.x,currentPattern.pos.y);
+    float newHeight = currentPattern.hsize;
+    float newWidth = currentPattern.wsize;
+    String newType = currentPattern.type;
 
     //Copies all respective values using the current pattern's
-    ar.xSpacing = currentPattern.xSpacing;
-    ar.ySpacing = currentPattern.ySpacing;
-    ar.pos = new PVector(currentPattern.pos.x,currentPattern.pos.y);
-    ar.hsize = currentPattern.hsize;
-    ar.wsize = currentPattern.wsize;
-    ar.type = currentPattern.type;   
+    ar.xSpacing = newXspacing;
+    ar.ySpacing = newYspacing;
+    ar.pos = newPos;
+    ar.hsize = newHeight;
+    ar.wsize = newWidth;
+    ar.type = newType;   
 }
 
 // Function to help create a copy of the current pattern tile the user wants to save
@@ -141,7 +157,143 @@ void setLibraryTileValues(PatternTile ti){ //(with ti being the current pattern 
     ti.ArrangedShapes = new ArrayList();
     
     for (Shape ts: currentTile.ArrangedShapes){ //adds a copy of every shape involved in the current tile to the copy's arraylist
-      ti.ArrangedShapes.add(new Shape(ts.type, ts.pos, ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
+      ti.ArrangedShapes.add(new Shape(ts.type, new PVector(ts.pos.x, ts.pos.y), ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
     }
   
+}
+
+//Saves a screenshot of the entire pattern to the Library
+void executeAddToLibrary() {
+  PImage icon = get();
+  
+  icon.save("libraryIcon" + numAddLib + ".png");
+  imageFileNum = "libraryIcon" + numAddLib + ".png";
+
+  libraryImgs.add(new GImageButton(library, 56 + 100 * iconX, 30 + 100 * iconY, 75, 75, new String[] { imageFileNum }));
+  
+  numAddLib++;
+  iconLocation();
+
+  Arrangement ArrangementAddLibrary = new Arrangement();
+  setLibraryArrangementValues(ArrangementAddLibrary); 
+  SavedPatterns.add(ArrangementAddLibrary);
+  
+  PatternTile TileAddLibrary = new PatternTile();
+  setLibraryTileValues(TileAddLibrary); 
+  SavedTiles.add(TileAddLibrary);
+  
+  PImage TileImgAddLibrary = loadImage("SavedTile.png");
+  SavedTileImgs.add(TileImgAddLibrary);
+}
+
+void updateTutorialButtons(){
+  startImg.setVisible(false);
+  startClickImg.setVisible(false);
+  createScreenImg.setVisible(false);
+  guiAddShapeImg.setVisible(false);
+  selectShapeImg.setVisible(false);
+  GUIImg.setVisible(false);
+  VPCImg.setVisible(false);
+  VPImg.setVisible(false);
+  addToLibImg.setVisible(false);
+  libraryClickedImg.setVisible(false);
+  libraryImg.setVisible(false);
+  arrGUIImg.setVisible(false);
+  tutorialEnd.setVisible(false);
+  
+  //first tutorial page
+  if (tutPage == 1){
+    next.setVisible(true);
+    back.setVisible(false);
+    finish.setVisible(false);
+    
+    startImg.setVisible(true);
+  }
+  //second tutorial page
+  else if (tutPage == 2){
+    next.setVisible(true);
+    back.setVisible(true);
+    finish.setVisible(false);
+    
+    startClickImg.setVisible(true);
+  }
+  //continued
+  else if (tutPage == 3){
+    next.setVisible(true);
+    back.setVisible(true);
+    finish.setVisible(false);
+    
+    createScreenImg.setVisible(true);
+  }
+  else if (tutPage == 4){
+    next.setVisible(true);
+    back.setVisible(true);
+    finish.setVisible(false);
+    
+    guiAddShapeImg.setVisible(true);
+  }
+  else if (tutPage == 5){
+    next.setVisible(true);
+    back.setVisible(true);
+    finish.setVisible(false);
+    
+    selectShapeImg.setVisible(true);
+  }
+  else if (tutPage == 6){
+    next.setVisible(true);
+    back.setVisible(true);
+    finish.setVisible(false);
+    
+    GUIImg.setVisible(true);
+  }
+  else if (tutPage == 7){
+    next.setVisible(true);
+    back.setVisible(true);
+    finish.setVisible(false);
+    
+    VPCImg.setVisible(true);
+  }
+  else if (tutPage == 8){
+    next.setVisible(true);
+    back.setVisible(true);
+    finish.setVisible(false);
+    
+    VPImg.setVisible(true);
+  }
+  else if (tutPage == 9){
+    next.setVisible(true);
+    back.setVisible(true);
+    finish.setVisible(false);
+    
+    addToLibImg.setVisible(true);
+  }
+  else if (tutPage == 10){
+    next.setVisible(true);
+    back.setVisible(true);
+    finish.setVisible(false);
+    
+    libraryClickedImg.setVisible(true);
+  }
+  else if (tutPage == 11){
+    next.setVisible(true);
+    back.setVisible(true);
+    finish.setVisible(false);
+    
+    libraryImg.setVisible(true);
+  }
+  else if (tutPage == 12){
+    next.setVisible(true);
+    back.setVisible(true);
+    finish.setVisible(false);
+    
+    arrGUIImg.setVisible(true);
+  }
+  //last tutorial page
+  else{
+    next.setVisible(false);
+    back.setVisible(true);
+    finish.setVisible(true);
+    
+    tutorialEnd.setVisible(true);
+  }
 }
