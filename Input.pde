@@ -7,7 +7,7 @@ void mouseClicked() {
   if (findingColour) {
     getColour(mousePos);
     findingColour = false;
-    PickColourCheckbox.setSelected(false);
+    pickColourCheckbox.setSelected(false);
   } else {
     for (int i = currentTile.ArrangedShapes.size() - 1; i >=0; i--) {
       Shape testShape = currentTile.ArrangedShapes.get(i);
