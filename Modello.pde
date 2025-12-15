@@ -16,6 +16,7 @@ int iconY = 0;
 int drawn = 0;
 boolean shouldExit = false;
 boolean backToDraw = false;
+boolean seeColPick = false;
 
 // Creating placeholder Tile and Arrangement variables to be filled as they are created
 PatternTile currentTile = new PatternTile();
@@ -91,6 +92,7 @@ void setup() {
   libraryImg.setVisible(false);
   arrGUIImg.setVisible(false);
   tutorialEnd.setVisible(false);
+  colPick.setVisible(false);
   
   hideWindow();
 }
@@ -110,6 +112,12 @@ void draw() {
     background(bgColour);
     currentPattern.drawPattern(); //Draws pattern with arrangements if on that screen
   }
+  
+  
+  //EDIT THIS PART
+  if (seeColPick) {
+    colPick.setVisible(true);
+  } else colPick.setVisible(false);
   
   if (TileStatus.equals("visualising")){ //Calls helper function to take screenshot after the grid/selection border is removed
     VisualisePattern(currentTile);
@@ -132,6 +140,10 @@ void draw() {
     executeAddToLibrary();
     requestLibSave = false;
   }
+  
+  stroke(255);
+  fill(0);
+  if (seeColPick) rect(mouseX, mouseY, 10, 10);
 }
 
 //Function to close the program

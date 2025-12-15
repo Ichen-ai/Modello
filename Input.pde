@@ -13,6 +13,14 @@ void mouseClicked() {
       break;
     }
   }
+  
+  
+  if (seeColPick) {
+    color c = get(mouseX, mouseY);    
+    colPickRedSlider.setValue(red(c));
+    colPickGreenSlider.setValue(green(c));
+    colPickBlueSlider.setValue(blue(c));
+  }
 }
 
 void mouseDragged() {

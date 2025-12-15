@@ -130,6 +130,12 @@ public void gridSliderChange(GCustomSlider source, GEvent event) { //_CODE_:grid
   currentTile.gridSize = gridSlider.getValueI();;
 } //_CODE_:gridSlider:954807:
 
+public void colPickCheckboxClicked(GCheckbox source, GEvent event) { //_CODE_:colPickCheckbox:369430:
+  if (! seeColPick) {
+    seeColPick = true;
+  } else seeColPick = false;
+} //_CODE_:colPickCheckbox:369430:
+
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
   appc.background(230);
 } //_CODE_:tutorial:852036:
@@ -259,7 +265,6 @@ public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternS
   screenshotNum++;
 } //_CODE_:patternSave:520565:
 
-
 public void libraryClicked2(GButton source, GEvent event) { //_CODE_:libraryButton2:502722:
   libraryShow = true;
   library.setVisible(true);
@@ -268,6 +273,26 @@ public void libraryClicked2(GButton source, GEvent event) { //_CODE_:libraryButt
   ArrGUI.setVisible(false);
   backToDraw = true;
 } //_CODE_:libraryButton2:502722:
+
+public void colPickRedChange(GCustomSlider source, GEvent event) { //_CODE_:colPickRedSlider:367583:
+ 
+} //_CODE_:colPickRedSlider:367583:
+
+public void colPickGreenSliderClick(GCustomSlider source, GEvent event) { //_CODE_:colPickGreenSlider:962107:
+
+} //_CODE_:colPickGreenSlider:962107:
+
+public void cloPickBlueSliderChange(GCustomSlider source, GEvent event) { //_CODE_:colPickBlueSlider:696466:
+
+} //_CODE_:colPickBlueSlider:696466:
+
+public void setShapeColClick(GButton source, GEvent event) { //_CODE_:setShapeCol:444619:
+  println("setShapeCol - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:setShapeCol:444619:
+
+public void setBgColClick(GButton source, GEvent event) { //_CODE_:setBgCol:655976:
+  println("setBgCol - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:setBgCol:655976:
 
 
 
@@ -348,35 +373,35 @@ public void createGUI(){
   autoAlign.setText("Allow auto align");
   autoAlign.setOpaque(false);
   autoAlign.addEventHandler(this, "autoAlignClicked");
-  label3 = new GLabel(gui, 120, 126, 112, 29);
+  label3 = new GLabel(gui, 113, 137, 112, 29);
   label3.setText("Background Colour");
   label3.setOpaque(false);
-  bgRedSlider = new GCustomSlider(gui, 129, 155, 100, 40, "grey_blue");
+  bgRedSlider = new GCustomSlider(gui, 130, 164, 100, 40, "grey_blue");
   bgRedSlider.setShowValue(true);
   bgRedSlider.setLimits(255, 0, 255);
   bgRedSlider.setNumberFormat(G4P.INTEGER, 0);
   bgRedSlider.setLocalColorScheme(GCScheme.RED_SCHEME);
   bgRedSlider.setOpaque(false);
   bgRedSlider.addEventHandler(this, "bgRedSliderChange");
-  bgGreenSlider = new GCustomSlider(gui, 129, 178, 100, 40, "grey_blue");
+  bgGreenSlider = new GCustomSlider(gui, 130, 188, 100, 40, "grey_blue");
   bgGreenSlider.setShowValue(true);
   bgGreenSlider.setLimits(255, 0, 255);
   bgGreenSlider.setNumberFormat(G4P.INTEGER, 0);
   bgGreenSlider.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   bgGreenSlider.setOpaque(false);
   bgGreenSlider.addEventHandler(this, "bgGreenSliderChange");
-  bgBlueSlider = new GCustomSlider(gui, 129, 201, 100, 40, "grey_blue");
+  bgBlueSlider = new GCustomSlider(gui, 130, 211, 100, 40, "grey_blue");
   bgBlueSlider.setShowValue(true);
   bgBlueSlider.setLimits(255, 0, 255);
   bgBlueSlider.setNumberFormat(G4P.INTEGER, 0);
   bgBlueSlider.setOpaque(false);
   bgBlueSlider.addEventHandler(this, "bgBlueSliderChange");
-  fwdShapeButton = new GButton(gui, 241, 85, 143, 30);
+  fwdShapeButton = new GButton(gui, 246, 86, 143, 30);
   fwdShapeButton.setTextAlign(GAlign.CENTER, GAlign.RIGHT);
   fwdShapeButton.setText("Move Shape Forwards");
   fwdShapeButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   fwdShapeButton.addEventHandler(this, "fwdShapeButtonClick");
-  bwkShapeButton = new GButton(gui, 241, 123, 143, 30);
+  bwkShapeButton = new GButton(gui, 248, 122, 143, 30);
   bwkShapeButton.setText("Move Shape Backwards");
   bwkShapeButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   bwkShapeButton.addEventHandler(this, "bwkShapeButtonClicked");
@@ -402,28 +427,33 @@ public void createGUI(){
   label8 = new GLabel(gui, 241, 52, 80, 20);
   label8.setText("Height");
   label8.setOpaque(false);
-  label9 = new GLabel(gui, 109, 164, 19, 20);
+  label9 = new GLabel(gui, 108, 169, 19, 20);
   label9.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label9.setText("R");
   label9.setOpaque(false);
-  label10 = new GLabel(gui, 107, 186, 22, 20);
+  label10 = new GLabel(gui, 107, 194, 22, 19);
   label10.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label10.setText("G");
   label10.setOpaque(false);
-  label11 = new GLabel(gui, 109, 209, 20, 20);
+  label11 = new GLabel(gui, 108, 219, 20, 20);
   label11.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label11.setText("B");
   label11.setOpaque(false);
-  gridSlider = new GCustomSlider(gui, 278, 201, 100, 40, "grey_blue");
+  gridSlider = new GCustomSlider(gui, 283, 208, 99, 40, "grey_blue");
   gridSlider.setShowValue(true);
   gridSlider.setLimits(25.0, 10.0, 50.0);
   gridSlider.setNumberFormat(G4P.DECIMAL, 2);
   gridSlider.setOpaque(false);
   gridSlider.addEventHandler(this, "gridSliderChange");
-  label12 = new GLabel(gui, 230, 204, 52, 28);
+  label12 = new GLabel(gui, 235, 208, 52, 28);
   label12.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label12.setText("Grid Size");
   label12.setOpaque(false);
+  colPickCheckbox = new GCheckbox(gui, 112, 115, 120, 20);
+  colPickCheckbox.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  colPickCheckbox.setText("See Colour Picker");
+  colPickCheckbox.setOpaque(false);
+  colPickCheckbox.addEventHandler(this, "colPickCheckboxClicked");
   tutorial = GWindow.getWindow(this, "Tutorial", 510, 170, 480, 360, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
@@ -539,11 +569,54 @@ public void createGUI(){
   label16.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label16.setText("Height");
   label16.setOpaque(false);
+  colPick = GWindow.getWindow(this, "Colour Picker", 150, 400, 240, 120, JAVA2D);
+  colPick.noLoop();
+  colPick.setActionOnClose(G4P.KEEP_OPEN);
+  colPick.addDrawHandler(this, "win_draw1");
+  colPickRedSlider = new GCustomSlider(colPick, 31, 25, 100, 40, "grey_blue");
+  colPickRedSlider.setShowValue(true);
+  colPickRedSlider.setLimits(0, 0, 255);
+  colPickRedSlider.setNumberFormat(G4P.INTEGER, 0);
+  colPickRedSlider.setLocalColorScheme(GCScheme.RED_SCHEME);
+  colPickRedSlider.setOpaque(false);
+  colPickRedSlider.addEventHandler(this, "colPickRedChange");
+  colPickGreenSlider = new GCustomSlider(colPick, 31, 49, 100, 40, "grey_blue");
+  colPickGreenSlider.setShowValue(true);
+  colPickGreenSlider.setLimits(0, 0, 255);
+  colPickGreenSlider.setNumberFormat(G4P.INTEGER, 0);
+  colPickGreenSlider.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  colPickGreenSlider.setOpaque(false);
+  colPickGreenSlider.addEventHandler(this, "colPickGreenSliderClick");
+  colPickBlueSlider = new GCustomSlider(colPick, 32, 72, 100, 40, "grey_blue");
+  colPickBlueSlider.setShowValue(true);
+  colPickBlueSlider.setLimits(0, 0, 255);
+  colPickBlueSlider.setNumberFormat(G4P.INTEGER, 0);
+  colPickBlueSlider.setOpaque(false);
+  colPickBlueSlider.addEventHandler(this, "cloPickBlueSliderChange");
+  setShapeCol = new GButton(colPick, 146, 21, 80, 30);
+  setShapeCol.setText("Set Shape Colour");
+  setShapeCol.addEventHandler(this, "setShapeColClick");
+  Colour = new GLabel(colPick, 21, 3, 99, 24);
+  Colour.setText("Picked Colour");
+  Colour.setOpaque(false);
+  label17 = new GLabel(colPick, 7, 31, 26, 20);
+  label17.setText("R");
+  label17.setOpaque(false);
+  label18 = new GLabel(colPick, 7, 54, 23, 20);
+  label18.setText("G");
+  label18.setOpaque(false);
+  label19 = new GLabel(colPick, 7, 80, 24, 20);
+  label19.setText("B");
+  label19.setOpaque(false);
+  setBgCol = new GButton(colPick, 146, 63, 80, 44);
+  setBgCol.setText("Set Background Colour");
+  setBgCol.addEventHandler(this, "setBgColClick");
   gui.loop();
   tutorial.loop();
   startWin.loop();
   library.loop();
   ArrGUI.loop();
+  colPick.loop();
 }
 
 // Variable declarations 
@@ -580,6 +653,7 @@ GLabel label10;
 GLabel label11; 
 GCustomSlider gridSlider; 
 GLabel label12; 
+GCheckbox colPickCheckbox; 
 GWindow tutorial;
 GButton next; 
 GButton back; 
@@ -608,3 +682,13 @@ GLabel label13;
 GLabel label14; 
 GLabel label15; 
 GLabel label16; 
+GWindow colPick;
+GCustomSlider colPickRedSlider; 
+GCustomSlider colPickGreenSlider; 
+GCustomSlider colPickBlueSlider; 
+GButton setShapeCol; 
+GLabel Colour; 
+GLabel label17; 
+GLabel label18; 
+GLabel label19; 
+GButton setBgCol; 
