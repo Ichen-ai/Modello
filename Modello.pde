@@ -74,9 +74,26 @@ void setup() {
   startImg.setVisible(false);
   startClickImg.setVisible(false);
   
-  //sets these windows as false (not showing) at the start of the program
+  //sets these windows/gimagebuttons as false (not showing) at the start of the program
+  startWin.setVisible(true);
   library.setVisible(false);
   tutorial.setVisible(false);
+  gui.setVisible(false);
+  ArrGUI.setVisible(false);
+  startImg.setVisible(false);
+  startClickImg.setVisible(false);
+  startClickImg.setVisible(false);
+  createScreenImg.setVisible(false);
+  guiAddShapeImg.setVisible(false);
+  selectShapeImg.setVisible(false);
+  GUIImg.setVisible(false);
+  VPCImg.setVisible(false);
+  VPImg.setVisible(false);
+  addToLibImg.setVisible(false);
+  libraryClickedImg.setVisible(false);
+  libraryImg.setVisible(false);
+  arrGUIImg.setVisible(false);
+  tutorialEnd.setVisible(false);
 }
 
 

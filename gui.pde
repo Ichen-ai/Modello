@@ -117,6 +117,11 @@ public void bwkShapeButtonClicked(GButton source, GEvent event) { //_CODE_:bwkSh
 } //_CODE_:bwkShapeButton:867870:
 
 public void toStartClicked(GButton source, GEvent event) { //_CODE_:toStart:677194:
+  gui.setVisible(false);
+  ArrGUI.setVisible(false);
+  
+  startWin.setVisible(true);
+  
   windowName = "Start";
 } //_CODE_:toStart:677194:
 
@@ -130,10 +135,12 @@ synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutoria
 
 public void nextClicked(GButton source, GEvent event) { //_CODE_:next:783622:
   tutPage += 1;
+  updateTutorialButtons();
 } //_CODE_:next:783622:
 
 public void backClicked(GButton source, GEvent event) { //_CODE_:back:491218:
   tutPage -= 1;
+  updateTutorialButtons();
 } //_CODE_:back:491218:
 
 public void finishClicked(GButton source, GEvent event) { //_CODE_:finish:597876:
@@ -146,13 +153,21 @@ synchronized public void startWinDraw(PApplet appc, GWinData data) { //_CODE_:st
 } //_CODE_:startWin:587259:
 
 public void startClicked(GButton source, GEvent event) { //_CODE_:start:897298:
+  startWin.setVisible(false);
+  gui.setVisible(true);
+  
   windowName = "Create";
 } //_CODE_:start:897298:
 
 public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:584753:
   tutPage = 1;
   tutorialShow = true;
+  
   tutorial.setVisible(true);
+  
+  next.setVisible(true);
+  back.setVisible(false);
+  finish.setVisible(false);
 } //_CODE_:tutButton:584753:
 
 public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButton:312218:

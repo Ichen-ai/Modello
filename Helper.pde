@@ -185,3 +185,77 @@ void executeAddToLibrary() {
   PImage TileImgAddLibrary = loadImage("SavedTile.png");
   SavedTileImgs.add(TileImgAddLibrary);
 }
+
+void updateTutorialButtons(){
+  startClickImg.setVisible(false);
+  createScreenImg.setVisible(false);
+  guiAddShapeImg.setVisible(false);
+  selectShapeImg.setVisible(false);
+  GUIImg.setVisible(false);
+  VPCImg.setVisible(false);
+  VPImg.setVisible(false);
+  addToLibImg.setVisible(false);
+  libraryClickedImg.setVisible(false);
+  libraryImg.setVisible(false);
+  arrGUIImg.setVisible(false);
+  tutorialEnd.setVisible(false);
+  
+  //first tutorial page
+  if (tutPage == 1){
+    back.setVisible(false);
+    startImg.setVisible(true);
+  }
+  //second tutorial page
+  else if (tutPage == 2){
+    back.setVisible(true);
+    startClickImg.setVisible(true);
+  }
+  //continued
+  else if (tutPage == 3){
+    back.setVisible(true);
+    createScreenImg.setVisible(true);
+  }
+  else if (tutPage == 4){
+    back.setVisible(true);
+    guiAddShapeImg.setVisible(true);
+  }
+  else if (tutPage == 5){
+    back.setVisible(true);
+    selectShapeImg.setVisible(true);
+  }
+  else if (tutPage == 6){
+    back.setVisible(true);
+    GUIImg.setVisible(true);
+  }
+  else if (tutPage == 7){
+    back.setVisible(true);
+    VPCImg.setVisible(true);
+  }
+  else if (tutPage == 8){
+    back.setVisible(true);
+    VPImg.setVisible(true);
+  }
+  else if (tutPage == 9){
+    back.setVisible(true);
+    addToLibImg.setVisible(true);
+  }
+  else if (tutPage == 10){
+    back.setVisible(true);
+    libraryClickedImg.setVisible(true);
+  }
+  else if (tutPage == 11){
+    back.setVisible(true);
+    libraryImg.setVisible(true);
+  }
+  else if (tutPage == 12){
+    back.setVisible(true);
+    arrGUIImg.setVisible(true);
+  }
+  //last tutorial page
+  else{
+    next.setVisible(false);
+    back.setVisible(true);
+    finish.setVisible(true);
+    tutorialEnd.setVisible(true);
+  }
+}
