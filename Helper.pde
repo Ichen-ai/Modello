@@ -128,6 +128,9 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
         arrguiShow = true;
         editingPastTile = true;
         windowName = "Create";
+        
+        startWin.setVisible(false);
+        gui.setVisible(true);
       }
     }
   }
