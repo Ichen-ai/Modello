@@ -49,6 +49,7 @@ GImageButton title, loadPattern, startImg, startClickImg, createScreenImg, guiAd
 GLabel tutorialLabel;
 
 void setup() {
+  cleanupTempFiles();
   size(500, 500);
   createGUI(); //Creating GUI controls
   
@@ -130,31 +131,26 @@ void draw() {
     executeAddToLibrary();
     requestLibSave = false;
   }
-  
-  //Calls the exit function if the user has clicked on the exit button
-  if (shouldExit == true && frameCount > 5){
-    noLoop();
-    exit();
-    return;
-  }
 }
 
 //Function to close the program
 void exit(){
-  for (int i = 0; i <= numAddLib+1; i++){    
-    File f = dataFile("libraryIcon"+i+".png");
-    if (f.exists()) f.delete();
-  }
-    
-  if (gui != null) gui.forceClose();
-  if (tutorial != null) tutorial.forceClose();
-  if (startWin != null) startWin.forceClose();
-  if (library != null) library.forceClose();
-  if (ArrGUI != null) ArrGUI.forceClose();
-  
-  super.exit();
+  System.exit(0);
 }
 
+//cleanup icons at the start of the program
+void cleanupTempFiles() {
+  File dir = new File(sketchPath(""));
+  File[] files = dir.listFiles();
+  if (files != null) {
+    for (File f : files) {
+      // Only delete specific icon files
+      if (f.getName().startsWith("libraryIcon") && f.getName().endsWith(".png")) {
+        try { f.delete(); } catch (Exception e) { }
+      }
+    }
+  }
+}
 void hideWindow() {
   noLoop();
   surface.setVisible(false);
