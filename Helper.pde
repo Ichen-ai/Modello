@@ -132,6 +132,7 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
         startWin.setVisible(false);
         ArrGUI.setVisible(true);
         gui.setVisible(false);
+        showWindow();
       }
     }
   }
