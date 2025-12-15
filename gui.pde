@@ -182,7 +182,7 @@ public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButto
 } //_CODE_:libraryButton:312218:
 
 public void exitClicked(GButton source, GEvent event) { //_CODE_:exit:855732:
-  shouldExit = true;
+  exit();
 } //_CODE_:exit:855732:
 
 synchronized public void libraryDraw(PApplet appc, GWinData data) { //_CODE_:library:358380:
