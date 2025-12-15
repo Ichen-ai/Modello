@@ -253,7 +253,9 @@ void executeAddToLibrary() {
   savedBGColors.add(new int[]{int(red(bgColour)), int(green(bgColour)), int(blue(bgColour))});
 }
 
+
 void updateTutorialButtons() {
+  //Reset all images to hidden first
   startImg.setVisible(false);
   startClickImg.setVisible(false);
   createScreenImg.setVisible(false);
@@ -268,90 +270,97 @@ void updateTutorialButtons() {
   arrGUIImg.setVisible(false);
   tutorialEnd.setVisible(false);
 
-  //first tutorial page
+  //Manage Buttons and Text based on the page
   if (tutPage == 1) {
     next.setVisible(true);
     back.setVisible(false);
     finish.setVisible(false);
-
     startImg.setVisible(true);
-  }
-  //second tutorial page
+    tutorialLabel.setText("Welcome to Modello, the ULTIMATE pattern maker for YOU!*Note: If you are new, keeping the tutorial open as you work on your pattern will be helpful");
+  } 
   else if (tutPage == 2) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-
     startClickImg.setVisible(true);
-  }
-  //continued
+    tutorialLabel.setText("Click on the START button to begin your pattern adventure");
+  } 
   else if (tutPage == 3) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-
     createScreenImg.setVisible(true);
-  } else if (tutPage == 4) {
+    tutorialLabel.setText("Welcome to the create screen, this is where you will create your pattern tile for your pattern");
+  } 
+  else if (tutPage == 4) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-
     guiAddShapeImg.setVisible(true);
-  } else if (tutPage == 5) {
+    tutorialLabel.setText("The GUI contains many tools to aid you along this journey. Start by clicking on the add shape button");
+  } 
+  else if (tutPage == 5) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-
     selectShapeImg.setVisible(true);
-  } else if (tutPage == 6) {
+    tutorialLabel.setText("Congrats on adding your first shape. Try selecting the shape by clicking it with your left mouse button");
+  } 
+  else if (tutPage == 6) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-
     GUIImg.setVisible(true);
-  } else if (tutPage == 7) {
+    tutorialLabel.setText("Now you can modify your shape however you like with the tools in your GUI");
+  } 
+  else if (tutPage == 7) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-
     VPCImg.setVisible(true);
-  } else if (tutPage == 8) {
+    tutorialLabel.setText("When you complete your shape, press visualize pattern, this allows you to view your creation in full");
+  } 
+  else if (tutPage == 8) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-
     VPImg.setVisible(true);
-  } else if (tutPage == 9) {
+    tutorialLabel.setText("Try playing around with different arrangement types, spacing, and size to find the best way to display your pattern");
+  } 
+  else if (tutPage == 9) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-
     addToLibImg.setVisible(true);
-  } else if (tutPage == 10) {
+    tutorialLabel.setText("To save your image, click the Save to Library button.");
+  } 
+  else if (tutPage == 10) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-
     libraryClickedImg.setVisible(true);
-  } else if (tutPage == 11) {
+    tutorialLabel.setText("To view your saved image, click the library button");
+  } 
+  else if (tutPage == 11) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-
     libraryImg.setVisible(true);
-  } else if (tutPage == 12) {
+    tutorialLabel.setText("Here, you can choose your desired saved image and return to working on them any time");
+  } 
+  else if (tutPage == 12) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
-
     arrGUIImg.setVisible(true);
-  }
-  //last tutorial page
+    tutorialLabel.setText("When you wish to use your pattern, click on the export button. This saves your pattern as a .png which can be easily accessed in the savedPhotos folder");
+  } 
   else {
+    // End page
     next.setVisible(false);
     back.setVisible(true);
     finish.setVisible(true);
-
     tutorialEnd.setVisible(true);
+    tutorialLabel.setText("");
   }
 }
