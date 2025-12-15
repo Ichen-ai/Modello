@@ -15,6 +15,7 @@ int iconX = 0;
 int iconY = 0;
 int drawn = 0;
 boolean shouldExit = false;
+boolean backToDraw = false;
 
 // Creating placeholder Tile and Arrangement variables to be filled as they are created
 PatternTile currentTile = new PatternTile();

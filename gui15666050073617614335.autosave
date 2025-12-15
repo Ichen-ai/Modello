@@ -130,6 +130,10 @@ public void gridSliderChange(GCustomSlider source, GEvent event) { //_CODE_:grid
   currentTile.gridSize = gridSlider.getValueI();;
 } //_CODE_:gridSlider:954807:
 
+public void custom_slider1_change1(GCustomSlider source, GEvent event) { //_CODE_:custom_slider1:804061:
+  println("custom_slider1 - GCustomSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:custom_slider1:804061:
+
 synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutorial:852036:
   appc.background(230);
 } //_CODE_:tutorial:852036:
@@ -259,7 +263,6 @@ public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternS
   screenshotNum++;
 } //_CODE_:patternSave:520565:
 
-
 public void libraryClicked2(GButton source, GEvent event) { //_CODE_:libraryButton2:502722:
   libraryShow = true;
   library.setVisible(true);
@@ -318,14 +321,14 @@ public void createGUI(){
   savetilebutton.setText("Visualise Pattern!");
   savetilebutton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   savetilebutton.addEventHandler(this, "tilescreenshot");
-  widthSlider = new GCustomSlider(gui, 281, 19, 100, 40, "grey_blue");
+  widthSlider = new GCustomSlider(gui, 281, 28, 100, 40, "grey_blue");
   widthSlider.setShowValue(true);
   widthSlider.setLimits(100.0, 5.0, 500.0);
   widthSlider.setNumberFormat(G4P.DECIMAL, 2);
   widthSlider.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
   widthSlider.setOpaque(false);
   widthSlider.addEventHandler(this, "widthSliderChange");
-  heightSlider = new GCustomSlider(gui, 281, 41, 100, 40, "grey_blue");
+  heightSlider = new GCustomSlider(gui, 280, 52, 100, 40, "grey_blue");
   heightSlider.setShowValue(true);
   heightSlider.setLimits(100.0, 5.0, 500.0);
   heightSlider.setNumberFormat(G4P.DECIMAL, 2);
@@ -348,7 +351,7 @@ public void createGUI(){
   autoAlign.setText("Allow auto align");
   autoAlign.setOpaque(false);
   autoAlign.addEventHandler(this, "autoAlignClicked");
-  label3 = new GLabel(gui, 120, 126, 112, 29);
+  label3 = new GLabel(gui, 121, 127, 112, 29);
   label3.setText("Background Colour");
   label3.setOpaque(false);
   bgRedSlider = new GCustomSlider(gui, 129, 155, 100, 40, "grey_blue");
@@ -371,12 +374,12 @@ public void createGUI(){
   bgBlueSlider.setNumberFormat(G4P.INTEGER, 0);
   bgBlueSlider.setOpaque(false);
   bgBlueSlider.addEventHandler(this, "bgBlueSliderChange");
-  fwdShapeButton = new GButton(gui, 241, 85, 143, 30);
+  fwdShapeButton = new GButton(gui, 243, 118, 79, 30);
   fwdShapeButton.setTextAlign(GAlign.CENTER, GAlign.RIGHT);
   fwdShapeButton.setText("Move Shape Forwards");
   fwdShapeButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   fwdShapeButton.addEventHandler(this, "fwdShapeButtonClick");
-  bwkShapeButton = new GButton(gui, 241, 123, 143, 30);
+  bwkShapeButton = new GButton(gui, 330, 119, 78, 30);
   bwkShapeButton.setText("Move Shape Backwards");
   bwkShapeButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   bwkShapeButton.addEventHandler(this, "bwkShapeButtonClicked");
@@ -396,10 +399,10 @@ public void createGUI(){
   toStart.setText("Return");
   toStart.setLocalColorScheme(GCScheme.RED_SCHEME);
   toStart.addEventHandler(this, "toStartClicked");
-  label7 = new GLabel(gui, 243, 28, 80, 20);
+  label7 = new GLabel(gui, 238, 36, 80, 20);
   label7.setText("Width");
   label7.setOpaque(false);
-  label8 = new GLabel(gui, 241, 52, 80, 20);
+  label8 = new GLabel(gui, 238, 61, 80, 20);
   label8.setText("Height");
   label8.setOpaque(false);
   label9 = new GLabel(gui, 109, 164, 19, 20);
@@ -414,16 +417,23 @@ public void createGUI(){
   label11.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label11.setText("B");
   label11.setOpaque(false);
-  gridSlider = new GCustomSlider(gui, 278, 201, 100, 40, "grey_blue");
+  gridSlider = new GCustomSlider(gui, 281, 200, 100, 40, "grey_blue");
   gridSlider.setShowValue(true);
   gridSlider.setLimits(25.0, 10.0, 50.0);
   gridSlider.setNumberFormat(G4P.DECIMAL, 2);
   gridSlider.setOpaque(false);
   gridSlider.addEventHandler(this, "gridSliderChange");
-  label12 = new GLabel(gui, 230, 204, 52, 28);
-  label12.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label12 = new GLabel(gui, 240, 205, 47, 28);
   label12.setText("Grid Size");
   label12.setOpaque(false);
+  custom_slider1 = new GCustomSlider(gui, 280, 75, 100, 40, "grey_blue");
+  custom_slider1.setLimits(0.5, 0.0, 1.0);
+  custom_slider1.setNumberFormat(G4P.DECIMAL, 2);
+  custom_slider1.setOpaque(false);
+  custom_slider1.addEventHandler(this, "custom_slider1_change1");
+  scaleSlider = new GLabel(gui, 238, 84, 47, 20);
+  scaleSlider.setText("Scale");
+  scaleSlider.setOpaque(false);
   tutorial = GWindow.getWindow(this, "Tutorial", 510, 170, 480, 360, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
@@ -580,6 +590,8 @@ GLabel label10;
 GLabel label11; 
 GCustomSlider gridSlider; 
 GLabel label12; 
+GCustomSlider custom_slider1; 
+GLabel scaleSlider; 
 GWindow tutorial;
 GButton next; 
 GButton back; 
