@@ -68,12 +68,7 @@ void setup() {
   arrGUIImg = new GImageButton(tutorial, 120, 70, 250, 220, new String[] { "Assets/arrGUI.png"} );
   tutorialEnd = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/MODELLOTUT.png"} );
   tutorialLabel = new GLabel(tutorial, 50, 8, 380, 50);
-  
-
-  // Set initial state
-  startImg.setVisible(false);
-  startClickImg.setVisible(false);
-  
+    
   //sets these windows/gimagebuttons as false (not showing) at the start of the program
   startWin.setVisible(true);
   library.setVisible(false);
@@ -94,6 +89,8 @@ void setup() {
   libraryImg.setVisible(false);
   arrGUIImg.setVisible(false);
   tutorialEnd.setVisible(false);
+  
+  hideWindow();
 }
 
 
@@ -156,4 +153,14 @@ void exit(){
   if (ArrGUI != null) ArrGUI.forceClose();
   
   super.exit();
+}
+
+void hideWindow() {
+  noLoop();
+  surface.setVisible(false);
+}
+
+void showWindow() {
+  surface.setVisible(true);
+  loop();
 }

@@ -123,6 +123,7 @@ public void toStartClicked(GButton source, GEvent event) { //_CODE_:toStart:6771
   startWin.setVisible(true);
   
   windowName = "Start";
+  hideWindow();
 } //_CODE_:toStart:677194:
 
 public void gridSliderChange(GCustomSlider source, GEvent event) { //_CODE_:gridSlider:954807:
@@ -159,6 +160,7 @@ public void startClicked(GButton source, GEvent event) { //_CODE_:start:897298:
   gui.setVisible(true);
   
   windowName = "Create";
+  showWindow();
 } //_CODE_:start:897298:
 
 public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:584753:
