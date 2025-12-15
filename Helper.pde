@@ -187,6 +187,7 @@ void executeAddToLibrary() {
 }
 
 void updateTutorialButtons(){
+  startImg.setVisible(false);
   startClickImg.setVisible(false);
   createScreenImg.setVisible(false);
   guiAddShapeImg.setVisible(false);
@@ -202,53 +203,89 @@ void updateTutorialButtons(){
   
   //first tutorial page
   if (tutPage == 1){
+    next.setVisible(true);
     back.setVisible(false);
+    finish.setVisible(false);
+    
     startImg.setVisible(true);
   }
   //second tutorial page
   else if (tutPage == 2){
+    next.setVisible(true);
     back.setVisible(true);
+    finish.setVisible(false);
+    
     startClickImg.setVisible(true);
   }
   //continued
   else if (tutPage == 3){
+    next.setVisible(true);
     back.setVisible(true);
+    finish.setVisible(false);
+    
     createScreenImg.setVisible(true);
   }
   else if (tutPage == 4){
+    next.setVisible(true);
     back.setVisible(true);
+    finish.setVisible(false);
+    
     guiAddShapeImg.setVisible(true);
   }
   else if (tutPage == 5){
+    next.setVisible(true);
     back.setVisible(true);
+    finish.setVisible(false);
+    
     selectShapeImg.setVisible(true);
   }
   else if (tutPage == 6){
+    next.setVisible(true);
     back.setVisible(true);
+    finish.setVisible(false);
+    
     GUIImg.setVisible(true);
   }
   else if (tutPage == 7){
+    next.setVisible(true);
     back.setVisible(true);
+    finish.setVisible(false);
+    
     VPCImg.setVisible(true);
   }
   else if (tutPage == 8){
+    next.setVisible(true);
     back.setVisible(true);
+    finish.setVisible(false);
+    
     VPImg.setVisible(true);
   }
   else if (tutPage == 9){
+    next.setVisible(true);
     back.setVisible(true);
+    finish.setVisible(false);
+    
     addToLibImg.setVisible(true);
   }
   else if (tutPage == 10){
+    next.setVisible(true);
     back.setVisible(true);
+    finish.setVisible(false);
+    
     libraryClickedImg.setVisible(true);
   }
   else if (tutPage == 11){
+    next.setVisible(true);
     back.setVisible(true);
+    finish.setVisible(false);
+    
     libraryImg.setVisible(true);
   }
   else if (tutPage == 12){
+    next.setVisible(true);
     back.setVisible(true);
+    finish.setVisible(false);
+    
     arrGUIImg.setVisible(true);
   }
   //last tutorial page
@@ -256,6 +293,7 @@ void updateTutorialButtons(){
     next.setVisible(false);
     back.setVisible(true);
     finish.setVisible(true);
+    
     tutorialEnd.setVisible(true);
   }
 }

@@ -135,11 +135,13 @@ synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutoria
 
 public void nextClicked(GButton source, GEvent event) { //_CODE_:next:783622:
   tutPage += 1;
+  
   updateTutorialButtons();
 } //_CODE_:next:783622:
 
 public void backClicked(GButton source, GEvent event) { //_CODE_:back:491218:
   tutPage -= 1;
+  
   updateTutorialButtons();
 } //_CODE_:back:491218:
 
