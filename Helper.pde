@@ -253,7 +253,7 @@ void executeAddToLibrary() {
   savedBGColors.add(new int[]{int(red(bgColour)), int(green(bgColour)), int(blue(bgColour))});
 }
 
-
+//Basic tutorial on how to use the program
 void updateTutorialButtons() {
   //Reset all images to hidden first
   startImg.setVisible(false);

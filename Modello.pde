@@ -38,7 +38,7 @@ color bgColour = color(100);
 String TileStatus = "creating";
 boolean editingPastTile = false;
 
-//Variables to track when the saving buttons are clicked
+ //Variables to track when the saving buttons are clicked
 Boolean SaveConfirmed = false;
 float SaveTime;
 
@@ -53,7 +53,7 @@ GImageButton title, loadPattern, startImg, startClickImg, createScreenImg, guiAd
 GLabel tutorialLabel;
 
 void setup() {
-  cleanupTempFiles();
+  cleanupTempFiles(); //Clean out icons from previous usage
   size(500, 500);
   createGUI(); //Creating GUI controls
   
@@ -96,6 +96,7 @@ void setup() {
   tutorialEnd.setVisible(false);
   colPick.setVisible(false);
   
+  //hide main window at the start of the program as that's where the tool is drawn
   hideWindow();
 }
 
@@ -156,11 +157,14 @@ void cleanupTempFiles() {
     }
   }
 }
+
+//function to hide windows
 void hideWindow() {
   noLoop();
   surface.setVisible(false);
 }
 
+//function to show windows
 void showWindow() {
   surface.setVisible(true);
   loop();

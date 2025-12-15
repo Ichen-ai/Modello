@@ -10,6 +10,7 @@ void displayScreen(){
     tutButton.setVisible(true);
     title.setVisible(true);
     
+    //prevent resetting visibiliity
     windowName = "none";
   }
   

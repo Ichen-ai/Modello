@@ -121,6 +121,8 @@ public void bwkShapeButtonClicked(GButton source, GEvent event) { //_CODE_:bwkSh
 } //_CODE_:bwkShapeButton:867870:
 
 public void toStartClicked(GButton source, GEvent event) { //_CODE_:toStart:677194:
+  //returns from create window to start screen
+  
   gui.setVisible(false);
   ArrGUI.setVisible(false);
   colPick.setVisible(false);
@@ -152,18 +154,21 @@ synchronized public void tutDraw(PApplet appc, GWinData data) { //_CODE_:tutoria
 } //_CODE_:tutorial:852036:
 
 public void nextClicked(GButton source, GEvent event) { //_CODE_:next:783622:
+  //next page in tutorial
   tutPage += 1;
   
   updateTutorialButtons();
 } //_CODE_:next:783622:
 
 public void backClicked(GButton source, GEvent event) { //_CODE_:back:491218:
+  //previous page in tutorial
   tutPage -= 1;
   
   updateTutorialButtons();
 } //_CODE_:back:491218:
 
 public void finishClicked(GButton source, GEvent event) { //_CODE_:finish:597876:
+  //close tutorial window
   tutorialShow = false;
   tutorial.setVisible(false);
 } //_CODE_:finish:597876:
@@ -173,6 +178,9 @@ synchronized public void startWinDraw(PApplet appc, GWinData data) { //_CODE_:st
 } //_CODE_:startWin:587259:
 
 public void startClicked(GButton source, GEvent event) { //_CODE_:start:897298:
+  //start button clicked in start screen
+  //change window to "create"
+  
   startWin.setVisible(false);
   gui.setVisible(true);
   
@@ -181,6 +189,8 @@ public void startClicked(GButton source, GEvent event) { //_CODE_:start:897298:
 } //_CODE_:start:897298:
 
 public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:584753:
+  //tutorial button clicked in start
+  
   tutPage = 1;
   tutorialShow = true;
   
@@ -194,11 +204,15 @@ public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:
 } //_CODE_:tutButton:584753:
 
 public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButton:312218:
+  //library button clicked in start
+  
   libraryShow = true;
   library.setVisible(true);
 } //_CODE_:libraryButton:312218:
 
 public void exitClicked(GButton source, GEvent event) { //_CODE_:exit:855732:
+  //exit program
+  
   exit();
 } //_CODE_:exit:855732:
 
@@ -207,6 +221,8 @@ synchronized public void libraryDraw(PApplet appc, GWinData data) { //_CODE_:lib
 } //_CODE_:library:358380:
 
 public void closeLibClicked(GButton source, GEvent event) { //_CODE_:closeLib:641587:
+  //close library screen
+  
   libraryShow = false;
   library.setVisible(false);
   
@@ -222,7 +238,6 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:ArrGU
 } //_CODE_:ArrGUI:776699:
 
 public void guibackbutton_clicked(GButton source, GEvent event) { //_CODE_:aguiback:763192:
-  //println("aguiback - GButton >> GEvent." + event + " @ " + millis());
   ArrGUI.setVisible(false);
   arrguiShow = false;
   
@@ -277,6 +292,8 @@ public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternS
 } //_CODE_:patternSave:520565:
 
 public void libraryClicked2(GButton source, GEvent event) { //_CODE_:libraryButton2:502722:
+  //library button clicked in ArrGUI
+  
   libraryShow = true;
   library.setVisible(true);
   hideWindow();
