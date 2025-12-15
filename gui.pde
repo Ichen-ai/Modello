@@ -192,6 +192,12 @@ synchronized public void libraryDraw(PApplet appc, GWinData data) { //_CODE_:lib
 public void closeLibClicked(GButton source, GEvent event) { //_CODE_:closeLib:641587:
   libraryShow = false;
   library.setVisible(false);
+  
+  if (backToDraw) {
+    showWindow();
+    ArrGUI.setVisible(true);
+    backToDraw = false;
+  }
 } //_CODE_:closeLib:641587:
 
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:ArrGUI:776699:
@@ -253,9 +259,14 @@ public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternS
   screenshotNum++;
 } //_CODE_:patternSave:520565:
 
+boolean backToDraw = false;
 public void libraryClicked2(GButton source, GEvent event) { //_CODE_:libraryButton2:502722:
   libraryShow = true;
   library.setVisible(true);
+  hideWindow();
+  gui.setVisible(false);
+  ArrGUI.setVisible(false);
+  backToDraw = true;
 } //_CODE_:libraryButton2:502722:
 
 
@@ -413,7 +424,7 @@ public void createGUI(){
   label12.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label12.setText("Grid Size");
   label12.setOpaque(false);
-  tutorial = GWindow.getWindow(this, "Tutorial", 0, 400, 480, 360, JAVA2D);
+  tutorial = GWindow.getWindow(this, "Tutorial", 510, 170, 480, 360, JAVA2D);
   tutorial.noLoop();
   tutorial.setActionOnClose(G4P.KEEP_OPEN);
   tutorial.addDrawHandler(this, "tutDraw");
@@ -446,7 +457,7 @@ public void createGUI(){
   exit.setText("EXIT");
   exit.setLocalColorScheme(GCScheme.RED_SCHEME);
   exit.addEventHandler(this, "exitClicked");
-  library = GWindow.getWindow(this, "Library", 1000, 400, 500, 400, JAVA2D);
+  library = GWindow.getWindow(this, "Library", 500, 150, 500, 400, JAVA2D);
   library.noLoop();
   library.setActionOnClose(G4P.KEEP_OPEN);
   library.addDrawHandler(this, "libraryDraw");
@@ -454,7 +465,7 @@ public void createGUI(){
   closeLib.setText("CLOSE");
   closeLib.setLocalColorScheme(GCScheme.RED_SCHEME);
   closeLib.addEventHandler(this, "closeLibClicked");
-  ArrGUI = GWindow.getWindow(this, "Window title", 100, 450, 280, 230, JAVA2D);
+  ArrGUI = GWindow.getWindow(this, "Window title", 160, 200, 280, 230, JAVA2D);
   ArrGUI.noLoop();
   ArrGUI.setActionOnClose(G4P.KEEP_OPEN);
   ArrGUI.addDrawHandler(this, "win_draw1");
