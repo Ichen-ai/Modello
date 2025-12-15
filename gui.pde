@@ -53,6 +53,10 @@ public void redSliderChange(GCustomSlider source, GEvent event) { //_CODE_:redSl
 public void tilescreenshot(GButton source, GEvent event) { //_CODE_:savetilebutton:575000:
   TileStatus = "preparing";
   VisualisePattern(currentTile);
+  
+  colPick.setVisible(false);
+  colPickCheckbox.setSelected(false);
+  
 } //_CODE_:savetilebutton:575000:
 
 public void widthSliderChange(GCustomSlider source, GEvent event) { //_CODE_:widthSlider:844943:
