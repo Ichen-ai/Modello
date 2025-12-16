@@ -129,6 +129,9 @@ void iconLocation() {
   if (iconX >= 4) {
     iconX = 0;
     iconY++;
+    if (iconY >= 3) {
+      iconY = 0;
+    }
   }
 }
 
@@ -164,9 +167,18 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
         ArrGUI.setVisible(true);
         gui.setVisible(false);
         showWindow();
-      }
+     }
     }
   }
+}
+
+void updateLibraryButtons() {
+  for (int i = 0; i < libraryImgs.size(); i ++) {
+    if (i/12 + 1 == libPage) {
+      libraryImgs.get(i).setVisible(true);
+    } else libraryImgs.get(i).setVisible(false);
+  }
+
 }
 
 
@@ -195,10 +207,12 @@ void executeAddToLibrary() {
   //Saves a screenshot of the pattern to be used as a library icon
   icon.save("libraryIcon" + numAddLib + ".png");
   imageFileNum = "libraryIcon" + numAddLib + ".png";
-  libraryImgs.add(new GImageButton(library, 56 + 100 * iconX, 30 + 100 * iconY, 75, 75, new String[] { imageFileNum })); //Adds the library icon
-  numAddLib++;
-  iconLocation();
 
+  libraryImgs.add(new GImageButton(library, 56 + 100 * iconX, 30 + 100 * iconY, 75, 75, new String[] { imageFileNum })); //Adds the library icon
+  iconLocation();
+  numAddLib++;
+  updateLibraryButtons();
+  
   //Saves a copy of the arrangement settings that the user would like to save
   SavedPatterns.add(new Arrangement(currentPattern.xSpacing, currentPattern.ySpacing, currentPattern.hsize, currentPattern.wsize, currentPattern.type));
 

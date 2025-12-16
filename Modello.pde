@@ -8,6 +8,7 @@ Boolean libraryShow = false;
 int tutPage = 1;
 int screenshotNum;
 int numAddLib = -1; //starts at negative one because first value is 0 in a list (after it has been added)
+int libPage = 1;
 String imageFileNum;
 int iconX = 0;
 int iconY = 0;

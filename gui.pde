@@ -229,6 +229,17 @@ public void closeLibClicked(GButton source, GEvent event) { //_CODE_:closeLib:64
   }
 } //_CODE_:closeLib:641587:
 
+public void fwdLibButtonClick(GButton source, GEvent event) { //_CODE_:fwdLibButton:774005:  
+  if (round(numAddLib/12) + 1 > libPage && numAddLib > 12) libPage++;
+  print(libPage);
+  updateLibraryButtons();
+} //_CODE_:fwdLibButton:774005:
+
+public void bwkLibButtonClick(GButton source, GEvent event) { //_CODE_:bwkLibButton:377939:  
+  if (libPage > 1 && numAddLib > 12) libPage--;
+  updateLibraryButtons();
+} //_CODE_:bwkLibButton:377939:
+
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:ArrGUI:776699:
   appc.background(230);
 } //_CODE_:ArrGUI:776699:
@@ -534,10 +545,17 @@ public void createGUI(){
   library.noLoop();
   library.setActionOnClose(G4P.KEEP_OPEN);
   library.addDrawHandler(this, "libraryDraw");
-  closeLib = new GButton(library, 210, 310, 80, 30);
+  closeLib = new GButton(library, 211, 346, 80, 30);
   closeLib.setText("CLOSE");
   closeLib.setLocalColorScheme(GCScheme.RED_SCHEME);
   closeLib.addEventHandler(this, "closeLibClicked");
+  fwdLibButton = new GButton(library, 382, 345, 80, 30);
+  fwdLibButton.setText("Next");
+  fwdLibButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  fwdLibButton.addEventHandler(this, "fwdLibButtonClick");
+  bwkLibButton = new GButton(library, 30, 345, 80, 30);
+  bwkLibButton.setText("Back");
+  bwkLibButton.addEventHandler(this, "bwkLibButtonClick");
   ArrGUI = GWindow.getWindow(this, "Window title", 160, 200, 280, 230, JAVA2D);
   ArrGUI.noLoop();
   ArrGUI.setActionOnClose(G4P.KEEP_OPEN);
@@ -713,6 +731,8 @@ GButton libraryButton;
 GButton exit; 
 GWindow library;
 GButton closeLib; 
+GButton fwdLibButton; 
+GButton bwkLibButton; 
 GWindow ArrGUI;
 GButton aguiback; 
 GLabel ArrangementType; 

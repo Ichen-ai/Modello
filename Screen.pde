@@ -25,10 +25,11 @@ void displayScreen(){
   //Users can see all their saved patterns together
   if (libraryShow == true){ 
     //for loop to add all the images
+    updateLibraryButtons();
     imageFileNum = "libraryIcon"+numAddLib+".png";
     for(int i = 0; i <= iconY+1; i++){
       for (int j = 0; j <= iconX+1;  j++){
-        int index = 4 * i + j;
+        int index = (libPage-1)*12 + 4 * i + j;
 
         if (index < libraryImgs.size()) {
           libraryImgs.get(index); 
@@ -38,5 +39,5 @@ void displayScreen(){
         }
       }
     } 
-  } 
+  }
 }
