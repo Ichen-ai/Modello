@@ -63,7 +63,7 @@ class Shape {
       PVector[] sides = new PVector[3];
       PVector[] perpSides = new PVector[3];
 
-      vert[0] = new PVector(x1, y1);
+      vert[0] = new PVector(x1, y1); //fills in vertices with the x and y values
       vert[1] = new PVector(x2, y2);
       vert[2] = new PVector(x3, y3);
 

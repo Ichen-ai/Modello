@@ -16,7 +16,6 @@ int iconY = 0;
 int drawn = 0;
 boolean shouldExit = false;
 boolean backToDraw = false;
-boolean seeColPick = false;
 boolean findingColour = false;
 
 // Creating placeholder Tile and Arrangement variables to be filled as they are created

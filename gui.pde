@@ -19,34 +19,34 @@ synchronized public void guiDraw(PApplet appc, GWinData data) { //_CODE_:gui:894
 } //_CODE_:gui:894024:
 
 public void shapeTypeListClick(GDropList source, GEvent event) { //_CODE_:shapeTypeList:593435:
-  changeShapeValues();
+  changeShapeValues(); //updates the shape values of selected shape
 } //_CODE_:shapeTypeList:593435:
 
 public void addShapeButtonClick(GButton source, GEvent event) { //_CODE_:addShapeButton:557350:
-  Shape newShape = new Shape(0, new PVector(250, 250), 50, 100, 200, 0, 0);
-  getShapeValues(newShape);
-  this.currentTile.ArrangedShapes.add(newShape);
+  Shape newShape = new Shape(0, new PVector(250, 250), 50, 100, 200, 0, 0); //creates a new shape
+  getShapeValues(newShape); //updates value of this new shape
+  this.currentTile.ArrangedShapes.add(newShape); //adds the shape to the array list in the current tile
 } //_CODE_:addShapeButton:557350:
 
 public void removeShapeButtonClick(GButton source, GEvent event) { //_CODE_:removeShapeButton:980011:
   for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
-    Shape testShape = currentTile.ArrangedShapes.get(i);
-    if (testShape.isSelected) {
-      currentTile.ArrangedShapes.remove(testShape);
+    Shape testShape = currentTile.ArrangedShapes.get(i); //loop to find which shape is selected
+    if (testShape.isSelected) { //if the shape is selected
+      currentTile.ArrangedShapes.remove(testShape); //removed the selected shape from the array list
     }
   }
 } //_CODE_:removeShapeButton:980011:
 
 public void greenSliderClick(GCustomSlider source, GEvent event) { //_CODE_:greenSlider:386541:
-  changeShapeValues();
+  changeShapeValues(); //updates the shape values of selected shape
 } //_CODE_:greenSlider:386541:
 
 public void blueSliderChange(GCustomSlider source, GEvent event) { //_CODE_:blueSlider:699806:
-  changeShapeValues();
+  changeShapeValues(); //updates the shape values of selected shape
 } //_CODE_:blueSlider:699806:
 
 public void redSliderChange(GCustomSlider source, GEvent event) { //_CODE_:redSlider:415599:
-  changeShapeValues();
+  changeShapeValues(); //updates the shape values of selected shape
   //title.
 } //_CODE_:redSlider:415599:
 
@@ -60,61 +60,61 @@ public void tilescreenshot(GButton source, GEvent event) { //_CODE_:savetilebutt
 } //_CODE_:savetilebutton:575000:
 
 public void widthSliderChange(GCustomSlider source, GEvent event) { //_CODE_:widthSlider:844943:
-  changeShapeValues();
+  changeShapeValues(); //updates the shape values of selected shape
 } //_CODE_:widthSlider:844943:
 
 public void heightSliderChange(GCustomSlider source, GEvent event) { //_CODE_:heightSlider:256807:
-  changeShapeValues();
+  changeShapeValues(); //updates the shape values of selected shape
 } //_CODE_:heightSlider:256807:
 
 public void gridClicked(GCheckbox source, GEvent event) { //_CODE_:gridButton:487609:
-  if (gridButton.isSelected()) {
-    currentTile.seeGrid = true;
-  } else currentTile.seeGrid = false;
+  if (gridButton.isSelected()) { //if the see grid chexbox is checked
+    currentTile.seeGrid = true; //set see grid in the tile to true
+  } else currentTile.seeGrid = false; //otherwise, keep it false
 } //_CODE_:gridButton:487609:
 
 public void clearButtonClick(GButton source, GEvent event) { //_CODE_:clearButton:526941:
-  currentTile.ArrangedShapes.clear();
+  currentTile.ArrangedShapes.clear(); //deletes all shapes from arranged shapes array list
 } //_CODE_:clearButton:526941:
 
 public void autoAlignClicked(GCheckbox source, GEvent event) { //_CODE_:autoAlign:584859:
-  if (autoAlign.isSelected()) {
-    currentTile.autoAlign = true;
-  } else currentTile.autoAlign = false;
+  if (autoAlign.isSelected()) { //if the auto align checkbox is checked
+    currentTile.autoAlign = true; //set auto align in the tile to true
+  } else currentTile.autoAlign = false; //otherwise, keep it false
 } //_CODE_:autoAlign:584859:
 
 public void bgRedSliderChange(GCustomSlider source, GEvent event) { //_CODE_:bgRedSlider:713595:
-  changeBgColour();
+  changeBgColour(); //updates background colours
 } //_CODE_:bgRedSlider:713595:
 
 public void bgGreenSliderChange(GCustomSlider source, GEvent event) { //_CODE_:bgGreenSlider:262593:
-  changeBgColour();
+  changeBgColour(); //updates background colours
 } //_CODE_:bgGreenSlider:262593:
 
 public void bgBlueSliderChange(GCustomSlider source, GEvent event) { //_CODE_:bgBlueSlider:417099:
-  changeBgColour();
+  changeBgColour(); //updates background colours
 } //_CODE_:bgBlueSlider:417099:
 
 public void fwdShapeButtonClick(GButton source, GEvent event) { //_CODE_:fwdShapeButton:317310:
-  for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
+  for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) { //checks through all shapes
     Shape fwdShape = currentTile.ArrangedShapes.get(i);
     
-    if (fwdShape.isSelected && i < currentTile.ArrangedShapes.size() - 1) {
-      Shape bckShape = currentTile.ArrangedShapes.get(i+1);
-      currentTile.ArrangedShapes.set(i, bckShape);
+    if (fwdShape.isSelected && i < currentTile.ArrangedShapes.size() - 1) { //if the shape is selected and it is NOT the last one in the array list
+      Shape bckShape = currentTile.ArrangedShapes.get(i+1); //save the shape after the selected shape in the array list
+      currentTile.ArrangedShapes.set(i, bckShape); //swap the values of the shape infront and selected shape
       currentTile.ArrangedShapes.set(i+1, fwdShape);
-      break;
+      break; //exit the loop
     }
   }
 } //_CODE_:fwdShapeButton:317310:
 
 public void bwkShapeButtonClicked(GButton source, GEvent event) { //_CODE_:bwkShapeButton:867870:
-  for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
+  for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) { //checks through all shapes
     Shape bckShape = currentTile.ArrangedShapes.get(i);
     
-    if (bckShape.isSelected && i > 0) {
-      Shape fwdShape = currentTile.ArrangedShapes.get(i-1);
-      currentTile.ArrangedShapes.set(i, fwdShape);
+    if (bckShape.isSelected && i > 0) { //if the shape is selected and it is NOT the first shape in the array list
+      Shape fwdShape = currentTile.ArrangedShapes.get(i-1); //save the shape behind the current shape
+      currentTile.ArrangedShapes.set(i, fwdShape); //swap the values of the shape behind and selected shape
       currentTile.ArrangedShapes.set(i-1, bckShape);
     }
   }
@@ -136,16 +136,14 @@ public void toStartClicked(GButton source, GEvent event) { //_CODE_:toStart:6771
 } //_CODE_:toStart:677194:
 
 public void gridSliderChange(GCustomSlider source, GEvent event) { //_CODE_:gridSlider:954807:
-  currentTile.gridSize = gridSlider.getValueI();;
+  currentTile.gridSize = gridSlider.getValueI(); //updates the size of the grid squares
 } //_CODE_:gridSlider:954807:
 
 public void colPickCheckboxClicked(GCheckbox source, GEvent event) { //_CODE_:colPickCheckbox:369430:
-  if (colPickCheckbox.isSelected()) {
-    seeColPick = true;
-    colPick.setVisible(true);
+  if (colPickCheckbox.isSelected()) { //if the colour picker checkbox is selected
+    colPick.setVisible(true); //set the colour picker window to visible
   } else {
-    seeColPick = false;
-    colPick.setVisible(false);
+    colPick.setVisible(false); //otherwise it is not visible
   }
 } //_CODE_:colPickCheckbox:369430:
 
@@ -307,37 +305,37 @@ synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:colPi
 } //_CODE_:colPick:773787:
 
 public void colPickRedChange(GCustomSlider source, GEvent event) { //_CODE_:colPickRedSlider:367583:
- 
+ //only used to display colour values
 } //_CODE_:colPickRedSlider:367583:
 
 public void colPickGreenSliderClick(GCustomSlider source, GEvent event) { //_CODE_:colPickGreenSlider:962107:
-
+ //only used to display colour values
 } //_CODE_:colPickGreenSlider:962107:
 
 public void cloPickBlueSliderChange(GCustomSlider source, GEvent event) { //_CODE_:colPickBlueSlider:696466:
-
+ //only used to display colour values
 } //_CODE_:colPickBlueSlider:696466:
 
 public void setShapeColClick(GButton source, GEvent event) { //_CODE_:setShapeCol:444619:
-  redSlider.setValue(colPickRedSlider.getValueI());
+  redSlider.setValue(colPickRedSlider.getValueI()); //updates the values on the GUI sliders
   greenSlider.setValue(colPickGreenSlider.getValueI());
   blueSlider.setValue(colPickBlueSlider.getValueI());
-  changeShapeValues();
+  changeShapeValues(); //updates the selected shape
 } //_CODE_:setShapeCol:444619:
 
 public void setBgColClick(GButton source, GEvent event) { //_CODE_:setBgCol:655976:
-  bgRedSlider.setValue(colPickRedSlider.getValueI());
+  bgRedSlider.setValue(colPickRedSlider.getValueI()); //updates the values on the GUI sliders
   bgGreenSlider.setValue(colPickGreenSlider.getValueI());
   bgBlueSlider.setValue(colPickBlueSlider.getValueI());
-  changeBgColour();
+  changeBgColour(); //updates the background colour
 } //_CODE_:setBgCol:655976:
 
 public void pickColourCheckboxClicked(GCheckbox source, GEvent event) { //_CODE_:pickColourCheckbox:328123:
-  if (pickColourCheckbox.isSelected() == true) {
-    findingColour = true;
+  if (pickColourCheckbox.isSelected() == true) { //if the picking colour checkbox is selected
+    findingColour = true; //the user is currently finding a colour
   }
   else {
-    findingColour = false;
+    findingColour = false; //otherwise it is false
   }
 } //_CODE_:pickColourCheckbox:328123:
 
