@@ -302,9 +302,7 @@ public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternS
     patternSave.setText("Saved!");
     SaveTime = millis(); //Records the current millisecond count so that this text change can show for 2 seconds
     SaveConfirmed = true;
-  }
-  
-  saveFrame("savedPhotos/photo " + screenshotNum + ".png"); //saves a screenshot of the pattern into the savedPhotos folder!
+  }  
   screenshotNum++;
 } //_CODE_:patternSave:520565:
 

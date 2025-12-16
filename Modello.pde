@@ -120,9 +120,11 @@ void draw() {
   }
   
   //Changes the text of the export pattern back after 2 seconds if the user has clicked on it
-  if (SaveConfirmed && millis() - SaveTime > 2000){
+  if (SaveConfirmed && millis() - SaveTime < 2000){
+    saveFrame("savedPhotos/photo " + screenshotNum + ".png"); //saves a screenshot of the pattern into the savedPhotos folder!
+  } else {
     patternSave.setText("Export Pattern");
-    SaveConfirmed = false;
+    SaveConfirmed = false;  
   }
   
   //Resets the text of the save to library pattern back after 3 seconds if the user has clicked on it
