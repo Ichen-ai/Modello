@@ -33,7 +33,6 @@ int savedPTilenum = 1;
 
 color bgColour = color(100);
 String TileStatus = "creating";
-boolean editingPastTile = false;
 
  //Variables to track when the saving buttons are clicked
 Boolean SaveConfirmed = false;

@@ -143,7 +143,8 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
 
         // Calls helper functions so that the current pattern displayed is the one saved
         tilefromLibrary(newTile);
-        patternfromLibrary(newPattern);
+        currentPattern = new Arrangement(newPattern.xSpacing, newPattern.ySpacing, newPattern.hsize, newPattern.wsize, newPattern.type);
+
 
         currentPattern.ATile = newATile;
 
@@ -154,7 +155,6 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
         bgColour = color(r, g, b);
 
         arrguiShow = true;
-        editingPastTile = true;
         libraryShow = false;
         windowName = "Create";
 
@@ -177,15 +177,6 @@ void tilefromLibrary(PatternTile pt) {
   }
 }
 
-// Function to help create a copy of the arrangement the user wants to save
-void patternfromLibrary(Arrangement a) { // (With ar being the copied arrangement)
-  currentPattern = new Arrangement(a.xSpacing, a.ySpacing, a.hsize, a.wsize, a.type);
-}
-
-// Function to help create a copy of the arrangement the user wants to save
-void setLibraryArrangementValues() { // (With ar being the copied arrangement)
-  SavedPatterns.add(new Arrangement(currentPattern.xSpacing, currentPattern.ySpacing, currentPattern.hsize, currentPattern.wsize, currentPattern.type));
-}
 
 // Function to help create a copy of the current pattern tile the user wants to save
 void setLibraryTileValues(PatternTile ti) { //(with ti being the current pattern tile)
@@ -210,7 +201,7 @@ void executeAddToLibrary() {
   iconLocation();
 
   //Saves a copy of the arrangement settings that the user would like to save
-  setLibraryArrangementValues();
+  SavedPatterns.add(new Arrangement(currentPattern.xSpacing, currentPattern.ySpacing, currentPattern.hsize, currentPattern.wsize, currentPattern.type));
 
   //Saves a copy og the pattern tile settings that the user would like to save to library
   PatternTile TileAddLibrary = new PatternTile(); // Creates new placeholder tile

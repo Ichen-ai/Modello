@@ -16,9 +16,6 @@ void displayScreen(){
   
   //"Create" screen is the screen which the user will create the pattern
   else if (windowName.equals("Create")){
-    if (editingPastTile) {
-      editingPastTile = false;
-    }
     
     //we set the window to none because when we set the visibility multiple times, it causes the screen to flash
     windowName = "none";
