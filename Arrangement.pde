@@ -2,49 +2,41 @@
 class Arrangement{
   
   //Fields
-  float xSpacing;
-  float ySpacing;
-  
-  PImage ATile;
-  
-  PVector pos;
-
-  float hsize;
-  float wsize;
-  
-  String type;
+  float xSpacing, ySpacing, hsize, wsize;  
+  PImage ATile;  
+  int type; //0 = grid, 1 = half drop, 2 = brick, 3 = wave
  
   //Constructor
-  Arrangement(){
-    this.ATile = loadImage("SavedTile.png");  //Loads the frame that was just saved
-    
-    //Sets initial values or the values that the user has been adjusting
-    this.xSpacing = 50;
-    this.ySpacing = 50;
-    this.pos = new PVector(0,0);
-    this.hsize = 50;
-    this.wsize = 50;
-    
-    this.type = "Grid";    
+  Arrangement(float x, float y, float h, float w, int t){ //Sets initial values or the values that the user has been adjusting
+    this.ATile = null;  //Loads the frame that was just saved
+    this.xSpacing = x;
+    this.ySpacing = y;
+    this.hsize = h;
+    this.wsize = w;    
+    this.type = t;
   }
   
   //Methods
   void drawPattern(){
     //Calls the drawing function based on which arrangement type the user has selected
     
-    if(this.type.equals("Grid"))
+    if(this.type == 0)
       this.drawGrid();
     
-    else if(this.type.equals("Half-Drop"))
+    else if(this.type == 1)
       this.drawHalfDrop();
     
-    else if(this.type.equals("Brick"))
+    else if(this.type == 2)
       this.drawBrick();
     
-    else if(this.type.equals("Wave"))
+    else if(this.type == 3)
       this.drawWave();
   }
   
+  
+  void saveImage() {
+    this.ATile = loadImage("SavedTile.png");
+  }
   
   //Method to draw a standard grid from the tiles
   void drawGrid(){
@@ -73,12 +65,10 @@ class Arrangement{
       for(int j = 0; j < ynum; j++){
         
         float xPos = i*this.xSpacing + this.wsize/2.0; 
-        float yPos = j*this.ySpacing ; 
-        
+        float yPos = j*this.ySpacing ;         
         if (i % 2 == 1){
           yPos += this.hsize/2; //Adds an offset value (half-drop) for every other column
-        }
-        
+        }       
         image(ATile, xPos, yPos, wsize, hsize);
         }
       }
@@ -88,18 +78,14 @@ class Arrangement{
    void drawBrick(){
     int xnum = ceil(width/this.xSpacing) + 1; //Accounts for an extra tile horizontally
     int ynum = ceil(height/this.ySpacing);
-    
-    
+        
     for (int i = 0; i < xnum; i++){ //nested for loops to draw grid-style
-      for(int j = 0; j < ynum; j++){
-        
+      for(int j = 0; j < ynum; j++){        
         float xPos = i*this.xSpacing;
-        float yPos = j*this.ySpacing + this.hsize/2.0;
-        
+        float yPos = j*this.ySpacing + this.hsize/2.0;        
         if (j % 2 == 1){
           xPos += this.wsize/2.0; //Adds an offset value for every other row to create brick illusion
-        }
-        
+        }       
         image(ATile, xPos, yPos, wsize, hsize);
         }
       }
@@ -109,15 +95,11 @@ class Arrangement{
   void drawWave(){
     int xnum = ceil(width/this.xSpacing);
     int ynum = ceil(height/this.ySpacing);
-    
-    
+       
     for (int i = 0; i < xnum + 1; i++){ //nested for loops to draw tiles
-      for(int j = 0; j < ynum + 2; j++){
-        
+      for(int j = 0; j < ynum + 2; j++){        
         float xPos = i*this.xSpacing - this.wsize/2.0;
-        float yPos = j*this.ySpacing - this.hsize/2.0 + 25*sin(xPos*0.02);
-        
-        
+        float yPos = j*this.ySpacing - this.hsize/2.0 + 25*sin(xPos*0.02);               
         image(ATile, xPos, yPos, wsize, hsize);
         }
       }
