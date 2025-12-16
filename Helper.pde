@@ -1,5 +1,6 @@
 //Helper Functions
 
+
 //Gets the current values of the GUI and applies it to the current (selected) shape
 void getShapeValues(Shape s) {
   s.type = shapeTypeList.getSelectedIndex();
@@ -12,6 +13,7 @@ void getShapeValues(Shape s) {
   s.wid = widthSlider.getValueI();
 }
 
+
 // Calls the function above after determining which shape is selected (to apply shape values)
 void changeShapeValues() {
   for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) { //tests through all shapes
@@ -21,6 +23,7 @@ void changeShapeValues() {
     }
   }
 }
+
 
 //Updates the sliders on the GUI windows with the values of the shape that is selected
 void currentShapeValues(Shape s) {
@@ -32,6 +35,7 @@ void currentShapeValues(Shape s) {
   shapeTypeList.setSelected(s.type);
 }
 
+
 // Changes the background colour based on current slider values
 void changeBgColour() {
   int r = bgRedSlider.getValueI();
@@ -40,6 +44,7 @@ void changeBgColour() {
 
   bgColour = color(r, g, b); //updates background colour
 }
+
 
 //Used to determine what colour is underneath the users mouse for the colour picker
 void getColour(PVector p) {
@@ -54,6 +59,7 @@ void getColour(PVector p) {
   colPickGreenSlider.setValue(green(c));
   colPickBlueSlider.setValue(blue(c));
 }
+
 
 // Applies the changes the user has made to the arrangement GUI
 void changeArrangementValues(Arrangement a) {
@@ -79,6 +85,8 @@ void changeArrangementValues(Arrangement a) {
   }
 }
 
+
+//sets the GUI sliders to the current patterns values
 void currentArrangementValues() {
   arrTypedroplist.setSelected(currentPattern.type);
   arrheightslider.setValue(currentPattern.hsize);
@@ -90,7 +98,6 @@ void currentArrangementValues() {
 
 //Helper function to prepare the current  screen for screenshotting
 void VisualisePattern(PatternTile p) {
-
   //Called when the user first presses the "Visualise Button" pattern
   if (TileStatus.equals("preparing")) {
     p.seeGrid = false; //Turns off the grid
@@ -102,7 +109,6 @@ void VisualisePattern(PatternTile p) {
     TileStatus = "visualising";
     redraw();
   }
-
   //Called in the next frame when the tile is prepared
   else if (TileStatus.equals("visualising")) {
     saveFrame("SavedTile.png"); //Saves a screenshot of the current pattern tile
@@ -118,6 +124,7 @@ void VisualisePattern(PatternTile p) {
     TileStatus = "creating"; //Updates status
   }
 }
+
 
 //math the icon locations
 void iconLocation() {
@@ -166,6 +173,7 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
   }
 }
 
+
 //Function that creates a copy of the saved pattern tile and assigns it to be the current tile
 void tilefromLibrary(PatternTile pt) {
   currentTile.ArrangedShapes = new ArrayList();
@@ -184,6 +192,7 @@ void setLibraryTileValues(PatternTile ti) { //(with ti being the current pattern
     ti.ArrangedShapes.add(new Shape(ts.type, new PVector(ts.pos.x, ts.pos.y), ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
   }
 }
+
 
 //Function that saves the pattern to the library
 void executeAddToLibrary() {
@@ -213,6 +222,7 @@ void executeAddToLibrary() {
   //Saves the background colour of the pattern to the library
   savedBGColors.add(new int[]{int(red(bgColour)), int(green(bgColour)), int(blue(bgColour))});
 }
+
 
 //Basic tutorial on how to use the program
 void updateTutorialButtons() {
