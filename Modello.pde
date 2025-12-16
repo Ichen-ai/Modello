@@ -4,7 +4,6 @@ import java.io.File;
 
 // Initialising values
 String windowName = "Start";
-Boolean libraryShow = false;
 int tutPage = 1; //keeps track of page # of tutorial window
 int libPage = 1; //keeps track of page# of library
 int screenshotNum;

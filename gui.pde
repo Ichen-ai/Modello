@@ -186,10 +186,8 @@ public void startClicked(GButton source, GEvent event) { //_CODE_:start:897298:
 } //_CODE_:start:897298:
 
 public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:584753:
-  //tutorial button clicked in start
-  
+  //tutorial button clicked in start  
   tutPage = 1;
-  
   tutorial.setVisible(true);
   
   updateTutorialButtons();
@@ -202,7 +200,6 @@ public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:
 public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButton:312218:
   //library button clicked in start
   
-  libraryShow = true;
   library.setVisible(true);
   
   libPage = 1;
@@ -224,7 +221,6 @@ synchronized public void libraryDraw(PApplet appc, GWinData data) { //_CODE_:lib
 public void closeLibClicked(GButton source, GEvent event) { //_CODE_:closeLib:641587:
   //close library screen
   
-  libraryShow = false;
   library.setVisible(false);
   
   if (backToDraw) {
@@ -236,7 +232,7 @@ public void closeLibClicked(GButton source, GEvent event) { //_CODE_:closeLib:64
 
 public void fwdLibButtonClick(GButton source, GEvent event) { //_CODE_:fwdLibButton:774005:
  
-  if (round(numAddLib/12) + 1 > libPage && numAddLib > 12) libPage++;
+  if (numAddLib/12 + 1 > libPage && numAddLib >= 12) libPage++;
   updateLibraryButtons();
   updFwdBwkLibButtons();
   pageNum.setText("Page: "+libPage);
@@ -244,7 +240,7 @@ public void fwdLibButtonClick(GButton source, GEvent event) { //_CODE_:fwdLibBut
 
 public void bwkLibButtonClick(GButton source, GEvent event) { //_CODE_:bwkLibButton:377939:
  
-  if (libPage > 1 && numAddLib > 12) libPage--;
+  if (libPage > 1 && numAddLib >= 12) libPage--;
   updateLibraryButtons();
   updFwdBwkLibButtons();
   pageNum.setText("Page: "+libPage);
@@ -308,7 +304,6 @@ public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternS
 
 public void libraryClicked2(GButton source, GEvent event) { //_CODE_:libraryButton2:502722:
   //library button clicked in ArrGUI  
-  libraryShow = true;
   library.setVisible(true);
   hideWindow();
   gui.setVisible(false);
