@@ -162,7 +162,7 @@ void updateTutorialButtons() {
   }
 }
 
-//updates if the backward button in library should show
+//updates if the backward button(maybe forward) in library should show
 void updFwdBwkLibButtons(){
     fwdLibButton.setVisible(true);
     bwkLibButton.setVisible(true);
