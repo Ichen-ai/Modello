@@ -204,6 +204,9 @@ public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButto
   
   libraryShow = true;
   library.setVisible(true);
+  
+  libPage = 1;
+  updFwdBwkLibButtons();
 } //_CODE_:libraryButton:312218:
 
 public void exitClicked(GButton source, GEvent event) { //_CODE_:exit:855732:
@@ -232,11 +235,13 @@ public void closeLibClicked(GButton source, GEvent event) { //_CODE_:closeLib:64
 public void fwdLibButtonClick(GButton source, GEvent event) { //_CODE_:fwdLibButton:774005:  
   if (round(numAddLib/12) + 1 > libPage && numAddLib > 12) libPage++;
   updateLibraryButtons();
+  updFwdBwkLibButtons();
 } //_CODE_:fwdLibButton:774005:
 
 public void bwkLibButtonClick(GButton source, GEvent event) { //_CODE_:bwkLibButton:377939:  
   if (libPage > 1 && numAddLib > 12) libPage--;
   updateLibraryButtons();
+  updFwdBwkLibButtons();
 } //_CODE_:bwkLibButton:377939:
 
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:ArrGUI:776699:

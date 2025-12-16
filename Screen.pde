@@ -161,3 +161,13 @@ void updateTutorialButtons() {
     tutorialLabel.setText("");
   }
 }
+
+//updates if the backward button in library should show
+void updFwdBwkLibButtons(){
+    fwdLibButton.setVisible(true);
+    bwkLibButton.setVisible(true);
+    
+    if (libPage == 1){
+      bwkLibButton.setVisible(false);
+    }
+}

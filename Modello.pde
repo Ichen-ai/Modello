@@ -145,13 +145,14 @@ void exit(){
 
 //cleanup icons at the start of the program
 void cleanupTempFiles() {
+  //array for files
   File dir = new File(sketchPath(""));
   File[] files = dir.listFiles();
   if (files != null) {
     for (File f : files) {
       // Only delete specific icon files
-      if (f.getName().startsWith("libraryIcon") && f.getName().endsWith(".png")) {
-        try { f.delete(); } catch (Exception e) { }
+      if (f.getName().startsWith("libraryIcon") && f.getName().endsWith(".png")) { //the condition for if it should get deleted
+        try { f.delete(); } catch (Exception e) { } //try to delete the file
       }
     }
   }
