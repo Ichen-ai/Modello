@@ -105,7 +105,7 @@ class Arrangement{
       }
    }
   
-  
+  //Method to draw a wave spacing of tiles
   void drawWave(){
     int xnum = ceil(width/this.xSpacing);
     int ynum = ceil(height/this.ySpacing);
