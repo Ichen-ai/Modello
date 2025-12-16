@@ -61,7 +61,7 @@ void setup() {
   guiAddShapeImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/guiAddShape.png"} );
   selectShapeImg = new GImageButton(tutorial, 100, 50, 300, 220, new String[] { "Assets/selectShape.png"} );
   GUIImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/gui2.png"} );
-  colPickImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/colPick.png"} );
+  colPickImg = new GImageButton(tutorial, 120, 70, 250, 220, new String[] { "Assets/colPick.png"} );
   VPCImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/visualizePatternClicked.png"} );
   VPImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/visualizePattern.png"} );
   addToLibImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/addToLibrary.png"} );
