@@ -6,7 +6,6 @@ import java.io.File;
 String windowName = "Start";
 Boolean libraryShow = false;
 int tutPage = 1;
-PFont titleFont;
 int screenshotNum;
 int numAddLib = -1; //starts at negative one because first value is 0 in a list (after it has been added)
 String imageFileNum;
