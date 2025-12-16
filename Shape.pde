@@ -84,7 +84,7 @@ class Shape {
     } else return false;
   }
   
-  void stayInTile() { //function makes sure shape is within the screen of canvas
+  void stayInTile() { //makes sure shape is within the screen of canvas
     if (this.pos.x > width) this.pos.x = width;
     if (this.pos.x < 0) this.pos.x = 0;
     if (this.pos.y > height) this.pos.y = height;
