@@ -153,15 +153,16 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
         currentPattern = new Arrangement(newPattern.xSpacing, newPattern.ySpacing, newPattern.hsize, newPattern.wsize, newPattern.type);
         currentPattern.ATile = newATile;
 
-        int r = newColour[0];
+        int r = newColour[0]; //Extracts the rgb values from the array
         int g = newColour[1];
         int b = newColour[2];
-        bgColour = color(r, g, b);
+        bgColour = color(r, g, b); // Sets the background colour to be the saved colour
 
         arrguiShow = true;
         libraryShow = false;
         windowName = "Create";
 
+        //Shows and hides relevant windows
         library.setVisible(false);
         startWin.setVisible(false);
         ArrGUI.setVisible(true);
@@ -227,125 +228,4 @@ void executeAddToLibrary() {
 
   //Saves the background colour of the pattern to the library
   savedBGColors.add(new int[]{int(red(bgColour)), int(green(bgColour)), int(blue(bgColour))});
-}
-
-
-//Basic tutorial on how to use the program
-void updateTutorialButtons() {
-  //Reset all images to hidden first
-  startImg.setVisible(false);
-  startClickImg.setVisible(false);
-  createScreenImg.setVisible(false);
-  guiAddShapeImg.setVisible(false);
-  selectShapeImg.setVisible(false);
-  GUIImg.setVisible(false);
-  colPickImg.setVisible(false);
-  VPCImg.setVisible(false);
-  VPImg.setVisible(false);
-  addToLibImg.setVisible(false);
-  libraryClickedImg.setVisible(false);
-  libraryImg.setVisible(false);
-  arrGUIImg.setVisible(false);
-  tutorialEnd.setVisible(false);
-
-  //Manage Buttons and Text based on the page
-  if (tutPage == 1) {
-    next.setVisible(true);
-    back.setVisible(false);
-    finish.setVisible(false);
-    startImg.setVisible(true);
-    tutorialLabel.setText("Welcome to Modello, the ULTIMATE pattern maker for YOU!*Note: If you are new, keeping the tutorial open as you work on your pattern will be helpful");
-  } 
-  else if (tutPage == 2) {
-    next.setVisible(true);
-    back.setVisible(true);
-    finish.setVisible(false);
-    startClickImg.setVisible(true);
-    tutorialLabel.setText("Click on the START button to begin your pattern adventure");
-  } 
-  else if (tutPage == 3) {
-    next.setVisible(true);
-    back.setVisible(true);
-    finish.setVisible(false);
-    createScreenImg.setVisible(true);
-    tutorialLabel.setText("Welcome to the create screen, this is where you will create your pattern tile for your pattern");
-  } 
-  else if (tutPage == 4) {
-    next.setVisible(true);
-    back.setVisible(true);
-    finish.setVisible(false);
-    guiAddShapeImg.setVisible(true);
-    tutorialLabel.setText("The GUI contains many tools to aid you along this journey. Start by clicking on the add shape button");
-  } 
-  else if (tutPage == 5) {
-    next.setVisible(true);
-    back.setVisible(true);
-    finish.setVisible(false);
-    selectShapeImg.setVisible(true);
-    tutorialLabel.setText("Congrats on adding your first shape. Try selecting the shape by clicking it with your left mouse button");
-  } 
-  else if (tutPage == 6) {
-    next.setVisible(true);
-    back.setVisible(true);
-    finish.setVisible(false);
-    GUIImg.setVisible(true);
-    tutorialLabel.setText("Now you can modify your shape however you like with the tools in your GUI");
-  } 
-  else if (tutPage == 7) {
-    next.setVisible(true);
-    back.setVisible(true);
-    finish.setVisible(false);
-    colPickImg.setVisible(true);
-    tutorialLabel.setText("The colour picker window is an advanced version of the colour picker seen on the main GUI. It allows you to preview your colour before making the final and permanent decision");
-  } 
-  else if (tutPage == 8) {
-    next.setVisible(true);
-    back.setVisible(true);
-    finish.setVisible(false);
-    VPCImg.setVisible(true);
-    tutorialLabel.setText("When you complete your shape, press visualize pattern, this allows you to view your creation in full");
-  } 
-  else if (tutPage == 9) {
-    next.setVisible(true);
-    back.setVisible(true);
-    finish.setVisible(false);
-    VPImg.setVisible(true);
-    tutorialLabel.setText("Try playing around with different arrangement types, spacing, and size to find the best way to display your pattern");
-  } 
-  else if (tutPage == 10) {
-    next.setVisible(true);
-    back.setVisible(true);
-    finish.setVisible(false);
-    addToLibImg.setVisible(true);
-    tutorialLabel.setText("To save your image, click the Save to Library button.");
-  } 
-  else if (tutPage == 11) {
-    next.setVisible(true);
-    back.setVisible(true);
-    finish.setVisible(false);
-    libraryClickedImg.setVisible(true);
-    tutorialLabel.setText("To view your saved image, click the library button");
-  } 
-  else if (tutPage == 12) {
-    next.setVisible(true);
-    back.setVisible(true);
-    finish.setVisible(false);
-    libraryImg.setVisible(true);
-    tutorialLabel.setText("Here, you can choose your desired saved image and return to working on them any time");
-  } 
-  else if (tutPage == 13) {
-    next.setVisible(true);
-    back.setVisible(true);
-    finish.setVisible(false);
-    arrGUIImg.setVisible(true);
-    tutorialLabel.setText("When you wish to use your pattern, click on the export button. This saves your pattern as a .png which can be easily accessed in the savedPhotos folder");
-  } 
-  else {
-    // End page
-    next.setVisible(false);
-    back.setVisible(true);
-    finish.setVisible(true);
-    tutorialEnd.setVisible(true);
-    tutorialLabel.setText("");
-  }
 }

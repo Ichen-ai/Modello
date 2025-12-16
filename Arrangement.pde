@@ -8,7 +8,7 @@ class Arrangement{
  
   //Constructor
   Arrangement(float x, float y, float h, float w, int t){ //Sets initial values or the values that the user has been adjusting
-    this.ATile = null;  //Loads the frame that was just saved
+    this.ATile = null;  //Placeholder for loading saved image
     this.xSpacing = x;
     this.ySpacing = y;
     this.hsize = h;
@@ -33,9 +33,9 @@ class Arrangement{
       this.drawWave();
   }
   
-  
+  //Function that loads the image just saved
   void saveImage() {
-    this.ATile = loadImage("SavedTile.png");
+    this.ATile = loadImage("SavedTile.png"); // Loads the image just saved
   }
   
   //Method to draw a standard grid from the tiles
@@ -91,7 +91,7 @@ class Arrangement{
       }
    }
   
-  
+  //Method to draw a wave spacing of tiles
   void drawWave(){
     int xnum = ceil(width/this.xSpacing);
     int ynum = ceil(height/this.ySpacing);
