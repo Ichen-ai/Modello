@@ -1,9 +1,9 @@
 
 class Shape {
   //fields
-  int type; //the type of shape
+  int type; //the type of shape; 0 is ellipse, 1 is rectangle, 2 is triangle
   PVector pos; //the position of the center of the shape
-  int hei, wid;
+  int hei, wid; //width and height of the shape
   color colour, strokeColor;
   boolean isSelected; //will check if user has selected the shape
   float x1, y1, x2, y2, x3, y3; //corners for triangle shape
@@ -25,7 +25,7 @@ class Shape {
     if (isSelected) {
       this.strokeColor = color(255, 255, 0); //will change stroke colour to allow user to visually see what shape was selected
     } else {
-      this.strokeColor = this.colour; //otherwise, if unselected will be "invisible"
+      this.strokeColor = this.colour; //otherwise, if unselected will be "invisible" by setting to same as normal shape colour
     }
     stroke(this.strokeColor);
     fill(this.colour);
@@ -76,7 +76,7 @@ class Shape {
 
       for (int i = 0; i < 3; i++) {
         PVector v1 = PVector.sub(p, vert[i]); //creates a vector from the vertice to the mouse click
-        float dotProd = v1.dot(perpSides[i]); //finds the dot product, which tells where the point is
+        float dotProd = v1.dot(perpSides[i]); //finds the dot product of vector from above to perpendicular side (how much the two vectors point in same direction)
         if ( dotProd < 0 ) in = false; //negative dot product means the point is outside the triangle
       }      
       return in;
@@ -84,7 +84,7 @@ class Shape {
     } else return false;
   }
   
-  void stayInTile() { //function checks if shape is within the screen of canvas
+  void stayInTile() { //function makes sure shape is within the screen of canvas
     if (this.pos.x > width) this.pos.x = width;
     if (this.pos.x < 0) this.pos.x = 0;
     if (this.pos.y > height) this.pos.y = height;
