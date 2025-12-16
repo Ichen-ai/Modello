@@ -170,7 +170,6 @@ void updFwdBwkLibButtons(){
     if (libPage == 1){
       bwkLibButton.setVisible(false);
     }
-    
     if (numAddLib/12 + 1 == libPage){
       fwdLibButton.setVisible(false);
     }

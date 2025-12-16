@@ -208,6 +208,7 @@ public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButto
   libPage = 1;
   updateLibraryButtons();
   updFwdBwkLibButtons();
+  pageNum.setText("Page: "+libPage);
 } //_CODE_:libraryButton:312218:
 
 public void exitClicked(GButton source, GEvent event) { //_CODE_:exit:855732:
@@ -233,16 +234,20 @@ public void closeLibClicked(GButton source, GEvent event) { //_CODE_:closeLib:64
   }
 } //_CODE_:closeLib:641587:
 
-public void fwdLibButtonClick(GButton source, GEvent event) { //_CODE_:fwdLibButton:774005:  
+public void fwdLibButtonClick(GButton source, GEvent event) { //_CODE_:fwdLibButton:774005:
+ 
   if (round(numAddLib/12) + 1 > libPage && numAddLib > 12) libPage++;
   updateLibraryButtons();
   updFwdBwkLibButtons();
+  pageNum.setText("Page: "+libPage);
 } //_CODE_:fwdLibButton:774005:
 
-public void bwkLibButtonClick(GButton source, GEvent event) { //_CODE_:bwkLibButton:377939:  
+public void bwkLibButtonClick(GButton source, GEvent event) { //_CODE_:bwkLibButton:377939:
+ 
   if (libPage > 1 && numAddLib > 12) libPage--;
   updateLibraryButtons();
   updFwdBwkLibButtons();
+  pageNum.setText("Page: "+libPage);
 } //_CODE_:bwkLibButton:377939:
 
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:ArrGUI:776699:
@@ -315,6 +320,7 @@ public void libraryClicked2(GButton source, GEvent event) { //_CODE_:libraryButt
   libPage = 1;
   updateLibraryButtons();
   updFwdBwkLibButtons();
+  pageNum.setText("Page: "+libPage);
 } //_CODE_:libraryButton2:502722:
 
 synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:colPick:773787:
@@ -564,6 +570,10 @@ public void createGUI(){
   bwkLibButton = new GButton(library, 30, 345, 80, 30);
   bwkLibButton.setText("Back");
   bwkLibButton.addEventHandler(this, "bwkLibButtonClick");
+  pageNum = new GLabel(library, 211, 319, 80, 20);
+  pageNum.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  pageNum.setText("Page:");
+  pageNum.setOpaque(false);
   ArrGUI = GWindow.getWindow(this, "Window title", 160, 200, 280, 230, JAVA2D);
   ArrGUI.noLoop();
   ArrGUI.setActionOnClose(G4P.KEEP_OPEN);
@@ -741,6 +751,7 @@ GWindow library;
 GButton closeLib; 
 GButton fwdLibButton; 
 GButton bwkLibButton; 
+GLabel pageNum; 
 GWindow ArrGUI;
 GButton aguiback; 
 GLabel ArrangementType; 
