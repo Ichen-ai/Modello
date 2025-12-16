@@ -4,7 +4,6 @@ import java.io.File;
 
 // Initialising values
 String windowName = "Start";
-Boolean tutorialShow = false;
 Boolean libraryShow = false;
 int tutPage = 1;
 PFont titleFont;

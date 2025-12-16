@@ -167,7 +167,6 @@ public void backClicked(GButton source, GEvent event) { //_CODE_:back:491218:
 
 public void finishClicked(GButton source, GEvent event) { //_CODE_:finish:597876:
   //close tutorial window
-  tutorialShow = false;
   tutorial.setVisible(false);
 } //_CODE_:finish:597876:
 
@@ -190,7 +189,6 @@ public void tutButtonClicked(GButton source, GEvent event) { //_CODE_:tutButton:
   //tutorial button clicked in start
   
   tutPage = 1;
-  tutorialShow = true;
   
   tutorial.setVisible(true);
   
