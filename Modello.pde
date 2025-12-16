@@ -5,21 +5,21 @@ import java.io.File;
 // Initialising values
 String windowName = "Start";
 Boolean libraryShow = false;
-int tutPage = 1;
+int tutPage = 1; //keeps track of page # of tutorial window
+int libPage = 1; //keeps track of page# of library
 int screenshotNum;
 int numAddLib = -1; //starts at negative one because first value is 0 in a list (after it has been added)
-int libPage = 1;
 String imageFileNum;
-int iconX = 0;
+int iconX = 0; //used for saved pattern positioning
 int iconY = 0;
 int drawn = 0;
-boolean shouldExit = false;
+boolean shouldExit = false; //booleans used for window logic
 boolean backToDraw = false;
 boolean findingColour = false;
 
 // Creating placeholder Tile and Arrangement variables to be filled as they are created
 PatternTile currentTile = new PatternTile();
-Arrangement currentPattern = new Arrangement(50, 50, 50, 50, 0);
+Arrangement currentPattern = new Arrangement(50, 50, 50, 50, 0); //creates the pattern the users will work on (standard values are 50 & grid layout)
 
 //Arraylists to store saved values
 ArrayList<Arrangement> SavedPatterns = new ArrayList(); //complete patterns saved (with arrangement settings and values)
@@ -32,7 +32,7 @@ ArrayList<int[]> savedBGColors = new ArrayList<int[]>(); //an arraylist that sto
 Boolean arrguiShow = false;
 int savedPTilenum = 1;
 
-color bgColour = color(100);
+color bgColour = color(100); //bg colour starts at 100
 String TileStatus = "creating";
 
  //Variables to track when the saving buttons are clicked

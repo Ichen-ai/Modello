@@ -173,13 +173,13 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
   }
 }
 
+//used to update the saved patterns shown on screen depending on what page of library is shown
 void updateLibraryButtons() {
-  for (int i = 0; i < libraryImgs.size(); i ++) {
-    if (i/12 + 1 == libPage) {
-      libraryImgs.get(i).setVisible(true);
-    } else libraryImgs.get(i).setVisible(false);
+  for (int i = 0; i < libraryImgs.size(); i ++) { //for all saved patterns
+    if (i/12 + 1 == libPage) { //if the current pattern should appear on the current page
+      libraryImgs.get(i).setVisible(true); //set it visible
+    } else libraryImgs.get(i).setVisible(false); //otherwise set it false
   }
-
 }
 
 

@@ -2,7 +2,7 @@
 class Arrangement{
   
   //Fields
-  float xSpacing, ySpacing, hsize, wsize;  
+  float xSpacing, ySpacing, hsize, wsize; //spacing is for between tiles, height and width are for the tile itself
   PImage ATile;  
   int type; //0 = grid, 1 = half drop, 2 = brick, 3 = wave
  
