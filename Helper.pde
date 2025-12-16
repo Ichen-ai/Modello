@@ -63,7 +63,7 @@ void changeArrangementValues(Arrangement a) {
   if (xspacingval > a.wsize) { //Checks if the spacing is greater than the width of a tile)
     a.xSpacing = xspacingval;
   } else {
-    a.xSpacing = a.wsize; //ensures that the image cannot overlap horizontally(ensures spacing is always greater than or equal tothe width)
+    a.xSpacing = a.wsize; //ensures that the image cannot overlap horizontally(ensures spacing is always greater than or equal to the width)
     X_Spacing.setValue(a.wsize); //updates the slider if the smaller value would cause it to overlap
   }
 
@@ -215,6 +215,18 @@ void patternfromLibrary(Arrangement a) { // (With ar being the copied arrangemen
   arrheightslider.setValue(newHeight);
   Y_Spacing.setValue(newYspacing);
   X_Spacing.setValue(newXspacing);
+  
+  int typenum = 0; //Checks which type it is and then assigns that to show on the GUI
+    
+    if (newType.equals("Grid"))
+      typenum = 0;
+    else if (newType.equals("Half-Drop"))
+      typenum = 1;
+    else if (newType.equals("Brick"))
+      typenum = 2;
+    else if (newType.equals("Wave"))
+      typenum = 3;
+    arrTypedroplist.setSelected(typenum);
 }
 
 

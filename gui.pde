@@ -123,11 +123,12 @@ public void bwkShapeButtonClicked(GButton source, GEvent event) { //_CODE_:bwkSh
 public void toStartClicked(GButton source, GEvent event) { //_CODE_:toStart:677194:
   //returns from create window to start screen
   
+  // closes all canvas and arrangement windows
   gui.setVisible(false);
   ArrGUI.setVisible(false);
   colPick.setVisible(false);
   
-  startWin.setVisible(true);
+  startWin.setVisible(true); //opens starts window
   
   colPickCheckbox.setSelected(false);
   
