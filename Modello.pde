@@ -35,14 +35,6 @@ color bgColour = color(100);
 String TileStatus = "creating";
 boolean editingPastTile = false;
 
-//Global variables to be used by the arrangement class
-float currxSpacing = 50.0;
-float currySpacing = 50.0;
-float currhsize = 50.0;
-float currwsize = 50.0;
-String currtype = "Grid";
-
-
  //Variables to track when the saving buttons are clicked
 Boolean SaveConfirmed = false;
 float SaveTime;

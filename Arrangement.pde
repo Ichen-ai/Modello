@@ -6,6 +6,8 @@ class Arrangement{
   float ySpacing;
   
   PImage ATile;
+  
+  PVector pos;
 
   float hsize;
   float wsize;
@@ -17,12 +19,13 @@ class Arrangement{
     this.ATile = loadImage("SavedTile.png");  //Loads the frame that was just saved
     
     //Sets initial values or the values that the user has been adjusting
-    this.xSpacing = currxSpacing;
-    this.ySpacing = currySpacing;
-    this.hsize = currhsize;
-    this.wsize = currwsize;
+    this.xSpacing = 50;
+    this.ySpacing = 50;
+    this.pos = new PVector(0,0);
+    this.hsize = 50;
+    this.wsize = 50;
     
-    this.type = currtype;    
+    this.type = "Grid";    
   }
   
   //Methods
