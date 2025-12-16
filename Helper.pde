@@ -41,7 +41,6 @@ void changeBgColour() {
   int r = bgRedSlider.getValueI();
   int g = bgGreenSlider.getValueI();
   int b = bgBlueSlider.getValueI();
-
   bgColour = color(r, g, b); //updates background colour
 }
 
@@ -102,7 +101,6 @@ void VisualisePattern(PatternTile p) {
   if (TileStatus.equals("preparing")) {
     p.seeGrid = false; //Turns off the grid
     gridButton.setSelected(false); //Updates the gui to unselect the grid button
-
     for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
       currentTile.ArrangedShapes.get(i).isSelected = false;
     }
@@ -111,13 +109,12 @@ void VisualisePattern(PatternTile p) {
   }
   //Called in the next frame when the tile is prepared
   else if (TileStatus.equals("visualising")) {
-    saveFrame("SavedTile.png"); //Saves a screenshot of the current pattern tile
+    saveFrame("SavedTile.png"); //Saves a screenshot of the current pattern tile   
+    currentPattern.saveImage(); //updates ATile in pattern with the image
     
-    currentPattern.saveImage();
     //Updates the GUI screens
     ArrGUI.setVisible(true); //Shows arrangement GUI screen
     arrguiShow = true;
-
     gui.setVisible(false); //Hides the tile's GUI screen
     arrTypedroplist.setSelected(0); //Ensures the drop list value is set to grid initially
 
@@ -156,7 +153,6 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
         int r = newColour[0];
         int g = newColour[1];
         int b = newColour[2];
-
         bgColour = color(r, g, b);
 
         arrguiShow = true;
@@ -177,7 +173,6 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
 //Function that creates a copy of the saved pattern tile and assigns it to be the current tile
 void tilefromLibrary(PatternTile pt) {
   currentTile.ArrangedShapes = new ArrayList();
-
   for (Shape ts : pt.ArrangedShapes) { //adds a copy of every shape from the saved tile to the current tile's arraylist
     currentTile.ArrangedShapes.add(new Shape(ts.type, new PVector(ts.pos.x, ts.pos.y), ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
   }
@@ -187,7 +182,6 @@ void tilefromLibrary(PatternTile pt) {
 // Function to help create a copy of the current pattern tile the user wants to save
 void setLibraryTileValues(PatternTile ti) { //(with ti being the current pattern tile)
   ti.ArrangedShapes = new ArrayList();
-
   for (Shape ts : currentTile.ArrangedShapes) { //adds a copy of every shape involved in the current tile to the copy's arraylist
     ti.ArrangedShapes.add(new Shape(ts.type, new PVector(ts.pos.x, ts.pos.y), ts.hei, ts.wid, int(red(ts.colour)), int(green(ts.colour)), int(blue(ts.colour))));
   }
@@ -201,9 +195,7 @@ void executeAddToLibrary() {
   //Saves a screenshot of the pattern to be used as a library icon
   icon.save("libraryIcon" + numAddLib + ".png");
   imageFileNum = "libraryIcon" + numAddLib + ".png";
-
   libraryImgs.add(new GImageButton(library, 56 + 100 * iconX, 30 + 100 * iconY, 75, 75, new String[] { imageFileNum })); //Adds the library icon
-
   numAddLib++;
   iconLocation();
 
