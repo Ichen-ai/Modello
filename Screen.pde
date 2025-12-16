@@ -31,9 +31,10 @@ void displayScreen(){
     imageFileNum = "libraryIcon"+numAddLib+".png";
     for(int i = 0; i <= iconY+1; i++){
       for (int j = 0; j <= iconX+1;  j++){
-        if (drawn < numAddLib){
-          libraryImgs.get(4*i+j);
-          drawn++;
+        int index = 4 * i + j;
+
+        if (index < libraryImgs.size()) {
+          libraryImgs.get(index); 
         }
         else{
           return;
