@@ -131,7 +131,6 @@ public void toStartClicked(GButton source, GEvent event) { //_CODE_:toStart:6771
   
   colPickCheckbox.setSelected(false);
   
-  windowName = "Start";
   hideWindow();
 } //_CODE_:toStart:677194:
 
@@ -181,7 +180,6 @@ public void startClicked(GButton source, GEvent event) { //_CODE_:start:897298:
   startWin.setVisible(false);
   gui.setVisible(true);
   
-  windowName = "Create";
   showWindow();
 } //_CODE_:start:897298:
 

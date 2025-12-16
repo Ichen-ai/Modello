@@ -159,7 +159,6 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
         bgColour = color(r, g, b); // Sets the background colour to be the saved colour
 
         arrguiShow = true;
-        windowName = "Create";
 
         //Shows and hides relevant windows
         library.setVisible(false);

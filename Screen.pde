@@ -1,27 +1,3 @@
-//Function creates the different windows
-
-void displayScreen(){
-  fill(0);
-  
-  //(idk this is a placeholder for now cuz gui not drawn)
-  //Start screen
-  if (windowName.equals("Start")){
-    //surface.setVisible(false);
-    tutButton.setVisible(true);
-    title.setVisible(true);
-    
-    //prevent resetting visibiliity
-    windowName = "none";
-  }
-  
-  //"Create" screen is the screen which the user will create the pattern
-  else if (windowName.equals("Create")){
-    
-    //we set the window to none because when we set the visibility multiple times, it causes the screen to flash
-    windowName = "none";
-    
-  }
-}
 
 //Basic tutorial on how to use the program
 void updateTutorialButtons() {
