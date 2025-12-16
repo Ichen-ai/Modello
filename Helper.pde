@@ -150,15 +150,16 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
         currentPattern = new Arrangement(newPattern.xSpacing, newPattern.ySpacing, newPattern.hsize, newPattern.wsize, newPattern.type);
         currentPattern.ATile = newATile;
 
-        int r = newColour[0];
+        int r = newColour[0]; //Extracts the rgb values from the array
         int g = newColour[1];
         int b = newColour[2];
-        bgColour = color(r, g, b);
+        bgColour = color(r, g, b); // Sets the background colour to be the saved colour
 
         arrguiShow = true;
         libraryShow = false;
         windowName = "Create";
 
+        //Shows and hides relevant windows
         library.setVisible(false);
         startWin.setVisible(false);
         ArrGUI.setVisible(true);
