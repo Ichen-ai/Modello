@@ -106,6 +106,7 @@ void draw() {
   imageMode(CENTER); //Positions images by their central coordinates
 
   if (!arrguiShow) {
+    if (currentTile.seeGrid) currentTile.drawGrid(); //if the grid is turned on, the tile will draw the grid
     currentTile.drawTile(); // Draws the tiles if arrangement screen is not open
   }
 

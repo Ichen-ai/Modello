@@ -15,7 +15,6 @@ class PatternTile {
 
   //methods
   void drawTile() {
-    if (seeGrid) drawGrid(); //draws grid only if seeGrid is true
     for (int i = 0; i < this.ArrangedShapes.size(); i++) {
       if (autoAlign) autoAlign(); //autoaligns shapes if autoAlign is true
       this.ArrangedShapes.get(i).drawShape(); //draws the shapes withing the arraylist
