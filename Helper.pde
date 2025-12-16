@@ -79,12 +79,12 @@ void changeArrangementValues(Arrangement a) {
   }
 }
 
-void currentArrangementValues(Arrangement a) {
-  arrTypedroplist.setSelected(a.type);
-  arrheightslider.setValue(a.hsize);
-  arrwidthslider.setValue(a.wsize);
-  X_Spacing.setValue(a.xSpacing);
-  Y_Spacing.setValue(a.ySpacing);
+void currentArrangementValues() {
+  arrTypedroplist.setSelected(currentPattern.type);
+  arrheightslider.setValue(currentPattern.hsize);
+  arrwidthslider.setValue(currentPattern.wsize);
+  X_Spacing.setValue(currentPattern.xSpacing);
+  Y_Spacing.setValue(currentPattern.ySpacing);
 }
 
 
@@ -144,8 +144,6 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
         // Calls helper functions so that the current pattern displayed is the one saved
         tilefromLibrary(newTile);
         currentPattern = new Arrangement(newPattern.xSpacing, newPattern.ySpacing, newPattern.hsize, newPattern.wsize, newPattern.type);
-
-
         currentPattern.ATile = newATile;
 
         int r = newColour[0];

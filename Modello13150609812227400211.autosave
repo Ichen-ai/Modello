@@ -110,7 +110,8 @@ void draw() {
   }
 
   if (arrguiShow) {
-    currentArrangementValues();
+    background(bgColour);
+    currentArrangementValues(currentPattern);
     currentPattern.drawPattern(); //Draws pattern with arrangements if on that screen
   }
   
