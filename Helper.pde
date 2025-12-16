@@ -78,6 +78,12 @@ void changeArrangementValues(Arrangement a) {
   //Sets width and height of tile to match the user's changes to the GUI
   a.hsize = arrheightslider.getValueI();
   a.wsize = arrwidthslider.getValueI();
+  
+  currxSpacing = xspacingval;
+  currySpacing = yspacingval;
+  currhsize = a.hsize;
+  currwsize = a.wsize;
+  currtype = a.type;
 }
 
 //Helper function to prepare the current  screen for screenshotting
@@ -105,7 +111,27 @@ void VisualisePattern(PatternTile p) {
     arrguiShow = true;
 
     gui.setVisible(false); //Hides the tile's GUI screen
+    
+    //Ensures GUI values reflect what is displayed on the arrangement screen
     arrTypedroplist.setSelected(0); //Ensures the drop list value is set to grid initially
+  
+    arrwidthslider.setValue(currwsize);
+    arrheightslider.setValue(currhsize);
+    X_Spacing.setValue(currxSpacing);
+    Y_Spacing.setValue(currySpacing);
+    
+    int typenum = 0;
+    
+    if (currtype.equals("Grid"))
+      typenum = 0;
+    else if (currtype.equals("Half-Drop"))
+      typenum = 1;
+    else if (currtype.equals("Brick"))
+      typenum = 2;
+    else if (currtype.equals("Wave"))
+      typenum = 3;
+    arrTypedroplist.setSelected(typenum);
+    
 
     TileStatus = "creating"; //Updates status
   }
@@ -174,7 +200,6 @@ void patternfromLibrary(Arrangement a) { // (With ar being the copied arrangemen
 
   float newXspacing = a.xSpacing;
   float newYspacing = a.ySpacing;
-  PVector newPos = new PVector(a.pos.x, a.pos.y);
   float newHeight = a.hsize;
   float newWidth = a.wsize;
   String newType = a.type;
@@ -182,7 +207,7 @@ void patternfromLibrary(Arrangement a) { // (With ar being the copied arrangemen
   //Copies all respective values using the current pattern's
   currentPattern.xSpacing = newXspacing;
   currentPattern.ySpacing = newYspacing;
-  currentPattern.pos = newPos;
+ 
   currentPattern.hsize = newHeight;
   currentPattern.wsize = newWidth;
   currentPattern.type = newType;
@@ -200,7 +225,6 @@ void setLibraryArrangementValues(Arrangement ar) { // (With ar being the copied 
 
   float newXspacing = currentPattern.xSpacing;
   float newYspacing = currentPattern.ySpacing;
-  PVector newPos = new PVector(currentPattern.pos.x, currentPattern.pos.y);
   float newHeight = currentPattern.hsize;
   float newWidth = currentPattern.wsize;
   String newType = currentPattern.type;
@@ -208,7 +232,6 @@ void setLibraryArrangementValues(Arrangement ar) { // (With ar being the copied 
   //Copies all respective values using the current pattern's
   ar.xSpacing = newXspacing;
   ar.ySpacing = newYspacing;
-  ar.pos = newPos;
   ar.hsize = newHeight;
   ar.wsize = newWidth;
   ar.type = newType;
