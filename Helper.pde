@@ -263,6 +263,7 @@ void updateTutorialButtons() {
   guiAddShapeImg.setVisible(false);
   selectShapeImg.setVisible(false);
   GUIImg.setVisible(false);
+  colPickImg.setVisible(false);
   VPCImg.setVisible(false);
   VPImg.setVisible(false);
   addToLibImg.setVisible(false);
@@ -318,38 +319,45 @@ void updateTutorialButtons() {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
+    colPickImg.setVisible(true);
+    tutorialLabel.setText("The colour picker window is an advanced version of the colour picker seen on the main GUI. It allows you to preview your colour before making the final and permanent decision");
+  } 
+  else if (tutPage == 8) {
+    next.setVisible(true);
+    back.setVisible(true);
+    finish.setVisible(false);
     VPCImg.setVisible(true);
     tutorialLabel.setText("When you complete your shape, press visualize pattern, this allows you to view your creation in full");
   } 
-  else if (tutPage == 8) {
+  else if (tutPage == 9) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
     VPImg.setVisible(true);
     tutorialLabel.setText("Try playing around with different arrangement types, spacing, and size to find the best way to display your pattern");
   } 
-  else if (tutPage == 9) {
+  else if (tutPage == 10) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
     addToLibImg.setVisible(true);
     tutorialLabel.setText("To save your image, click the Save to Library button.");
   } 
-  else if (tutPage == 10) {
+  else if (tutPage == 11) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
     libraryClickedImg.setVisible(true);
     tutorialLabel.setText("To view your saved image, click the library button");
   } 
-  else if (tutPage == 11) {
+  else if (tutPage == 12) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);
     libraryImg.setVisible(true);
     tutorialLabel.setText("Here, you can choose your desired saved image and return to working on them any time");
   } 
-  else if (tutPage == 12) {
+  else if (tutPage == 13) {
     next.setVisible(true);
     back.setVisible(true);
     finish.setVisible(false);

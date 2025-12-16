@@ -48,7 +48,7 @@ Boolean requestLibSave = false;
 
 
 //Global GImageButton Variables
-GImageButton title, loadPattern, startImg, startClickImg, createScreenImg, guiAddShapeImg, selectShapeImg, GUIImg, VPCImg, VPImg, addToLibImg, libraryClickedImg, libraryImg, arrGUIImg, tutorialEnd;
+GImageButton title, loadPattern, startImg, startClickImg, createScreenImg, guiAddShapeImg, selectShapeImg, GUIImg, colPickImg, VPCImg, VPImg, addToLibImg, libraryClickedImg, libraryImg, arrGUIImg, tutorialEnd;
 GLabel tutorialLabel;
 
 void setup() {
@@ -60,16 +60,17 @@ void setup() {
   title = new GImageButton(startWin, 80, 34, 333, 156, new String[] { "Assets/MODELLO.png" } );
   startImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/start.png"} );
   startClickImg = new GImageButton(tutorial, 100, 50, 300, 220, new String[] { "Assets/startClick.png"} );
-  createScreenImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/createScreen.png"} );
+  createScreenImg = new GImageButton(tutorial, 100, 20, 300, 270, new String[] { "Assets/createScreen2.png"} );
   guiAddShapeImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/guiAddShape.png"} );
   selectShapeImg = new GImageButton(tutorial, 100, 50, 300, 220, new String[] { "Assets/selectShape.png"} );
-  GUIImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/GUI.png"} );
+  GUIImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/gui2.png"} );
+  colPickImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/colPick.png"} );
   VPCImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/visualizePatternClicked.png"} );
   VPImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/visualizePattern.png"} );
   addToLibImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/addToLibrary.png"} );
   libraryClickedImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/libraryClicked.png"} );
-  libraryImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/library.png"} );
-  arrGUIImg = new GImageButton(tutorial, 120, 70, 250, 220, new String[] { "Assets/arrGUI.png"} );
+  libraryImg = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/libraryNew.png"} );
+  arrGUIImg = new GImageButton(tutorial, 120, 70, 250, 220, new String[] { "Assets/ArrGUINew.png"} );
   tutorialEnd = new GImageButton(tutorial, 120, 50, 250, 220, new String[] { "Assets/MODELLOTUT.png"} );
   tutorialLabel = new GLabel(tutorial, 50, 8, 380, 50);
     
@@ -86,6 +87,7 @@ void setup() {
   guiAddShapeImg.setVisible(false);
   selectShapeImg.setVisible(false);
   GUIImg.setVisible(false);
+  colPickImg.setVisible(false);
   VPCImg.setVisible(false);
   VPImg.setVisible(false);
   addToLibImg.setVisible(false);
