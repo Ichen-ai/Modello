@@ -231,7 +231,6 @@ public void closeLibClicked(GButton source, GEvent event) { //_CODE_:closeLib:64
 
 public void fwdLibButtonClick(GButton source, GEvent event) { //_CODE_:fwdLibButton:774005:  
   if (round(numAddLib/12) + 1 > libPage && numAddLib > 12) libPage++;
-  print(libPage);
   updateLibraryButtons();
 } //_CODE_:fwdLibButton:774005:
 
