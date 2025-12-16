@@ -14,15 +14,15 @@ void getShapeValues(Shape s) {
 
 // Calls the function above after determining which shape is selected (to apply shape values)
 void changeShapeValues() {
-  for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
+  for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) { //tests through all shapes
     Shape testShape = currentTile.ArrangedShapes.get(i);
-    if (testShape.isSelected) {
-      getShapeValues(testShape);
+    if (testShape.isSelected) { //if the shape is selected
+      getShapeValues(testShape); //update the shape values
     }
   }
 }
 
-
+//Updates the sliders on the GUI windows with the values of the shape that is selected
 void currentShapeValues(Shape s) {
   redSlider.setValue(red(s.colour));
   greenSlider.setValue(green(s.colour));
@@ -38,18 +38,19 @@ void changeBgColour() {
   int g = bgGreenSlider.getValueI();
   int b = bgBlueSlider.getValueI();
 
-  bgColour = color(r, g, b);
+  bgColour = color(r, g, b); //updates background colour
 }
 
+//Used to determine what colour is underneath the users mouse for the colour picker
 void getColour(PVector p) {
-  color c = bgColour;
+  color c = bgColour; //default colour is the background colour
   for (int i = 0; i < currentTile.ArrangedShapes.size(); i++) {
     Shape testShape = currentTile.ArrangedShapes.get(i);
-    if (testShape.inShape(p)) {
+    if (testShape.inShape(p)) { //if the users mouse clicked a shape, get shape colour
       c = testShape.colour;
     }
   }
-  colPickRedSlider.setValue(red(c));
+  colPickRedSlider.setValue(red(c)); //set the values of the colour in the colour picker
   colPickGreenSlider.setValue(green(c));
   colPickBlueSlider.setValue(blue(c));
 }
