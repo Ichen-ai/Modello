@@ -126,29 +126,27 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
   if (event == GEvent.CLICKED) {
     for (int i = 0; i <= numAddLib; i++) {
       if (source == libraryImgs.get(i)) {
-        editingPastTile = true;
-        
+
         //Extracts the pattern saved in the library based on which pattern the user wishes to access
         PatternTile newTile = SavedTiles.get(i);
         Arrangement newPattern = SavedPatterns.get(i);
         PImage newATile = SavedTileImgs.get(i);
-        int[] newColour = savedBGColors.get(i); //Extracts the array of rgb values (of the background colour of that pattern)
+        int[] newColour = savedBGColors.get(i);
 
         // Calls helper functions so that the current pattern displayed is the one saved
         tilefromLibrary(newTile);
         patternfromLibrary(newPattern);
 
-        // Ensures that the image used for the current pattern is the one loaded from library
         currentPattern.ATile = newATile;
 
-        // Extracts the respective RGB values from the integer array
         int r = newColour[0];
         int g = newColour[1];
         int b = newColour[2];
 
-        bgColour = color(r, g, b); //Sets it as the background colour
+        bgColour = color(r, g, b);
 
         arrguiShow = true;
+        editingPastTile = true;
         libraryShow = false;
         windowName = "Create";
 
@@ -157,9 +155,6 @@ public void handleButtonEvents(GImageButton source, GEvent event) {
         ArrGUI.setVisible(true);
         gui.setVisible(false);
         showWindow();
-        
-        if (editingPastTile){
-        }
       }
     }
   }
@@ -174,8 +169,8 @@ void tilefromLibrary(PatternTile pt) {
   }
 }
 
-// Function to help create a copy of the arrangement from the library and assigns it to the current tile
-void patternfromLibrary(Arrangement a) { 
+// Function to help create a copy of the arrangement the user wants to save
+void patternfromLibrary(Arrangement a) { // (With ar being the copied arrangement)
 
   float newXspacing = a.xSpacing;
   float newYspacing = a.ySpacing;
@@ -192,27 +187,11 @@ void patternfromLibrary(Arrangement a) {
   currentPattern.wsize = newWidth;
   currentPattern.type = newType;
 
-  if (editingPastTile){
-    //Displays the current arrangement values on the GUI
-    arrwidthslider.setValue(newWidth);
-    arrheightslider.setValue(newHeight);
-    X_Spacing.setValue(newXspacing);
-    Y_Spacing.setValue(newYspacing);
-    
-    //Checks which type the pattern arrangement is and changes that to show on the GUI
-    int typenum = 0;
-    
-    if (newType.equals("Grid"))
-      typenum = 0;
-    else if (newType.equals("Half-Drop"))
-      typenum = 1;
-    else if (newType.equals("Brick"))
-      typenum = 2;
-    else if (newType.equals("Wave"))
-      typenum = 3;
-      
-     arrTypedroplist.setSelected(typenum);
-  }
+  //Displays the current arrangement values on the GUI
+  arrwidthslider.setValue(newWidth);
+  arrheightslider.setValue(newHeight);
+  Y_Spacing.setValue(newYspacing);
+  X_Spacing.setValue(newXspacing);
 }
 
 

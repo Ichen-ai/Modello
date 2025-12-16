@@ -51,11 +51,10 @@ public void redSliderChange(GCustomSlider source, GEvent event) { //_CODE_:redSl
 } //_CODE_:redSlider:415599:
 
 public void tilescreenshot(GButton source, GEvent event) { //_CODE_:savetilebutton:575000:
-  TileStatus = "preparing"; //Updates the tilestatus so it can prepare for screenshotting accordingly
-  VisualisePattern(currentTile); //Calls the function that prepares the tile for screenshotting
+  TileStatus = "preparing";
+  VisualisePattern(currentTile);
   
-  //Deselects and hides GUI from that screen
-  colPick.setVisible(false); 
+  colPick.setVisible(false);
   colPickCheckbox.setSelected(false);
   
 } //_CODE_:savetilebutton:575000:
@@ -247,12 +246,10 @@ public void arrdroplist_clicked(GDropList source, GEvent event) { //_CODE_:arrTy
 } //_CODE_:arrTypedroplist:757056:
 
 public void arrxSpacing_slider(GCustomSlider source, GEvent event) { //_CODE_:X_Spacing:703950:
-if (!editingPastTile)
   changeArrangementValues(currentPattern);
 } //_CODE_:X_Spacing:703950:
 
 public void arrYSpacing_change1(GCustomSlider source, GEvent event) { //_CODE_:Y_Spacing:640983:
-if (!editingPastTile)
   changeArrangementValues(currentPattern);
   
 } //_CODE_:Y_Spacing:640983:
