@@ -113,8 +113,6 @@ void VisualisePattern(PatternTile p) {
     gui.setVisible(false); //Hides the tile's GUI screen
     
     //Ensures GUI values reflect what is displayed on the arrangement screen
-    arrTypedroplist.setSelected(0); //Ensures the drop list value is set to grid initially
-  
     arrwidthslider.setValue(currwsize);
     arrheightslider.setValue(currhsize);
     X_Spacing.setValue(currxSpacing);
