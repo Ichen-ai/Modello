@@ -206,6 +206,7 @@ public void libraryClicked(GButton source, GEvent event) { //_CODE_:libraryButto
   library.setVisible(true);
   
   libPage = 1;
+  updateLibraryButtons();
   updFwdBwkLibButtons();
 } //_CODE_:libraryButton:312218:
 
@@ -303,14 +304,17 @@ public void patternSaveClicked(GButton source, GEvent event) { //_CODE_:patternS
 } //_CODE_:patternSave:520565:
 
 public void libraryClicked2(GButton source, GEvent event) { //_CODE_:libraryButton2:502722:
-  //library button clicked in ArrGUI
-  
+  //library button clicked in ArrGUI  
   libraryShow = true;
   library.setVisible(true);
   hideWindow();
   gui.setVisible(false);
   ArrGUI.setVisible(false);
   backToDraw = true;
+  
+  libPage = 1;
+  updateLibraryButtons();
+  updFwdBwkLibButtons();
 } //_CODE_:libraryButton2:502722:
 
 synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:colPick:773787:
