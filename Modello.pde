@@ -5,15 +5,15 @@ import java.io.File;
 // Initialising values
 int tutPage = 1; //keeps track of page # of tutorial window
 int libPage = 1; //keeps track of page# of library
-int screenshotNum;
-int numAddLib = -1; //starts at negative one because first value is 0 in a list (after it has been added)
-String imageFileNum;
+int screenshotNum; //keeps track of # of saved photos (to files)
+int numAddLib = -1; //starts at negative one because first value is 0 in a list (after it has been added), keeps track of saved photos to library
+String imageFileNum; //keeps track of library icons
 int iconX = 0; //used for saved pattern positioning
 int iconY = 0;
 int drawn = 0;
 boolean shouldExit = false; //booleans used for window logic
-boolean backToDraw = false;
-boolean findingColour = false;
+boolean backToDraw = false; //used to determine where the library window was opened from
+boolean findingColour = false; //prevents colour picker from interfering with the shape selector
 
 // Creating placeholder Tile and Arrangement variables to be filled as they are created
 PatternTile currentTile = new PatternTile();
