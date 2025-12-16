@@ -18,7 +18,7 @@ boolean findingColour = false;
 
 // Creating placeholder Tile and Arrangement variables to be filled as they are created
 PatternTile currentTile = new PatternTile();
-Arrangement currentPattern;
+Arrangement currentPattern = new Arrangement(50, 50, 50, 50, 0);
 
 //Arraylists to store saved values
 ArrayList<Arrangement> SavedPatterns = new ArrayList(); //complete patterns saved (with arrangement settings and values)

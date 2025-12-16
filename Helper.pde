@@ -57,28 +57,36 @@ void getColour(PVector p) {
 
 // Applies the changes the user has made to the arrangement GUI
 void changeArrangementValues(Arrangement a) {
-  a.type = arrTypedroplist.getSelectedText();
-
+  a.type = arrTypedroplist.getSelectedIndex();
+  a.hsize = arrheightslider.getValueI();
+  a.wsize = arrwidthslider.getValueI(); 
   float xspacingval = X_Spacing.getValueF(); // Extracts the value of x-spacing from the slider
-  if (xspacingval > a.wsize) { //Checks if the spacing is greater than the width of a tile)
-    a.xSpacing = xspacingval;
-  } else {
+  float yspacingval = Y_Spacing.getValueF(); // Extracts the value of y-spacing from the slider
+  
+  
+  if (xspacingval < a.wsize) { //Checks if the spacing is smaller than the width of a tile)
     a.xSpacing = a.wsize; //ensures that the image cannot overlap horizontally(ensures spacing is always greater than or equal tothe width)
     X_Spacing.setValue(a.wsize); //updates the slider if the smaller value would cause it to overlap
-  }
-
-  float yspacingval = Y_Spacing.getValueF(); // Extracts the value of y-spacing from the slider
-  if (yspacingval > a.hsize) { //Checks if the spacing is greater than the height of a tile
-    a.ySpacing = yspacingval;
   } else {
-    a.ySpacing = a.hsize; //ensures that the image cannot overlap vertically
-    Y_Spacing.setValue(a.hsize); //updating the slider to match the condition above
+    a.xSpacing = X_Spacing.getValueF();
   }
 
-  //Sets width and height of tile to match the user's changes to the GUI
-  a.hsize = arrheightslider.getValueI();
-  a.wsize = arrwidthslider.getValueI();
+  if (yspacingval < a.hsize) { //Checks if the spacing is greater than the height of a tile
+    a.ySpacing = a.hsize; //ensures that the image cannot overlap vertically
+    Y_Spacing.setValue(a.hsize); //updating the slider to match the condition above  
+  } else {
+    a.ySpacing = Y_Spacing.getValueF();
+  }
 }
+
+void currentArrangementValues(Arrangement a) {
+  arrTypedroplist.setSelected(a.type);
+  arrheightslider.setValue(a.hsize);
+  arrwidthslider.setValue(a.wsize);
+  X_Spacing.setValue(a.xSpacing);
+  Y_Spacing.setValue(a.ySpacing);
+}
+
 
 //Helper function to prepare the current  screen for screenshotting
 void VisualisePattern(PatternTile p) {
@@ -98,8 +106,8 @@ void VisualisePattern(PatternTile p) {
   //Called in the next frame when the tile is prepared
   else if (TileStatus.equals("visualising")) {
     saveFrame("SavedTile.png"); //Saves a screenshot of the current pattern tile
-    currentPattern = new Arrangement(); //Creates a new arrangement object that uses the image just saved
-
+    
+    currentPattern.saveImage();
     //Updates the GUI screens
     ArrGUI.setVisible(true); //Shows arrangement GUI screen
     arrguiShow = true;
@@ -171,47 +179,12 @@ void tilefromLibrary(PatternTile pt) {
 
 // Function to help create a copy of the arrangement the user wants to save
 void patternfromLibrary(Arrangement a) { // (With ar being the copied arrangement)
-
-  float newXspacing = a.xSpacing;
-  float newYspacing = a.ySpacing;
-  PVector newPos = new PVector(a.pos.x, a.pos.y);
-  float newHeight = a.hsize;
-  float newWidth = a.wsize;
-  String newType = a.type;
-
-  //Copies all respective values using the current pattern's
-  currentPattern.xSpacing = newXspacing;
-  currentPattern.ySpacing = newYspacing;
-  currentPattern.pos = newPos;
-  currentPattern.hsize = newHeight;
-  currentPattern.wsize = newWidth;
-  currentPattern.type = newType;
-
-  //Displays the current arrangement values on the GUI
-  arrwidthslider.setValue(newWidth);
-  arrheightslider.setValue(newHeight);
-  Y_Spacing.setValue(newYspacing);
-  X_Spacing.setValue(newXspacing);
+  currentPattern = new Arrangement(a.xSpacing, a.ySpacing, a.hsize, a.wsize, a.type);
 }
 
-
 // Function to help create a copy of the arrangement the user wants to save
-void setLibraryArrangementValues(Arrangement ar) { // (With ar being the copied arrangement)
-
-  float newXspacing = currentPattern.xSpacing;
-  float newYspacing = currentPattern.ySpacing;
-  PVector newPos = new PVector(currentPattern.pos.x, currentPattern.pos.y);
-  float newHeight = currentPattern.hsize;
-  float newWidth = currentPattern.wsize;
-  String newType = currentPattern.type;
-
-  //Copies all respective values using the current pattern's
-  ar.xSpacing = newXspacing;
-  ar.ySpacing = newYspacing;
-  ar.pos = newPos;
-  ar.hsize = newHeight;
-  ar.wsize = newWidth;
-  ar.type = newType;
+void setLibraryArrangementValues() { // (With ar being the copied arrangement)
+  SavedPatterns.add(new Arrangement(currentPattern.xSpacing, currentPattern.ySpacing, currentPattern.hsize, currentPattern.wsize, currentPattern.type));
 }
 
 // Function to help create a copy of the current pattern tile the user wants to save
@@ -237,9 +210,7 @@ void executeAddToLibrary() {
   iconLocation();
 
   //Saves a copy of the arrangement settings that the user would like to save
-  Arrangement ArrangementAddLibrary = new Arrangement(); //creates new placeholder
-  setLibraryArrangementValues(ArrangementAddLibrary); //Calls the other helper function that fills the placeholder with a copy of the arrangement values
-  SavedPatterns.add(ArrangementAddLibrary); //Adds it to the library arraylist
+  setLibraryArrangementValues();
 
   //Saves a copy og the pattern tile settings that the user would like to save to library
   PatternTile TileAddLibrary = new PatternTile(); // Creates new placeholder tile
