@@ -107,7 +107,7 @@ void updateTutorialButtons() {
     back.setVisible(true);
     finish.setVisible(false);
     colPickImg.setVisible(true);
-    tutorialLabel.setText("The colour picker window is an advanced version of the colour picker seen on the main GUI. It allows you to preview your colour before making the final and permanent decision");
+    tutorialLabel.setText("The colour picker window is an advanced version of the colour picker seen on the main GUI. It allows you to change your colour slider before making the final and permanent decision");
   } 
   else if (tutPage == 8) {
     next.setVisible(true);
